@@ -1,0 +1,38 @@
+CREATE TABLE User (
+    userID INT(8),
+    userName VARCHAR(250),
+    firstName VARCHAR(250),
+    lastName VARCHAR(250),
+    email VARCHAR(250),
+    phoneNumber VARCHAR(12),
+    DOB DATE,
+    PRIMARY KEY (userID)
+    );
+
+CREATE TABLE Posts (
+    postID INT(8),
+    userID INT(8),
+    postContent VARCHAR(250),
+    postDate DATE,
+    likes INT(8),
+    PRIMARY KEY(postID),
+    FOREIGN KEY(userID) REFERENCES User(userID)
+    );
+
+CREATE TABLE Comments (
+    commentID INT(8),
+    commentContent VARCHAR(250),
+    userID INT(8),
+    PRIMARY KEY(commentID),
+    FOREIGN KEY(userID) REFERENCES User(userID)
+    );
+
+CREATE TABLE musicAssess (
+    assessID INT(8),
+    userID INT(8),
+    favGenre VARCHAR(250),
+    favArtist VARCHAR(250),
+    setting VARCHAR(250),
+    PRIMARY KEY(assessID),
+    FOREIGN KEY(userID) REFERENCES User(userID)
+    );
