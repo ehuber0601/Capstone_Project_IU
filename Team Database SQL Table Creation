@@ -36,3 +36,60 @@ CREATE TABLE musicAssess (
     PRIMARY KEY(assessID),
     FOREIGN KEY(userID) REFERENCES User(userID)
     );
+
+CREATE TABLE groupName (
+    groupID INT(8),
+    groupName VARCHAR(250),
+    userID INT(8),
+    PRIMARY KEY(groupID),
+    FOREIGN KEY(userID) REFERENCES User(userID)
+    );
+
+
+
+CREATE TABLE Profile (
+    -> profileID INT(8),
+    -> firstName VARCHAR(250),
+    -> lastName VARCHAR(250),
+    -> password VARCHAR(250), 
+    -> followers INT(),
+	-> bio VARCHAR(250),
+	-> userID INT(8),
+	-> PRIMARY KEY(profileID),
+	-> FOREIGN KEY(userID) REFERENCES 	User(userID)
+	-> );
+
+
+CREATE TABLE Song (
+	-> songID INT(8),
+	-> artistID INT(8),
+	-> artistName VARCHAR(250),
+	-> title VARCHAR(250), 
+	-> length VARCHAR(5),
+	-> genre VARCHAR(250), 
+	-> PRIMARY KEY(songID),
+	-> FOREIGN KEY(artistID) REFERENCES 	Artist(artistID)
+	);
+
+CREATE TABLE Playlist (
+	-> playlistID INT(8),
+	-> playlistName VARCHAR(250),
+	-> songID INT(8),
+	-> PRIMARY KEY(playlistID),
+	-> FOREIGN KEY(songsID) REFERENCES 	Song(songID)
+	);
+
+CREATE TABLE Artist (
+	-> artistID INT(8),
+	-> userID INT(8),
+	-> PRIMARY KEY(artistID),
+	-> FOREIGN KEY(userID) REFERENCES 	User(userID)
+	);
+CREATE TABLE Event (
+	-> eventID INT(8),
+	-> userID INT(8),
+        -> date DATE NOT NULL,
+	-> time TIME NOT NULL,
+	-> PRIMARY KEY(eventID),
+	-> FOREIGN KEY(userID) REFERENCES 	User(userID)
+	);
