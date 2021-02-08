@@ -1,0 +1,55 @@
+body,html{
+    font-family: 'Poppins', sans-serif;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input{
+    border-radius: 20px;
+    padding: 8px;
+    margin-right: 10px;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  outline: 0px;
+  /* border: 0px; */
+}
+
+.card , .response-data{
+    padding: 10px;
+}
+
+
+
+.card button{
+    padding: 10px 25px;
+    border-radius: 20px;
+    border-width: 0px;
+    outline: 0px;
+    background-color: #051937;
+    color: #ffffff;
+
+}
+
+.response-data h3 , .response-data h4 {
+    font-size: 18px;
+}
+
+.response-data h3 span, .response-data h4 span{
+    font-size: 15px;
+    padding: 0px 10px;
+    color: #ffffff;
+}
+
+#error-message{
+    font-size: 16px;
+    color: #c83d3d;
+    /* margin: 10px; */
+
+}
