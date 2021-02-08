@@ -1,4 +1,7 @@
+<!DOCTYPE html>
 <html>
+<head> <link rel="stylesheet" href="style.css"> </head>
+<title> Create an Account </title>
 <body>
 <h1> Create an Account </h1>
 
