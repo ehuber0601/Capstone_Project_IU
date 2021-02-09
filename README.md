@@ -3,14 +3,13 @@ Team 12: Social Sounds
 
 This repository is for Capstone 2020-21.
 
-Team Information
-
+<b>Team Information</b>
 <br>
-Assigned AI:	Gawande, Rushikesh
-<br>
-Platform:	Web
-<br>
-Description: Social Sounds is a web based application that combines aspects of social media and music streaming apps to create a more interactive listening experience.
+<ul>
+  <li>Assigned AI:	Gawande, Rushikesh</li>
+  <li>Platform:	Web</li>
+<li>Description: Social Sounds is a web based application that combines aspects of social media and music streaming apps to create a more interactive listening experience.</li>
+</ul>
 
 <b>Team Members</b>
 
