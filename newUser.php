@@ -1,4 +1,6 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
+
 <html>
 <head> <link rel="stylesheet" href="style.css"> </head>
 <title> Create an Account </title>
@@ -6,40 +8,34 @@
 <h1> Create an Account </h1>
 
 <body>
-<form method="get">
+<form method="post" action="newUser.php">
+<?php include('errors.php'); ?>
 
 First Name:
-<input type="text" id="first" name="first">
+<input type="text" id="first" name="first" value="<?php echo $firstName; ?>">
 <br>
 Last Name:
-<input type="text" id="last" name="last">
+<input type="text" id="last" name="last" value="<?php echo $lastName; ?>" >
 <br>
 Email Address:
-<input type="email" id="email" name="email">
+<input type="email" id="email" name="email" value="<?php echo $email; ?>">
 <br>
 Phone Number:
-<input type="text" id="email" name="phone">
+<input type="text" id="email" name="phone" value="<?php echo $phoneNumber; ?>">
 <br>
 Birthday (MM/DD/YYYY):
-<input type="date" id="birthday" name="birthday">
+<input type="date" id="birthday" name="birthday" value="<?php echo $DOB; ?>">
 <br>
 Username:
-<input type="text" id="username" name="username">
+<input type="text" id="username" name="username" value="<?php echo $userName; ?>">
 <br>
 Password:
-<input type="password" id="pwd" name="pwd">
+<input type="password" id="pwd" name="pwd" value="<?php echo $Password; ?>" >
 <br>
 <input type="submit" value="Submit">
 </form>
 
 
-<p> (This section will be taken from the final version, used now to test form.)</p>
-<p>First: <?=$_GET['first'];?></p>
-<p>Lasst: <?=$_GET['last'];?></p>
-<p>Email: <?=$_GET['email'];?></p>
-<p>Phone Number: <?=$_GET['phone'];?></p>
-<p>Birthday: <?=$_GET['birthday'];?></p>
-<p>Username: <?=$_GET['username'];?></p>
-<p>Password: <?=$_GET['password'];?></p>
+
 </body>
 </html>
