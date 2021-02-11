@@ -1,0 +1,25 @@
+div.header {
+  padding: 1px;
+  text-align: center;
+  background: #df80ff;
+  color: black;
+  font-size: 15px;
+  height: 150px;
+  margin-bottom: 0px;
+}
+
+div.post_button {
+  height: 200px;
+  position: relative;
+  border: 3px grey;
+}
+
+p {
+  text-align: left;
+  font-size: 25px;
+  border-style: solid;
+  border-color: #b3b3b3;
+  padding: 50px;
+  text-align: center;
+  margin: 50px;
+}

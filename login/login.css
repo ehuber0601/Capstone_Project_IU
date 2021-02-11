@@ -1,0 +1,115 @@
+/*Using Poppins fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+@media (min-width: 800px) {
+  .card {
+    margin: auto;
+    margin-top: 40px;
+    width: 600px;
+  }
+}
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+}
+
+.card {
+  background-color: #001f3f;
+  /* text-transform: capitalize; */
+}
+
+.card-head {
+  text-align: center;
+  padding: 10px;
+  color: #ffffff;
+}
+
+.card-body {
+  text-align: center;
+  padding: 10px;
+  color: #ffffff;
+}
+
+.card {
+  -webkit-box-shadow: -1px 3px 14px 17px rgba(82, 82, 82, 1);
+  -moz-box-shadow: -1px 3px 14px 17px rgba(82, 82, 82, 1);
+  box-shadow: -1px 3px 14px 17px rgba(82, 82, 82, 1);
+
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.card h2 {
+  font-size: 28px;
+}
+
+#error-message,
+#login-message {
+  color: #c51c1c;
+}
+
+.card .card-head form {
+  max-width: 100%;
+  padding: 10px;
+}
+
+input,
+#signup-button {
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  /* margin: 15px 0px; */
+  border-radius: 15px;
+  /* padding: 10px; */
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+#signup-button {
+  padding: 15px 25px;
+  margin: auto;
+  width: 99%;
+  background-color: #5799c2;
+}
+
+input::placeholder {
+  /* padding: 0px 20px; */
+  /* margin: 20px; */
+}
+
+.card-head .login-button {
+  padding: 15px 20px;
+  margin: 10px 0px;
+  display: block;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  background-color: #5799c2;
+  width: 100%;
+}
+
+.api-call-button {
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  background-color: #5799c2;
+  margin: 10px 0px;
+  display: block;
+  outline: none;
+  width: 100%;
+}
+
+form p {
+  color: #c51c1c;
+}
+
+p span,
+p a {
+  color: #5799c2;
+}
