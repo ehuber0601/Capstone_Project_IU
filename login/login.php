@@ -33,7 +33,7 @@ if (!$conn) {
 
   $user_data = array_values($user_data);
 
-  $sql = "SELECT `email` , `password` FROM user WHERE `email` = '$user_data[0]' ";
+  $sql = "SELECT `email` , `password` FROM User WHERE `email` = '$user_data[0]' ";
 
   if ($result = mysqli_query($conn, $sql)) {
 
