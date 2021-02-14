@@ -13,7 +13,7 @@ $servername = "db.luddy.indiana.edu";
 $username = "i494f20_team12";
 $password = "my+sql=i494f20_team12";
 
-$conn = mysqli_connect($servername, $username, $password, 'i494f20_jeadelso');
+$conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
 $response_header = array("status_code" => null, "response_message" => null);
 
 
@@ -27,7 +27,7 @@ if (!$conn) {
     $form_data = json_decode(file_get_contents('php://input'), true);
     $form_data = array_values($form_data);
 
-    $sql = "SELECT * FROM user WHERE `email` = '$form_data[0]' ";
+    $sql = "SELECT * FROM User WHERE `email` = '$form_data[0]' ";
 
     if ($result = mysqli_query($conn, $sql)) {
 
@@ -39,11 +39,11 @@ if (!$conn) {
         } else {
             $password_encription
                 = password_hash($form_data[3], PASSWORD_DEFAULT);
-            $sql_insert = "INSERT INTO `user` (`email`, `first_name`, `last_name`, `password`) VALUES ('$form_data[0]', '$form_data[1]' , '$form_data[2]' , '$password_encription')";
+            $sql_insert = "INSERT INTO `User` (`email`, `firstName`, `lastName`, `Password`) VALUES ('$form_data[0]', '$form_data[1]' , '$form_data[2]' , '$password_encription')";
 
             if (mysqli_query($conn, $sql_insert)) {
 
-                $delete_blank = "DELETE FROM `user` WHERE `email` = '' ";
+                $delete_blank = "DELETE FROM `User` WHERE `email` = '' ";
                 mysqli_query($conn, $delete_blank);
                 $response_header['status_code'] = 200;
                 $response_header['response_message'] = 'Account Registered Successfully';
