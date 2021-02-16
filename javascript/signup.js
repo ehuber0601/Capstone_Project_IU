@@ -119,7 +119,7 @@ function login() {
   var request = new XMLHttpRequest(); // object created
   $("#login-button").text("....");
 
-  var url = "https://cgi.soic.indiana.edu/~team12/login.php";
+  var url = "https://cgi.sice.indiana.edu/~team12/backend/login.php";
 
   $("#login-message").text("Please wait While verify credintials from DB");
   request.open("POST", url, true);
@@ -171,13 +171,13 @@ function login() {
   // data = JSON.parse(data)
 }
 
-function registration(email, first_name, last_name, password) {
+function registration(email, first_name, last_name, password, userName) {
   $("#signup-button").off();
   $("#signup-button").html("Loading..");
   document.getElementById("signup-response-message").innerHTML = "";
 
   var request = new XMLHttpRequest();
-  var url = "https://cgi.luddy.indiana.edu/~jeadelso/capstone-individual/Itp-06/register.php";
+  var url = "https://cgi.sice.indiana.edu/~team12/backend/signup.php";
 
   request.open("POST", url, true);
 
@@ -195,9 +195,10 @@ function registration(email, first_name, last_name, password) {
   request.setRequestHeader("Content-Type", "application/json");
 
   var data = JSON.stringify({
-    email: email,
+    username: userName,
     first_name: first_name,
     last_name: last_name,
+    email: email,
     password: password,
   });
 
@@ -264,7 +265,7 @@ function validate_signup_form() {
     last_name_validated &&
     repeat_password
   ) {
-    registration(email, first_name, last_name, password);
+    registration(email, first_name, last_name, password, userName);
   }
 }
 

@@ -71,7 +71,10 @@ input,
   text-align: center;
 }
 
-#signup-button {
+#signup-button,
+.login-button {
+  border: none;
+  border-radius: 20px;
   padding: 15px 25px;
   margin: auto;
   width: 99%;

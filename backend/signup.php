@@ -1,4 +1,5 @@
 <?php
+include_once("./connection.php");
 header("Content-Type: application/json");
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With,Content-Type, Accept");
@@ -9,11 +10,11 @@ header('Access-Control-Allow-Methods: GET, POST, PUT');
 
 // db credentials
 
-$servername = "db.luddy.indiana.edu"; 
-$username = "i494f20_team12";
-$password = "my+sql=i494f20_team12";
+// $servername = "db.luddy.indiana.edu";
+// $username = "i494f20_team12";
+// $password = "my+sql=i494f20_team12";
 
-$conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
+// $conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
 $response_header = array("status_code" => null, "response_message" => null);
 
 
@@ -39,11 +40,12 @@ if (!$conn) {
         } else {
             $password_encription
                 = password_hash($form_data[3], PASSWORD_DEFAULT);
-            $sql_insert = "INSERT INTO `User` (`email`, `firstName`, `lastName`, `Password`) VALUES ('$form_data[0]', '$form_data[1]' , '$form_data[2]' , '$password_encription')";
+            $userId = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
+            $sql_insert = "INSERT INTO `user` (`userID`,`userName`, `firstName`, `lastName`, `email`, `phoneNumber`, `DOB`) VALUES ( '$userId', '$form_data[0]', '$form_data[1]' , '$form_data[2]' , '$form_data[3]' , '' , '')";
 
             if (mysqli_query($conn, $sql_insert)) {
 
-                $delete_blank = "DELETE FROM `User` WHERE `email` = '' ";
+                $delete_blank = "DELETE FROM `user` WHERE `email` = '' ";
                 mysqli_query($conn, $delete_blank);
                 $response_header['status_code'] = 200;
                 $response_header['response_message'] = 'Account Registered Successfully';
