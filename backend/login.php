@@ -12,7 +12,7 @@ $userPassword = $incoming_data['password'];
 
 
 
-$sql = " SELECT * FROM profile WHERE `username` = '$name' AND `password` = '$userPassword'";
+$sql = " SELECT * FROM User WHERE `email` = '$name' AND `password` = '$userPassword'";
 
 if ($result = mysqli_query($conn, $sql)) {
     if (mysqli_num_rows($result) <= 0) {
@@ -35,4 +35,7 @@ if ($result = mysqli_query($conn, $sql)) {
         $response_header['response_message'] = "Success";
         echo json_encode($response_header);
     }
+} else {
+    $response_header['response_message'] = "Error :" . mysqli_error($conn);
+    echo json_encode($response_header);
 }
