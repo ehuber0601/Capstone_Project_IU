@@ -1,55 +1,113 @@
-body,html{
-    font-family: 'Poppins', sans-serif;
+body {
+  font-family: "Manrope", sans-serif;
+  background-color: #b3b3b4;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.top-heading {
+  font-weight: bold;
+  font-size: 24px;
 }
 
-input{
-    border-radius: 20px;
-    padding: 8px;
-    margin-right: 10px;
+.user-input {
+  /* -webkit-appearance: none; */
+  outline: none;
+  /* background-color: blueviolet; */
+
+  /* display: block; */
+  font-weight: 600;
+  /* width: 100%; */
+  /* margin: 2%; */
 }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-  outline: 0px;
-  /* border: 0px; */
+.user-input::placeholder {
+  color: #000000;
+  /* border: none; */
+  /* cursor: pointer; */
 }
 
-.card , .response-data{
-    padding: 10px;
+.dropdown-menu {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s ease all;
+}
+.dropdown-menu.show {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0px);
+  transition: 0.5s ease all;
 }
 
-
-
-.card button{
-    padding: 10px 25px;
-    border-radius: 20px;
-    border-width: 0px;
-    outline: 0px;
-    background-color: #051937;
-    color: #ffffff;
-
+nav {
+  background-color: blueviolet;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.response-data h3 , .response-data h4 {
-    font-size: 18px;
+.fa {
+  /* font-size: 25px !important; */
 }
 
-.response-data h3 span, .response-data h4 span{
-    font-size: 15px;
-    padding: 0px 10px;
-    color: #ffffff;
+input {
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
-#error-message{
-    font-size: 16px;
-    color: #c83d3d;
-    /* margin: 10px; */
+.main-header {
+  font-size: 28px;
+  font-weight: 600;
+}
 
+.setting-dropdown .dropdown-item {
+  color: blueviolet;
+}
+
+.setting-dropdown li {
+  min-width: 150px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.setting-dropdown li span {
+  color: blueviolet;
+}
+
+.profile-image {
+  max-width: 100px;
+  max-height: 100px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: blueviolet;
+  color: white;
+}
+
+.btn-primary {
+  background-color: blueviolet !important;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.card-body p {
+  /* color: blueviolet; */
+}
+
+.setting-box {
+  -webkit-box-shadow: 20px 29px 50px -39px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 20px 29px 50px -39px rgba(0, 0, 0, 1);
+  box-shadow: 20px 29px 50px -39px rgba(0, 0, 0, 1);
+  background-color: #e6e6e6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding: 12px 10px 12px 5px;
+}
+
+.setting-active {
+  background-color: blueviolet !important;
+  color: white;
+  font-weight: bold;
 }
