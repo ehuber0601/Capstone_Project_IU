@@ -11,8 +11,7 @@ $name = $incoming_data['username'];
 $userPassword = $incoming_data['password'];
 
 
-
-$sql = " SELECT * FROM User WHERE `email` = '$name' AND `password` = '$userPassword'";
+$sql = " SELECT * FROM `User` WHERE `email` = '$name' AND `password` = '$userPassword'";
 
 if ($result = mysqli_query($conn, $sql)) {
     if (mysqli_num_rows($result) <= 0) {
