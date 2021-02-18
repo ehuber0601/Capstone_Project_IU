@@ -15,19 +15,21 @@
         <title>Profile Page</title>
     </head>
 
-    <body>
+    <body onload="show_profile()">
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="d-flex justify-content-between mt-2 mb-4">
                 <div class=""> <img src="./images/profile.png" alt=""></div>
                 <div>
-                    <p class="mt-2 name">First Name Last Name</p>
-                    <p class="mt-2">@username</p>
+                    <p class="mt-2 name" id="first-last-name">First Name Last Name</p>
+                    <p class="mt-2" id="username">@username</p>
                     <button class="btn btn-primary pe-2 ps-2 mt-2">Follow</button>
                 </div>
 
                 <div class="bio-section">
-                    <textarea class="text-center" name="" id="" rows="6" cols="30"> User Bio </textarea>
+                    <p class="top-heading mb-2">Bio</p>
+                    <textarea id="bio-content" class="text-center" name="" id="" rows="15"
+                        cols="40"> User Bio </textarea>
                 </div>
 
             </div>
@@ -60,7 +62,7 @@
                     <h3>Content of post</h3>
                 </div>
             </div>
-            <div class="post p-2 border mt-2 mb-2">
+            <!-- <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
 
                 <div class="border p-2">
@@ -87,7 +89,7 @@
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
-            </div>
+            </div> -->
 
 
         </div>
@@ -97,6 +99,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
             crossorigin="anonymous"></script>
+        <script src="./javascript/script.js"></script>
     </body>
 
 </html>
