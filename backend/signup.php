@@ -41,11 +41,11 @@ if (!$conn) {
             $password_encription
                 = password_hash($form_data[3], PASSWORD_DEFAULT);
             $userId = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
-            $sql_insert = "INSERT INTO `user` (`userID`,`userName`, `firstName`, `lastName`, `email`, `phoneNumber`, `DOB`) VALUES ( '$userId', '$form_data[0]', '$form_data[1]' , '$form_data[2]' , '$form_data[3]' , '' , '')";
+            $sql_insert = "INSERT INTO `User` (`userID`,`userName`, `firstName`, `lastName`, `email`, `phoneNumber`, `DOB`) VALUES ( '$userID', '$form_data[0]', '$form_data[1]' , '$form_data[2]' , '$form_data[3]' , '' , '')";
 
             if (mysqli_query($conn, $sql_insert)) {
 
-                $delete_blank = "DELETE FROM `user` WHERE `email` = '' ";
+                $delete_blank = "DELETE FROM `User` WHERE `email` = '' ";
                 mysqli_query($conn, $delete_blank);
                 $response_header['status_code'] = 200;
                 $response_header['response_message'] = 'Account Registered Successfully';
