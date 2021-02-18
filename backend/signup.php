@@ -41,7 +41,7 @@ if (!$conn) {
             $password_encription
                 = password_hash($form_data[3], PASSWORD_DEFAULT);
             $$userID = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
-             $sql_insert = "INSERT INTO Profile ( `firstName`, `lastName`, `userName`, `password`, `followers` , `bio` ) VALUES ('$form_data[1]', '$form_data[2]' , '$form_data[0]' , '$form_data[3]' , '' , '')";
+             $sql_insert = "INSERT INTO Profile ( `firstName`, `lastName`, `username`, `password`, `followers` , `bio` ) VALUES (  '$form_data[1]', '$form_data[2]' , '$form_data[3]' , '$form_data[4]' , ''  , '')";
 
             if (mysqli_query($conn, $sql_insert)) {
 
