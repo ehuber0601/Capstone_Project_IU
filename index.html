@@ -13,6 +13,13 @@
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Home Page</title>
+
+        <script> let session_id = localStorage.getItem("session_id");
+
+            if (session_id === "" || session_id === null) {
+                location.href = "./Login.html"
+            }
+        </script>
     </head>
 
     <body>
