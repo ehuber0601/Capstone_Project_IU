@@ -5,12 +5,12 @@ include_once("./connection.php");
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-// $name  = $incoming_data['username'];
-$name  = 'erat';
+$name  = $incoming_data['username'];
+// $name  = 'erat';
 
 // $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$sql = "SELECT * FROM profile WHERE `username` = '$name'";
+$sql = "SELECT * FROM Profile WHERE `username` = '$name'";
 
 try {
     if ($result = mysqli_query($conn, $sql)) {

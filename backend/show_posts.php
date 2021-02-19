@@ -10,12 +10,10 @@ $incoming_data = json_decode(file_get_contents('php://input'), true);
 $session_id = $incoming_data['session_id'];
 // $session_id = '1234567';
 if ($session_id != null) {
-    $sql = "SELECT * FROM posts";
+    $sql = "SELECT * FROM Posts";
 
     if ($result = mysqli_query($conn, $sql)) {
-
         if (mysqli_num_rows($result) > 0) {
-
             $response_header["posts"] =
                 mysqli_fetch_all($result, MYSQLI_ASSOC);
             echo json_encode($response_header);
