@@ -17,7 +17,7 @@ function login() {
   }, {});
 
   var request_url = this.base_url + "login.php";
-  // console.log("reuested url is ", request_url);
+   console.log("reuested url is ", request_url);
 
   fetch(request_url, {
     method: "POST",
