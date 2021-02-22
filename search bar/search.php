@@ -21,29 +21,21 @@ $result = mysqli_query($conn, $sql);
 $num_rows = mysqli_num_rows($result);
 
 // Display Results
+echo $_POST['searchname'];
 if ($result->num_rows > 0) {
     echo "<table>";
         echo "<tr>
-        <th>Shift ID</th>
-        <th>Employee ID</th>
-        <th>wdate</th>
-        <th>time_in</th>
-        <th>time_out</th>
-        <th>role</th>
+        <th>Song ID</th>
+        <th>Artist</th>
+        <th>Time</th>
+        <th>Genre</th>
+        <th>Title</th>
         </tr>";
     // Output data of each row, ->fetch_assoc gives array of arrays with keys matching column names
-	 //while($row = $result->fetch_assoc()) {
-        //echo "<tr><td>".$row["shiftid"]."</td><td>".$row["empid"]."</td><td>".$row["wdate"]."</td>
-                      //<td>".$row["time_in"]."</td><td>".$row["time_out"]."</td><td>".$row["role"]."</td></tr>";
+	while($row = $result->fetch_assoc()) {
+        echo "<tr><td>".$row["songID"]."</td><td>".$row["artistName"]."</td><td>".$row["length"]."</td>
+        	<td>".$row["genre"]."</td><td>".$row["title"]."</td></tr>";
 
-
-while ($row = mysql_fetch_array($result)){
-echo 'songID: ' .$row['songID'];
-echo '<br /> artistID: ' .$row['artistID'];
-echo '<br /> Artist Name: '.$row['artistName'];
-echo '<br /> Time: '.$row['length'];
-echo '<br /> Genre: '.$row['genre'];
-echo '<br /> Title: '.$row['title'];
 }    
     }
     echo "</table>";
