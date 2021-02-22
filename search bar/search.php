@@ -5,7 +5,7 @@
 
 	mysql_connect("db.luddy.indiana.edu", "i494f20_allnagy", "my+sql=i494f20_allnagy") or die("Error connecting to database: ".mysql_error());
 	
-	mysql_select_db("tutorial_search") or die(mysql_error());
+	mysql_select_db("i494f20_allnagy") or die(mysql_error());
 	/* tutorial_search is the name of database we've created */
 ?>
 <!DOCTYPE html>
