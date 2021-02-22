@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>
-	<form action="search.php" method="GET">
+	<form action="search.php" method="POST">
 		<input type="text" name="query" />
 		<input type="submit" value="Search" />
 	</form>
