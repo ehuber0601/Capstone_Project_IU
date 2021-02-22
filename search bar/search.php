@@ -1,3 +1,9 @@
+<html>
+<head>
+        <title>Search Results</title>
+        <link rel="stylesheet" href="style.css">
+</head>
+<body>
 <?php
 // Create connection
 $conn=mysqli_connect("db.luddy.indiana.edu","i494f20_allnagy","my+sql=i494f20_allnagy","i494f20_allnagy");
@@ -42,3 +48,6 @@ echo "$num_rows Rows <br>";
 // Close Connection
 mysqli_close($conn);
 ?>
+
+    </body>
+</html>
