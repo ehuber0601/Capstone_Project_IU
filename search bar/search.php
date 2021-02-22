@@ -2,15 +2,8 @@
 
 // setting header file to accept request
 
-// db credentials
 
-// $servername = "db.luddy.indiana.edu";
-// $username = "i494f20_allnagy";
-// $password = "my+sql=i494f20_allnagy";
-
-// $conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
-
-	mysql_connect("$servername", "$username", "$password") or die("Error connecting to database: ".mysql_error());
+	mysql_connect("db.luddy.indiana.edu", "i494f20_allnagy", "my+sql=i494f20_allnagy") or die("Error connecting to database: ".mysql_error());
 	
 	mysql_select_db("tutorial_search") or die(mysql_error());
 	/* tutorial_search is the name of database we've created */
@@ -36,11 +29,11 @@
 		$query = mysql_real_escape_string($query);
 		// makes sure nobody uses SQL injection
 		
-		$raw_results = mysql_query("SELECT * FROM articles
-			WHERE (`title` LIKE '%".$query."%') OR (`text` LIKE '%".$query."%')") or die(mysql_error());
+		$raw_results = mysql_query("SELECT * FROM Song
+			WHERE (`title` LIKE '%".$query."%') OR (`artistName` LIKE '%".$query."%') OR (`genre` LIKE '%".$query."%')") or die(mysql_error());
 			
-		// * means that it selects all fields, you can also write: `id`, `title`, `text`
-		// articles is the name of our table
+		// * means that it selects all fields, you can also write: `title`, `artistName`, `genre`
+		// Song is the name of our table
 		
 		// '%$query%' is what we're looking for, % means anything, for example if $query is Hello
 		// it will match "hello", "Hello man", "gogohello", if you want exact match use `title`='$query'
