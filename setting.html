@@ -12,57 +12,121 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- <script>if (localStorage.getItem('username') === null || localStorage.getItem('session_id') === "" || localStorage.getItem('session_id') === "") {
+                window.location = "./Login.html"
+            }
+
+        </script> -->
+
+        <script src="./javascript/script.js"></script>
         <title>Setting Page</title>
+
     </head>
 
     <body>
+        <nav class="container-fluid">
+            <div class="row">
+                <div class="col-11 text-center">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input class="w-25 ms-2" type="text" placeholder="Search item Here">
+                </div>
+                <div class="col-1 text-end">
+                    <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
+                    <div class="d-inline dropdown">
+                        <a class="btn fa fa-cog" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        </a>
+
+                        <ul class="dropdown-menu setting-dropdown" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item text-center " href="./setting.html">Setting</a></li>
+                            <li><a class="dropdown-item" href="#">Notification
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Account
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Security
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Posts
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Liked Posts
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Privacy
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Your Music
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Support
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
         <div class="container m-auto">
 
             <div class="row">
-
                 <div class="col-lg-3 col-md-8 col-sm-12 p-2 me-auto">
-                    <div class="main-header pb-3">
+                    <div id="setting" class="main-header pb-3">
                         <h2>Setting</h2>
                     </div>
-                    <div class="d-flex justify-content-between mt-2 mb-2 setting-box">
+                    <div id="notification" class="d-flex justify-content-between mt-2 mb-2 setting-box"
+                        onclick="show_tabs('notification')">
                         <p>Notification </p>
                         <i class="fa fa-angle-right"></i>
                     </div>
-
-                    <div class="d-flex justify-content-between mt-2 setting-box ">
+                    <div id="account" class="d-flex justify-content-between mt-2 setting-box"
+                        onclick="show_tabs('account')">
                         <p>Account </p>
                         <i class="fa fa-angle-right"></i>
                     </div>
-                    <div class="d-flex justify-content-between mt-2 setting-box setting-active">
+                    <div id="security" class="d-flex justify-content-between mt-2 setting-box setting-active"
+                        onclick="show_tabs('security')">
                         <p>Security </p>
                         <i class="fa fa-angle-right"></i>
                     </div>
-                    <div class="d-flex justify-content-between mt-2 setting-box">
+                    <div id="posts" class="d-flex justify-content-between mt-2 setting-box"
+                        onclick="show_tabs('posts')">
                         <p>Posts</p>
                         <i class="fa fa-angle-right"></i>
                     </div>
-                    <div class="d-flex justify-content-between mt-2 setting-box">
+                    <div id="liked-posts" class="d-flex justify-content-between mt-2 setting-box"
+                        onclick="show_tabs('liked-posts')">
                         <p>Liked Posts </p>
                         <i class="fa fa-angle-right"></i>
                     </div>
-                    <div class="d-flex justify-content-between mt-2 setting-box">
+                    <div id="privacy" class="d-flex justify-content-between mt-2 setting-box"
+                        onclick="show_tabs('privacy')">
                         <p>Privacy</p>
                         <i class="fa fa-angle-right"></i>
                     </div>
-                    <div class="d-flex justify-content-between mt-2 setting-box">
+                    <div id="my-music" class="d-flex justify-content-between mt-2 setting-box"
+                        onclick="show_tabs('my-music')">
                         <p>Your Music </p>
                         <i class="fa fa-angle-right"></i>
                     </div>
-                    <div class="d-flex justify-content-between mt-2 setting-box">
+                    <div id="support" class="d-flex justify-content-between mt-2 setting-box"
+                        onclick="show_tabs('support')">
                         <p>Support </p>
                         <i class="fa fa-angle-right"></i>
                     </div>
-
-
                 </div>
 
-                <div class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2 d-none">
+                <div id="notification-details" class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2 d-none">
 
                     <div class="notiication-content d-flex justify-content-start m-3 border p-3">
                         <i class="fa fa-bell w-25"></i>
@@ -101,9 +165,10 @@
 
                 </div>
 
+                <div id="account-details" class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2 d-none">
 
-                <div class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2 d-none">
-                    <div class="d-flex justify-content-between mt-2 mb-4">
+                    <iframe class="w-100" style="height: 100vh;" src="./profile.html" frameborder="0"></iframe>
+                    <!-- <div class="d-flex justify-content-between mt-2 mb-4">
                         <div class=""> <img src="./images/profile.png" alt=""></div>
                         <div>
                             <p class="mt-2 name">First Name Last Name</p>
@@ -115,9 +180,9 @@
                             <textarea class="text-center" name="" id="" rows="6" cols="30"> User Bio </textarea>
                         </div>
 
-                    </div>
+                    </div> -->
 
-                    <div class="post p-2 border mt-2 mb-2">
+                    <!-- <div class="post p-2 border mt-2 mb-2">
                         <p class="p-2">Date and time</p>
 
                         <div class="border p-2">
@@ -172,13 +237,12 @@
                         <div class="border p-2">
                             <h3>Content of post</h3>
                         </div>
-                    </div>
+                    </div> -->
 
 
                 </div>
 
-
-                <div class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2 d-none">
+                <div id="liked-posts-details" class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2 d-none">
                     <div class="main-header text-center pt-3 pb-3">Post you have liked so far</div>
                     <div class="post p-2 border mt-2 mb-2">
                         <iframe class="w-100" height="515" src="https://www.youtube.com/embed/tgbNymZ7vqY">
@@ -190,11 +254,6 @@
                             <p>Total Views <span>190</span> </p>
 
                         </div>
-                        <!-- <p class="p-2">Date and time</p>
-                    
-                                    <div class="border p-2">
-                                        <h3>Content of post</h3>
-                                    </div> -->
                     </div>
                     <div class="post p-2 border mt-2 mb-2">
                         <iframe class="w-100" height="515" src="https://www.youtube.com/embed/tgbNymZ7vqY">
@@ -262,7 +321,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2 d-none">
+                <div id="my-music-details" class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2 d-none">
                     <div class="main-header mb-2"> Your Playlist Music</div>
 
                     <div>
@@ -306,7 +365,7 @@
                                     <i class="fa fa-stop ms-1 me-1"></i>
                                 </div>
                             </li>
-                            <li class="mt-2 mb-2 border bg-secondary p-3 d-flex justify-content-between "> Song 1
+                            <li class="mt-2 mb-2 border bg-secondary p-3 d-flex justify-content-between "> Song 7
                                 <div>
                                     <i class="fa fa-play ms-1 me-1"></i>
                                     <i class="fa fa-stop ms-1 me-1"></i>
@@ -319,7 +378,7 @@
 
                 </div>
 
-                <div class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2">
+                <div id="security-details" class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2">
                     <div class="main-header mb-3"> Account Security</div>
                     <div class="d-flex justify-content-between border p-3 bg-secondary mt-2 mb-2">
                         <p>Change Email </p>
@@ -335,6 +394,18 @@
                     </div>
 
                 </div>
+
+                <div id="support-details" class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2 d-none">
+
+                </div>
+                <div id="posts-details" class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2 d-none">
+                    <div id="post-content"></div>
+
+                </div>
+                <div id="privacy-details" class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2 d-none">
+
+                </div>
+
 
             </div>
 

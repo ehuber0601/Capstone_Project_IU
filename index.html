@@ -3,48 +3,135 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="google-signin-client_id" content="538296920414-c4ttbakprb61a58c3mjobh2o5kgul8ts.apps.googleusercontent.com">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/style.css">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700;800;900&display=swap"
-            rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-                                
-        <title>Social Sounds Login</title>
-    </head>
-                                
-    <body class="container">
-                    
-        <div class="row login m-5">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12 m-auto pt-3 rounded bg-dark">
-                <div class="login-wrapper text-center rounded">
-                    <div id="overlay" class="pb-4">
-                        <h1 class='pt-5 text-white pb-3'>Welcome to Social Sounds<br> Please Sign In</h1>
-                        <div class="m-3">  
-                            <input id="login-username" class="btn-block text-center p-2 rounded border-0 mt-2 mb-3"
-                                type="text" placeholder="Username">
-                            <p class="text-danger" id="login-email-error"></p>
-                            <input id="login-password" class="btn-block text-center p-2 rounded border-0"
-                                type="password" placeholder="Password">
-                            <p class="text-danger m-3" id="login-password-error"></p>
-                            <button id="login-button" class="btn btn-primary btn-block p-2 mt-4 rounded"
-                                onclick="validate_form();">Login</button>
-                            <p><a href="newUser.php">New User? Create Account</a><p>
-                            <p id="login-response-message" class="text-danger p-2 mt-3"></p>
-                        </div>
-                                <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                        <div class="dropdown-divider m-3 mt-3 mb-4"></div>
-                    </div>
+        <title>Home Page</title>
 
+        <script> let session_id = localStorage.getItem("session_id");
+
+            if (session_id === "" || session_id === null) {
+                location.href = "./login.html"
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <nav class="container-fluid">
+            <div class="row">
+                <div class="col-11 text-center">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input class="w-25 ms-2" type="text" placeholder="Search item Here">
+                </div>
+                <div class="col-1 text-end">
+                    <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
+                    <div class="d-inline dropdown">
+                        <a class="btn fa fa-cog" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        </a>
+
+                        <ul class="dropdown-menu setting-dropdown" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item text-center " href="./setting.html">Setting</a></li>
+                            <li><a class="dropdown-item" href="#">Notification
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Account
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Security
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Posts
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Liked Posts
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Privacy
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Your Music
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Support
+                                </a>
+                                <span class="fa fa-angle-right"></span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </nav>
+
+        <div class="main-header text-center pt-3 pb-3">
+            <h2>Home</h2>
         </div>
 
-        <script src="./custom.js"></script>
+        <div class="container">
+            <div id="post-content"></div>
+
+            <!-- <div class="post p-2 border mt-2 mb-2">
+                <p class="p-2">Date and time</p>
+
+                <div class="border p-2">
+                    <h3>Content of post</h3>
+                </div>
+            </div>
+            <div class="post p-2 border mt-2 mb-2">
+                <p class="p-2">Date and time</p>
+
+                <div class="border p-2">
+                    <h3>Content of post</h3>
+                </div>
+            </div>
+            <div class="post p-2 border mt-2 mb-2">
+                <p class="p-2">Date and time</p>
+
+                <div class="border p-2">
+                    <h3>Content of post</h3>
+                </div>
+            </div>
+            <div class="post p-2 border mt-2 mb-2">
+                <p class="p-2">Date and time</p>
+
+                <div class="border p-2">
+                    <h3>Content of post</h3>
+                </div>
+            </div> -->
+
+            <!-- <div class="post p-2 border mt-2 mb-2">
+                <P class="top-heading mb-2">Posted-by <span>shahid</span></P>
+                <p class="top-heading">Post Content</p>
+                <p></p>
+
+                <div class="d-flex justify-content-between mt-2 mb-2">
+                    <p>Like <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span> </span> </p>
+                    <p>comments <i class="fa fa-comment" aria-hidden="true"></i> <span></span> </p>
+                    <p>Total Views <span>190</span> <span></span> </p>
+                </div>
+            </div> -->
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
+        <script src="./javascript/script.js"></script>
+        <script> load_posts()</script>
 
 
     </body>
