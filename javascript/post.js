@@ -5,14 +5,15 @@ function post(){
     const form = Array.from(data.entries());
     console.log(form)
 
+    var request_url = this.base_url + "post.php";
+    console.log("requested url is ", request_url);
     json = form.reduce((json, value, key) => {
         console.log("value", value);
         json[value[0]] = value[1];
         return json;
       }, {});
     
-    var request_url = this.base_url + "post.php";
-    console.log("requested url is ", request_url);
+   
 
     fetch(request_url, {
         method: "POST",
