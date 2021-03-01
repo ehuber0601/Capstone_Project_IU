@@ -1,4 +1,4 @@
-var base_url = "https://cgi.soic.indiana.edu/~team12/backend/";
+var base_url = "https://cgi.sice.indiana.edu/~team12/backend/";
 //  change base url from here
 
 var current_item_active = "security";
