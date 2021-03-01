@@ -36,7 +36,7 @@ function post(){
         console.log(json);
         document.getElementById("response-message").innerHTML =
           json["response_message"];
-
+      })
     
     
 }
