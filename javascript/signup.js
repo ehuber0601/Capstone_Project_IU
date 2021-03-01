@@ -119,7 +119,7 @@ function registration(email, first_name, last_name, password, userName) {
   document.getElementById("signup-response-message").innerHTML = "";
 
   var request = new XMLHttpRequest();
-  var url = "https://cgi.sice.indiana.edu/~team12/backend/signup.php";
+  var url = "https://cgi.soic.indiana.edu/~team12/backend/signup.php";
 
   request.open("POST", url, true);
 
