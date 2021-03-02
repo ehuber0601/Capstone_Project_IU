@@ -25,7 +25,7 @@ function post(){
         },
       })
       .then(response => {
-          console.log('Success:', response)
+          console.log(response.json())
       })
 }
 
