@@ -15,18 +15,70 @@
         <title>Home Page</title>
 
         <script> let session_id = localStorage.getItem("session_id");
+        
 
             if (session_id === "" || session_id === null) {
                 location.href = "./login.html"
             }
         </script>
+        <script>
+
+function show_profile2() {
+  if (
+    localStorage.getItem(
+      "session_id" === null || localStorage.getItem("session_id") === ""
+    )
+  ) {
+    window.location = "./profile.php";
+  } else {
+    var request_url = this.base_url + "view_user_profile.php";
+    console.log("requested url ", request_url);
+    var json = { username: localStorage.getItem("username") };
+
+    fetch(request_url, {
+      method: "POST",
+      mode: "no-cors",
+      body: JSON.stringify(json),
+      headers: {
+        "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          console.log("response is, ", response);
+          throw new Error("Could not reach website.");
+        }
+        console.log(response);
+        return response.json();
+      })
+      .then(function (json) {
+        console.log("Data from fetch");
+        console.log(json);
+        
+		document.getElementById("profilelink").href="profile.php?user=" + json["username"];
+      })
+      .catch((err) => console.error(err));
+  }
+}
+
+</script>
+<style>
+.profile { display: block;
+float: left;}
+.profilepage {font-size: 20px;
+color: black; } 
+</style>
     </head>
 
-    <body>
+    <body onload="show_profile2()">
 
         <nav class="container-fluid">
             <div class="row">
+           
                 <div class="col-11 text-center">
+                 <div class="profile">
+            <a class="profilepage" id= "profilelink" href="./profile.php">My Profile</a>
+            </div>
                     <i class="fa fa-search" aria-hidden="true"></i>
                     <input class="w-25 ms-2" type="text" placeholder="Search item Here">
                 </div>
@@ -36,6 +88,7 @@
                         <a class="btn fa fa-cog" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                             aria-expanded="false">
                         </a>
+                
 
                         <ul class="dropdown-menu setting-dropdown" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item text-center " href="./setting.html">Setting</a></li>
@@ -131,6 +184,7 @@
             integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
             crossorigin="anonymous"></script>
         <script src="./javascript/script.js"></script>
+      
         <script> load_posts()</script>
 
 
