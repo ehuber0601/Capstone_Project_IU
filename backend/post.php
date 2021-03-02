@@ -17,7 +17,7 @@ $password = "my+sql=i494f20_team12";
 $conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
 $result = mysqli_query($conn, $sql);
 $age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
-
+sss
 json_encode("This is a test");
 ?>
 
