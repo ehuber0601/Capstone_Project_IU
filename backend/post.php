@@ -12,7 +12,7 @@ $postbox = $incoming_data['postbox'];
 $sql = " SELECT * FROM `Profile` limit 5;"
 
 
-$result = mysqli_query($conn, $sql)
+
 
 ?>
 
