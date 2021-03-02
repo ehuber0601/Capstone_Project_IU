@@ -24,8 +24,14 @@ function post(){
           "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
         },
       })
-      .then(response => {
-          console.log(response.json())
+      .then((response) => {
+        if (!response.ok) {
+          console.log("response is, ", response);
+  
+          throw new Error("Could not reach website.");
+        }
+        console.log(response);
+        return response;
       })
 }
 
