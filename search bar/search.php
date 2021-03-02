@@ -6,7 +6,7 @@
 <body>
 <?php
 // Create connection
-$conn=mysqli_connect("db.luddy.indiana.edu","i494f20_allnagy","my+sql=i494f20_allnagy","i494f20_allnagy");
+$conn=mysqli_connect("db.luddy.indiana.edu","i494f20_team12","my+sql=i494f20_team12","i494f20_team12");
 
 // Check connection
 if (!$conn) {
