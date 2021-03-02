@@ -14,6 +14,7 @@ $sql = " SELECT * FROM `Profile` limit 5;";
 $servername = "db.luddy.indiana.edu";
 $username = "i494f20_team12";
 $password = "my+sql=i494f20_team12";
+$conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
 
 
 ?>
