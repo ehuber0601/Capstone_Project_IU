@@ -15,7 +15,7 @@ function post(){
     
    
 
-    fetch(request_url, {
+    var response = fetch(request_url, {
         method: "POST",
         mode: "no-cors",
         body: JSON.stringify(json),
@@ -23,14 +23,6 @@ function post(){
           "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
         },
       })
-      .then((response) => {
-        if (!response.ok) {
-          console.log("response is, ", response);
-  
-          throw new Error("Could not reach website.");
-        }
-        console.log(response);
-        return response.json();
-      })
+    console.log("response ", response)
 }
 
