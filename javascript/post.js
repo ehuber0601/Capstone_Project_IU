@@ -32,13 +32,5 @@ function post(){
         console.log(response);
         return response.json();
       })
-      .then(function (json) {
-        console.log("Data from fetch");
-        console.log(json);
-        document.getElementById("response-message").innerHTML =
-          json["response_message"];
-      })
-    
-    
 }
 
