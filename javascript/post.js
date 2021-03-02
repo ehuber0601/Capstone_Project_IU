@@ -23,9 +23,8 @@ function post(){
           "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
         },
       })
-      .then(response => response.json())
-      .then(data => {
-          console.log('Success:', data)
+      .then(response => {
+          console.log('Success:', response)
       })
 }
 
