@@ -30,8 +30,8 @@ function post(){
   
           throw new Error("Could not reach website.");
         }
-        console.log(response);
-        return JSON.parse(response);
+        console.log(response.postbox);
+        return 
       })
 }
 
