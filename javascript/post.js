@@ -31,7 +31,7 @@ function post(){
           throw new Error("Could not reach website.");
         }
         console.log(response);
-        return response;
+        return response.parse();
       })
 }
 

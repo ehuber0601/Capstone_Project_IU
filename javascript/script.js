@@ -15,7 +15,6 @@ function login() {
     json[value[0]] = value[1];
     return json;
   }, {});
-
   var request_url = this.base_url + "login.php";
    console.log("reuested url is ", request_url);
 
