@@ -1,6 +1,5 @@
 <?php
 echo "hello world"
-?>
 // include_once("./session.php");
 //include_once("./connection.php");
 // header("Content-Type: application/json");
