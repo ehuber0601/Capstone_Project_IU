@@ -15,7 +15,7 @@ function post(){
     
    
 
-    var response = fetch(request_url, {
+    fetch(request_url, {
         method: "POST",
         mode: "no-cors",
         body: JSON.stringify(json),
@@ -23,6 +23,9 @@ function post(){
           "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
         },
       })
-    console.log("response ", response)
+      .then(response => response.json())
+      .then(data => {
+          console.log('Success:', data)
+      })
 }
 
