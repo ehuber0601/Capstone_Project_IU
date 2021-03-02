@@ -9,6 +9,8 @@ session_start();
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
 $postbox = $incoming_data['postbox'];
+$sql = " SELECT * FROM `Profile` limit 5;"
+echo json_encode($postbox);
 ?>
 
 
@@ -17,5 +19,3 @@ $postbox = $incoming_data['postbox'];
 
 
 
-// $sql = " SELECT * FROM `Profile` limit 5;"
-// echo json_encode($postbox);
