@@ -13,8 +13,9 @@ function post(){
         return json;
       }, {});
     
-   
+    console.log(json)
 
+    console.log(JSON.stringify(json))
     fetch(request_url, {
         method: "POST",
         mode: "no-cors",
