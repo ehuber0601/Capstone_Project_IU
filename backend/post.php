@@ -8,7 +8,7 @@ header('Access-Control-Allow-Methods: GET, POST, PUT');
 session_start();
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$postbox = $incoming_data['postboxxx'];
+$postbox = $incoming_data['postbox'];
 $sql = " SELECT * FROM `Profile` limit 5;";
 
 $servername = "db.luddy.indiana.edu";
@@ -18,7 +18,7 @@ $conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
 $result = mysqli_query($conn, $sql);
 $age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
 
-echo json_encode($age);
+echo json_encode("This is a test");
 ?>
 
 
