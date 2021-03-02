@@ -5,7 +5,7 @@ function post(){
     const form = Array.from(data.entries());
     console.log(form)
 
-    var request_url =  "https://cgi.soic.indiana.edu/~team12/backend/" + "post.php";
+    var request_url =  "https://cgi.sice.indiana.edu/~team12/backend/" + "post.php";
     console.log("requested url is ", request_url);
     json = form.reduce((json, value, key) => {
         console.log("value", value);
