@@ -6,8 +6,7 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With,Content-Type, Accept");
 header('Access-Control-Allow-Methods: GET, POST, PUT');
 function console_log($output, $with_script_tags = true) {
-    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
-');';
+    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .');';
     if ($with_script_tags) {
         $js_code = '<script>' . $js_code . '</script>';
     }
@@ -26,7 +25,6 @@ $result = mysqli_query($conn, $sql);
 $age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
 
 json_encode("This is a test");
-console_log($age); 
 ?>
 
 
