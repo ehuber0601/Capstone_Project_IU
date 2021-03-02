@@ -9,7 +9,7 @@ session_start();
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
 $postbox = $incoming_data['postbox'];
-$sql = " SELECT * FROM `Profile` limit 5;"
+$sql = " SELECT * FROM `Profile` limit 5;";
 
 $servername = "db.luddy.indiana.edu";
 $username = "i494f20_team12";
