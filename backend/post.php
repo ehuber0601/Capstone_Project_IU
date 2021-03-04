@@ -28,7 +28,7 @@ if ($result = mysqli_query($conn, $sql)) {
         $response_header['username'] = $row['username'];
         $response_header['session_id'] = $_SESSION['session_id'];
         $response_header['result_code'] = 200;
-        $response_header['response_message'] = "Success";
+        $response_header['response_message'] = "Successful";
         echo json_encode($response_header);
     }
 } else {
