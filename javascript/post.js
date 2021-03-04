@@ -1,5 +1,8 @@
 var base_url = "https://cgi.sice.indiana.edu/~team12/backend/";
+
+
 function post(){
+    event.preventDefault();
     const element = document.getElementById("post-form");
     const data = new FormData(element);
     const form = Array.from(data.entries());
@@ -30,8 +33,17 @@ function post(){
   
           throw new Error("Could not reach website.");
         }
-        ;
-        return response 
+        console.log(response);
+        return response.json();
       })
+      then(function (json) {
+        console.log("Data from fetch");
+        console.log(json);
+        document.getElementById("response-message").innerHTML =
+          json["response_message"];
+      })
+      .catch(
+        (err) => (document.getElementById("response-message").innerHTML = err)
+      );
 }
 

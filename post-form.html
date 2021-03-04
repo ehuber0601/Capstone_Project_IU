@@ -109,14 +109,15 @@
             <h2>Post</h2>
             </div>
            <button onclick="location.href = 'index.html';" id="myButton" class="float-right submit-button" >Go Back Home</button>
-            <form class="form-signin" id="post-form" onsubmit="post();event.preventDefault();"> 
+            <form class="form-signin" id="post-form" action="" onsubmit="event.preventDefault();post();"> 
                 <h2 class="form-signin-heading">What's on your musical mind?</h2>
                 <input id="postbox" name="postbox"> </input> 
                 
            
             
 
-                <button class="btn btn-large btn-primary" type="submit">Post</button>
+                <button class="btn btn-large btn-primary">Post</button>
+                <p id="response-message"></p>
               </form>
         </div>
 
@@ -183,4 +184,5 @@
 4.when you click submit post use php to Add file placeholder where it gets called
 
     >
+    
     

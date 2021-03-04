@@ -1,5 +1,5 @@
 <?php
-include_once("./session.php");
+//  include_once("./session.php");
 include_once("./connection.php");
 header("Content-Type: application/json");
 header('Access-Control-Allow-Origin: *');
@@ -9,13 +9,33 @@ session_start();
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
 $postbox = $incoming_data['postbox'];
-$sql = " SELECT * FROM `Profile` limit 5;";
+$sql = " SELECT * FROM `Profile`";
+if ($result = mysqli_query($conn, $sql)) {
+    if (mysqli_num_rows($result) <= 0) {
+        $row = mysqli_fetch_assoc($result);
+        // $response_header['username'] = $row['username'];
 
-$servername = "db.luddy.indiana.edu";
-$username = "i494f20_team12";
-$password = "my+sql=i494f20_team12";
-$conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
-$result = mysqli_query($conn, $sql);
+        $response_header['response_message'] = "Sorry Invalid credentials ";
+        $response_header['result_code'] = 206;
+        echo json_encode($response_header);
+    } else {
+        $row = mysqli_fetch_assoc($result);
+        // session_start();
+        $_SESSION['username'] = $name;
+        $session_id = generateRandomString(12);
+        $_SESSION['session_id'] = $session_id;
+        // $response_header['session_id2'] = $_SESSION['session_id'];
+        $response_header['username'] = $row['username'];
+        $response_header['session_id'] = $_SESSION['session_id'];
+        $response_header['result_code'] = 200;
+        $response_header['response_message'] = "Success";
+        echo json_encode($response_header);
+    }
+} else {
+    $response_header['response_message'] = "Error :" . mysqli_error($conn);
+    echo json_encode($response_header);
+}
+
 ?>
 
 
