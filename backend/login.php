@@ -9,6 +9,19 @@ header('Access-Control-Allow-Methods: GET, POST, PUT');
 
 session_start();
 
+$age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
+
+
+function console_log($output, $with_script_tags = true) {
+    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
+');';
+    if ($with_script_tags) {
+        $js_code = '<script>' . $js_code . '</script>';
+    }
+    echo $js_code;
+}
+console_log($age)
+
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
