@@ -16,19 +16,6 @@ $username = "i494f20_team12";
 $password = "my+sql=i494f20_team12";
 $conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
 $result = mysqli_query($conn, $sql);
-$age = array("Peter"=>35, "Ben"=>37, "Joe"=>43);
-
-json_encode("This is a test");
-function console_log($output, $with_script_tags = true) {
-    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
-');';
-    if ($with_script_tags) {
-        $js_code = '<script>' . $js_code . '</script>';
-    }
-    echo $js_code;
-}
-console_log($age)
-
 ?>
 
 
