@@ -20,7 +20,7 @@ function console_log($output, $with_script_tags = true) {
     }
     echo $js_code;
 }
-console_log($age)
+console_log($age);
 
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
