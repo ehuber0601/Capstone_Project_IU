@@ -9,32 +9,23 @@ session_start();
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
 $postbox = $incoming_data['postbox'];
-$sql = " SELECT * FROM `Profile`";
-if ($result = mysqli_query($conn, $sql)) {
-    if (mysqli_num_rows($result) <= 0) {
-        $row = mysqli_fetch_assoc($result);
-        // $response_header['username'] = $row['username'];
+$dummy_post_id=12421;
+$dummy_user_id=124921;
+$dummy_post_date="2/16/1999";
+$dummy_likes = 0;
 
-        $response_header['response_message'] = "Sorry Invalid credentials ";
-        $response_header['result_code'] = 206;
-        echo json_encode($response_header);
-    } else {
-        $row = mysqli_fetch_assoc($result);
-        // session_start();
-        $_SESSION['username'] = $name;
-        $session_id = generateRandomString(12);
-        $_SESSION['session_id'] = $session_id;
-        // $response_header['session_id2'] = $_SESSION['session_id'];
-        $response_header['username'] = $row['username'];
-        $response_header['session_id'] = $_SESSION['session_id'];
-        $response_header['result_code'] = 200;
-        $response_header['response_message'] = "Successful";
-        echo json_encode($response_header);
-    }
+$sql_insert = "INSERT INTO Posts ( `postID`, `userID`, `postContent`, `postDate`, `likes`  ) VALUES (  '$dummy_post_id', '$dummy_user_id' , '$postbox' , '$dummy_post_date' , '$dummy_likes' )";
+if (mysqli_query($conn, $sql_insert)) {
+    $response_header['status_code'] = 200;
+    $response_header['response_message'] = 'Post Added Successfully';
+    echo json_encode($response_header);
+    // mysql_free_result() 
 } else {
-    $response_header['response_message'] = "Error :" . mysqli_error($conn);
+    $response_header['status_code'] = 206;
+    $response_header['response_message'] = 'Error' . mysqli_error($conn);
     echo json_encode($response_header);
 }
+
 
 ?>
 
