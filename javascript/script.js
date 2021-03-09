@@ -45,7 +45,7 @@ function login() {
         console.log("hi", json);
         localStorage.setItem("session_id", json["session_id"]);
         localStorage.setItem("username", json["username"]);
-        localStorage.setItem("userID", json["userID"]);
+        localStorage.setItem("userID", 1);
         window.location = "./index.html";
       } else if (json["result_code"] === 206) {
         console.log("206");
