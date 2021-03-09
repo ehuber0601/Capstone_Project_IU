@@ -16,7 +16,7 @@ function login() {
     return json;
   }, {});
   var request_url = this.base_url + "login.php";
-   console.log("requested url is ", request_url);
+  console.log("requested url is ", request_url);
 
   fetch(request_url, {
     method: "POST",
@@ -42,9 +42,10 @@ function login() {
         json["response_message"];
 
       if (json["result_code"] === 200) {
-        console.log("hi", json["session_id"]);
+        console.log("hi", json);
         localStorage.setItem("session_id", json["session_id"]);
         localStorage.setItem("username", json["username"]);
+        localStorage.setItem("userID", json["userID"]);
         window.location = "./index.html";
       } else if (json["result_code"] === 206) {
         console.log("206");
