@@ -93,8 +93,10 @@ color: black; }
 href="./profile.php">My Profile</a>
             </div>
                     <i class="fa fa-search" aria-hidden="true"></i>
-                    <input class="w-25 ms-2" type="text"
-placeholder="Search item Here">
+                       <form method="POST" action="search.php">
+                                <input type="text" name="searchbar" />
+                                <input type="submit" value="Search Song" />
+                        </form>
                 </div>
                 <div class="col-1 text-end">
                     <i class="d-inline fa fa-home me-2"
