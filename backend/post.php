@@ -19,7 +19,7 @@ $incoming_data = json_decode(file_get_contents('php://input'), true);
 
 $user_id = (int)$incoming_data['userID'];
 // postID, userID, postContent, postDate, likes
-$sql_insert = "INSERT INTO Posts ( `postID`, `userID`, `postContent`, `postDate`, `likes`  ) VALUES ('$dummy_post_id', '$user_id' , '$postbox' , '$dummy_post_date' , '$dummy_likes' )";
+$sql_insert = "INSERT INTO Posts (`userID`, `postContent`, `postDate`, `likes`  ) VALUES ('$user_id' , '$postbox' , '$dummy_post_date' , '$dummy_likes' )";
 if (mysqli_query($conn, $sql_insert)) {
     $response_header['status_code'] = 200;
     $response_header['response_message'] = 'Post Added Successfully';
