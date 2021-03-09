@@ -17,8 +17,7 @@ if (!$conn) {
 $var_search = mysqli_real_escape_string($conn, $_GET['searchbar']);
 
 // Create SQL Statement
-$sql = ("SELECT * FROM Song WHERE (`title` LIKE '%".$var_search."%') OR (`artistName` LIKE '%".$var_search."%') OR (`genre` L$
-'%".$var_search."%')");
+$sql = ("SELECT * FROM Song WHERE (`title` LIKE '%".$var_search."%'");
 
 // Get Results
 $result = mysqli_query($conn, $sql);
