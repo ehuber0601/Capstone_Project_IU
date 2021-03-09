@@ -27,6 +27,7 @@ if (mysqli_query($conn, $sql_insert)) {
     // mysql_free_result() 
 } else {
     $response_header['status_code'] = 206;
+    $response_header["userID"] = $user_id;
     $response_header['response_message'] = 'Error' . mysqli_error($conn);
     echo json_encode($response_header);
 }
