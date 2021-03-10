@@ -33,7 +33,7 @@ Main Role: Developer
 Features
 <ul>
   <li>Create account for new user (Sprint 09)</li>
-  <li>Artist Content Page (Sprint 10)</li>
+  <li>Artist Content Page, Playlists (Sprint 10)</li>
   <li>Live stream video (Sprint 12)</li>
 </ul>
 
@@ -56,7 +56,7 @@ Features
 <ul>
   <li>Login System (Sprint 09)</li>
   <li>Save music (Sprint 10)</li>
-  <li>Create playlists (Sprint 12)</li>
+  <li>Music Assesment (Sprint 12)</li>
 </ul>
 
 This repository will be used to store team file for our project.
