@@ -3,9 +3,9 @@
 $search = $_POST['search'];
 
 $servername = "db.luddy.indiana.edu";
-$username = "i494f20_allnagy";
-$password = "my+sql=i494f20_allnagy";
-$db = "i494f20_allnagy";
+$username = "i494f20_team12";
+$password = "my+sql=i494f20_team12";
+$db = "i494f20_team12";
 
 $conn = new mysqli($servername, $username, $password, $db);
 
