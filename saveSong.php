@@ -94,7 +94,7 @@
           <a class="profilepage" id= "profilelink"
   href="./profile.php">My Profile</a>
           </div>
-               <form method="POST" action="search.html">
+               <form method="POST" action="phpSearch.php">
                      <input type="text" name="searchbar"   />
                      <input type="submit" value="Search Song" />
                </form>
