@@ -5,16 +5,6 @@ header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With,Content-Type, Accept");
 header('Access-Control-Allow-Methods: GET, POST, PUT');
 
-
-// setting header file to accept request
-
-// db credentials
-
-// $servername = "db.luddy.indiana.edu";
-// $username = "i494f20_team12";
-// $password = "my+sql=i494f20_team12";
-
-// $conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
 $response_header = array("status_code" => null, "response_message" => null);
 
 
@@ -41,7 +31,7 @@ if (!$conn) {
             $password_encription
                 = password_hash($form_data[3], PASSWORD_DEFAULT);
             $$userID = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
-             $sql_insert = "INSERT INTO Profile ( `firstName`, `lastName`, `username`, `password`, `followers` , `bio` ) VALUES (  '$form_data[1]', '$form_data[2]' , '$form_data[3]' , '$form_data[4]' , ''  , '')";
+            $sql_insert = "INSERT INTO User (`userID` , `username`,  `firstName`, `lastName`, `email` , `phoneNumber` , `DOB`,  `password`, `followers` , `bio` ) VALUES ( rand(10,100),  '$form_data[3]' , '$form_data[1]', '$form_data[2]' , $form_data[0] , '$form_data[4]' , ''  , '' , '' , '')";
 
             if (mysqli_query($conn, $sql_insert)) {
 
