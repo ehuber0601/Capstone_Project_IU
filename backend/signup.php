@@ -30,8 +30,8 @@ if (!$conn) {
         } else {
             $password_encription
                 = password_hash($form_data[3], PASSWORD_DEFAULT);
-            $$userID = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
-            $sql_insert = "INSERT INTO User (`userID` , `username`,  `firstName`, `lastName`, `email` , `phoneNumber` , `DOB`,  `password`, `followers` , `bio` ) VALUES ( rand(10,100),  '$form_data[3]' , '$form_data[1]', '$form_data[2]' , $form_data[0] , '$form_data[4]' , ''  , '' , '' , '')";
+                $$userID = rand(pow(10, 20), pow(10, 23) - 1);
+                $sql_insert = "INSERT INTO User (`userID` , `username`,  `firstName`, `lastName`, `email` , `phoneNumber` , `DOB`,  `password`, `followers` , `bio` ) VALUES ( $userID,  '$form_data[3]' , '$form_data[1]', '$form_data[2]' , $form_data[0] , '$form_data[4]' , ''  , '' , '' , '')";
 
             if (mysqli_query($conn, $sql_insert)) {
 
