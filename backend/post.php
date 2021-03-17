@@ -1,3 +1,4 @@
+
 <?php
 //  include_once("./session.php");
 include_once("./connection.php");
@@ -31,7 +32,6 @@ if (mysqli_query($conn, $sql_insert)) {
     $response_header['response_message'] = 'Error' . mysqli_error($conn);
     echo json_encode($response_header);
 }
-
 
 
 
