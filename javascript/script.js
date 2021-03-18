@@ -127,7 +127,6 @@ function load_posts() {
 
 
 function load_posts() {
-  // console.log("Sessionid is", localStorage.getItem("session_id"));
   var json = { session_id: localStorage.getItem("session_id") };
   fetch(this.base_url + "show_posts.php", {
     method: "POST",
@@ -150,9 +149,6 @@ function load_posts() {
       console.log(json["posts"]);
       var myarray = json["posts"];
       myarray.forEach(function (item, index) {
-        // console.log("likes is", item.likes);
-        // console.log("Post Content", item.postContent);
-        // console.log("Date", item.postDate);
 
         document.getElementById(
           "post-content"
@@ -169,22 +165,16 @@ function load_posts() {
                       item.postID
                     })">Like <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span> ${
           item.likes
-        }</span> </p>
-                    <p>comments <i class="fa fa-comment" aria-hidden="true"></i> <span></span> </p>
-                    <p>Total Views <span>${item.likes * 2}</span> </p>
+        }</span>
                 </div>
             </div>`;
-        // Object.entries(item).forEach(([key, value]) =>
-        //   console.log(`${key}: ${value}`)
-        // );
+        
       });
 
-      //   document.getElementById("response-message").innerHTML =
-      //     json["response_message"];
 
       if (json["result_code"] === 200) {
         console.log("hi");
-        // window.location = "./index.html";
+       
       } else if (json["result_code"] === 206) {
         console.log("206");
         // window.location = "./index.html";
