@@ -44,7 +44,7 @@ if (!$conn) {
 
             // $$userID = rand(pow(10, 20), pow(10, 23) - 1);
             // $sql_insert = "INSERT INTO User (`userID` , `username`,  `firstName`, `lastName`, `email` , `phoneNumber` , `DOB`,  `password`, `followers` , `bio` ) VALUES ( '$userID',  '$form_data[3]' , '$form_data[1]', '$form_data[2]' , '$form_data[0]' , '$form_data[4]' , ''  , '' , '' , '')";
-            $sql_insert = "INSERT INTO User (`userID` , `username`,  `firstName`, `lastName`, `email` , `phoneNumber` , `DOB`,  `password`, `followers` , `bio` ) VALUES ( '$userID',   '$username' , '$firstName', '$lastName' , '$email' , '' , ''  , '$password' , '' , '')";
+            $sql_insert = "INSERT INTO User (`userID` , `username`,  `firstName`, `lastName`, `email` , `phoneNumber` , `DOB`,  `password`, `followers` , `bio` ) VALUES ( '$userID',   '$email' , '$firstName', '$lastName' , '$email' , '' , ''  , '$password' , '' , '')";
 
             if (mysqli_query($conn, $sql_insert)) {
                 $delete_blank = "DELETE FROM `user` WHERE `email` = '' ";
