@@ -1,4 +1,3 @@
-
 <?php
 //  include_once("./session.php");
 include_once("./connection.php");
@@ -12,15 +11,16 @@ $incoming_data = json_decode(file_get_contents('php://input'), true);
 $postbox = $incoming_data['postbox'];
 // $dummy_post_id = 12421;
 $dummy_post_id = rand(11, 1000);
-$dummy_user_id = 124921;
+
 $dummy_post_date = "2/16/1999";
+$currentdate = date('Y-m-d');
 $dummy_likes = 0;
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$user_id = (int)$incoming_data['userID'];
+$user_id = (int)$incoming_data['userID'] ?: 1;
 // postID, userID, postContent, postDate, likes
-$sql_insert = "INSERT INTO Posts ( `postID`, `userID`, `postContent`, `postDate`, `likes`  ) VALUES ('$dummy_post_id', '$user_id' , '$postbox' , '$dummy_post_date' , '$dummy_likes' )";
+$sql_insert = "INSERT INTO Posts ( `postID`, `userID`, `postContent`, `postDate`, `likes`  ) VALUES ('$dummy_post_id', '$user_id' , '$postbox' , '$currentdate' , '$dummy_likes' )";
 if (mysqli_query($conn, $sql_insert)) {
     $response_header['status_code'] = 200;
     $response_header['response_message'] = 'Post Added Successfully';
@@ -32,7 +32,6 @@ if (mysqli_query($conn, $sql_insert)) {
     $response_header['response_message'] = 'Error' . mysqli_error($conn);
     echo json_encode($response_header);
 }
-
 
 
 
