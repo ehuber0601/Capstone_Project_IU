@@ -1,0 +1,23 @@
+div {
+	border-style: outset;
+	border-color: #2B2D42;
+	background-color: #8D99AE;
+}
+
+body {
+background-color: #a8dadc;
+font-family: 'Almarai';font-size: 22px;
+}
+
+h1 {
+  font-family: 'Brush Script MT', cursive;
+}
+
+table, th, td {
+	border: 1px #2B2D42; 
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
