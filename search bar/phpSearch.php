@@ -1,169 +1,74 @@
+
 <html>
 
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,
-initial-scale=1.0">
-        <link
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-rel="stylesheet"
-
-integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/reset.css">
-        <link rel="stylesheet" href="./css/style.css">
-
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link
-href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap"
-rel="stylesheet">
-        <link rel="stylesheet"
-
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Home Page</title>
-
-        <script> let session_id = localStorage.getItem("session_id");
-
-
-            if (session_id === "" || session_id === null) {
-                location.href = "./login.html"
-                         location.href = "./login.html"
-            }
-        </script>
-        <script>
-
-function show_profile2() {
-  if (
-    localStorage.getItem(
-      "session_id" === null || localStorage.getItem("session_id") === ""
-    )
-  ) {
-    window.location = "./profile.php";
-  } else {
-    var request_url = this.base_url + "view_user_profile.php";
-    console.log("requested url ", request_url);
-    var json = { username: localStorage.getItem("username") };
-                         
-    fetch(request_url, {
-          method: "POST",
-      mode: "no-cors",
-      body: JSON.stringify(json),
-      headers: {
-        "Content-type": "application/x-www-form-urlencoded;
-charset=UTF-8",
-      },
-    })
-     .then((response) => {
-        if (!response.ok) {
-          console.log("response is, ", response);
-          throw new Error("Could not reach website.");
-        }
-        console.log(response);
-        return response.json();
-      })
-            .then(function (json) {
-        console.log("Data from fetch");
-        console.log(json);
-      
-        
-document.getElementById("profilelink").href="profile.php?user=" +
-json["username"];
-      })
-      .catch((err) => console.error(err));
-  }
-}
-          
-</script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="allisonstyle.css">
+		<link href='https://fonts.googleapis.com/css?family=Almarai' rel='stylesheet'>
+	</head>
 <style>
-.profile { display: block;
-float: left;}
-.profilepage {font-size: 20px;
-color: black; }
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #f1faee;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #8D99AE;
+  color: white;
+}
+
+h1 {
+  font-family: 'Brush Script MT', cursive;
+  text-align: center;
+}
+
+div.form {
+	border-style: outset;
+	border-color: #2B2D42;
+	background-color: #8D99AE;
+	border-width:5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    width: 50%;
+}
 </style>
-    </head>
-        
-    <body onload="show_profile2()">
 
-        <nav class="container-fluid">
-            <div class="row">
-   
-                <div class="col-11 text-center">
-                 <div class="profile">
-            <a class="profilepage" id= "profilelink"
-href="./profile.php">My Profile</a>
-            </div>
-                </div>
-                <div class="col-1 text-end">
-                    <i class="d-inline fa fa-home me-2"
-aria-hidden="true"></i>
-                    <div class="d-inline dropdown">
-                        <a class="btn fa fa-cog" href="#" role="button"
-id="dropdownMenuLink" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                        </a>
-                        <ul class="dropdown-menu setting-dropdown"
-aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item text-center "
-href="./setting.html">Setting</a></li>
-<li><a
-class="dropdown-item"
-href="#">Notification
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item"
-href="./profile.html">Account
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Security
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Posts
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Liked
-Posts
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Privacy
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                                </a>
-                            <li><a class="dropdown-item" href="#">Your
-Music
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Support
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                                </a>
-                        <li><a class="dropdown-item" href="./index.html">Home
-                                         </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
+<body>
+<h1> Results </h1>
+<div class="topnav">
+  <a href="./index.html">Home</a>
+  <a href="#,/profile.php">Profile</a>
+  <a href="./post-form.html">Make Post</a>
+  <a class="active href="./search.html">Search</a>
+  <a href="./saveSong.php">Save Song</a>
+  <a href="playlist">Make Playlist</a>
+  <a href="./setting.html">Settings</a>
+</div>
 
-        <div class="main-header text-center pt-3 pb-3">
-                                
-         <script
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-                                
-integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-            crossorigin="anonymous"></script>
-        <script src="./javascript/script.js"></script>
-                            
-        <script> load_posts()</script>
+<h1> Results </h1>
+
+</body>
 
 <?php
 
