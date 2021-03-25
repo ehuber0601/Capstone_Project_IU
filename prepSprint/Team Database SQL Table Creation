@@ -92,6 +92,15 @@ CREATE TABLE Playlist (
 	PRIMARY KEY(playlistID),
 	FOREIGN KEY(songsID) REFERENCES Song(songID)
 	);
+	
+CREATE TABLE Quiz (
+    username VARCHAR(250),
+    color VARCHAR(250),
+    day VARCHAR(250),
+    season VARCHAR(250),
+    vacation VARCHAR(250),
+    food VARCHAR(250)
+    );
 
 
 Insert Statements - 
