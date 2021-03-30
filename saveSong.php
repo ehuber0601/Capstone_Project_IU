@@ -3,11 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Save Song Form</title>
-<div class="main-header text-center pt-3 pb-3">
-          </div>
-         <button onclick="location.href = 'index.html';" id="myButton" class="float-right submit-button" >Go Back Home</button>
-          <form class="form-signin" id="post-form" action="" onsubmit="event.preventDefault();post();">
-
 
 <style>
 
