@@ -1,10 +1,10 @@
 <?php
 //connecting to server (can change to your personal database)
 $servername = "db.luddy.indiana.edu";
-$username = "i494f20_allnagy";
-$password = "my+sql=i494f20_allnagy";
+$username = "i494f20_team12";
+$password = "my+sql=i494f20_team12";
 
-$conn = mysqli_connect($servername, $username, $password, 'i494f20_allnagy');
+$conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
 if ($conn-> connect_error) {
   die("Connection falied:". $conn-> connect_error);
 }
