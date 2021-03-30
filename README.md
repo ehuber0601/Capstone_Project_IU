@@ -44,7 +44,7 @@ Main Role: Developer
 Features
 <ul>
   <li>Homepage (Sprint 09)</li>
-  <li>Search bar to find music (Sprint 10)</li>
+  <li>Save songs to account (Sprint 10)</li>
   <li>Payment System (Sprint 12)</li>
 </ul>
 
@@ -55,7 +55,7 @@ Main Role: Developer
 Features
 <ul>
   <li>Login System (Sprint 09)</li>
-  <li>Save music (Sprint 10)</li>
+  <li>Search bar for songs (Sprint 10)</li>
   <li>Musical Assesment (Sprint 12)</li>
 </ul>
 
