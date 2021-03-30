@@ -92,6 +92,16 @@ CREATE TABLE Playlist (
 	PRIMARY KEY(playlistID),
 	FOREIGN KEY(songsID) REFERENCES Song(songID)
 	);
+	
+CREATE TABLE bio (
+    bioID INT NOT NULL AUTO_INCREMENT,
+    userName VARCHAR(50),
+    hometown VARCHAR(50),
+    genre VARCHAR(50),
+    artist VARCHAR(50),
+    song VARCHAR(50),
+    PRIMARY KEY (bioID)
+    );
 
 
 Insert Statements - 

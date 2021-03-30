@@ -94,7 +94,6 @@ function load_posts() {
                 <p class="mt-2 mb-2 top-heading"> Posted on <span> ${
                   item.postDate
                 } </span></p>
-
                 <div class="d-flex justify-content-between mt-2 mb-2">
                     <p onclick="update_likes(${
                       item.postID
