@@ -16,6 +16,7 @@ if ($session_id != null) {
         if (mysqli_num_rows($result) > 0) {
             $response_header["posts"] =
                 mysqli_fetch_all($result, MYSQLI_ASSOC);
+            // $response_header["UserID_test"] = $response_header["posts"][0]["userID"];
             echo json_encode($response_header);
         } else {
             $response_header["message"] = " No Post found";
