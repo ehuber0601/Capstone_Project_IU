@@ -1,5 +1,4 @@
-
-        	<?php
+	<?php
         	$servername='db.luddy.indiana.edu';
         	$username= 'i494f20_team12';
         	$password = 'my+sql=i494f20_team12';
@@ -39,4 +38,3 @@
 					}
 				$conn->close();
 			?>
-

@@ -17,9 +17,11 @@ ini_set("display_errors", 1);
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
         <title>Profile Page</title>
         <style>
         h1 { font-size: 20px; font-weight: 700; }
+        .create_playlist {display: none;}
         </style>
     </head>
 
@@ -55,8 +57,8 @@ ini_set("display_errors", 1);
             <div class="d-flex justify-content-between mt-2 mb-4">
                 <div class=""> <img src="./images/profile.png" alt=""></div>
                 <div>
-                	 <div class='user_info'>
-                    <p class='mt-2 name' id='first-last-name'>First Name Last Name</p> <div class='verfication'>
+                	 <div class='user_info'>
+                    <p class='mt-2 name' id='first-last-name'>First Name Last Name</p> <div class='verfication'>
 <?php 
 if ($row['artistID'] > 0 ) {
    echo "<img src='images/Verify.png' style='width: 25px'>" ;
@@ -106,28 +108,24 @@ if ($row['artistID'] > 0 ) {
             </div>
             <!-- <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
-
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
             </div>
             <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
-
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
             </div>
             <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
-
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
             </div>
             <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
-
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
@@ -146,12 +144,55 @@ $user = $_REQUEST['user'] ;
         
         <div class="artistcontent">
         <h1>Songs</h1>
+
+        
+        
         <br>	
         	<?php include 'artistcontent.php';?>
         </div>
         
+        <br>
         
-
+        <div class="playlist">
+        <h1>Playlists</h1>
+        <br>
+        <button onclick="$('.create_playlist').css('display','block');">Create Playlist</button>
+        <div class='create_playlist'>
+        <form action='new_playlist.php' method="post">
+        Playlist Name:
+        <input type='text' value='' name='playlist_name'>
+        <input type='hidden' value='<?php echo $user; ?>' name='user' >
+       <input type='submit' value='submit'>
+               </form>
+  
+        </div>
+        <br><br>
+        
+      <?php 
+        
+            		$servername='db.luddy.indiana.edu';
+        	$username= 'i494f20_team12';
+        	$password = 'my+sql=i494f20_team12';
+        	$dbname = 'i494f20_team12';
+        	
+        	$conn = mysqli_connect($servername, $username, $password, $dbname);
+        	
+        	
+        	if ($conn->connect_error) {
+  			die("Connection failed: " . $conn->connect_error);
+                }
+        
+        $sql = "SELECT playlistName FROM Playlist WHERE email = '$user'";
+        
+        $result = $conn->query($sql);
+        
+		while ($row = $result->fetch_assoc()) {
+		
+        echo $row['playlistName']."<br>" ;
+        
+        }
+        
+        ?>
 
 
 
