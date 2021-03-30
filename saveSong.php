@@ -7,21 +7,25 @@
       <meta name="viewport" content="width=device-width,
   initial-scale=1.0">
       <link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+  
+href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
   rel="stylesheet"
 
-  integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+  
+integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
   crossorigin="anonymous">
       <link rel="stylesheet" href="./css/reset.css">
       <link rel="stylesheet" href="./css/style.css">
 
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link
-  href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap"
+  
+href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap"
   rel="stylesheet">
       <link rel="stylesheet"
 
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <title>Home Page</title>
 
       <script> let session_id = localStorage.getItem("session_id");
@@ -111,7 +115,8 @@
   aria-labelledby="dropdownMenuLink">
                           <li><a class="dropdown-item text-center "
   href="./setting.html">Setting</a></li>
-                                                    <li><a class="dropdown-item"
+                                                    <li><a 
+class="dropdown-item"
   href="#">Notification
                               </a>
                               <span class="fa fa-angle-right"></span>
@@ -182,8 +187,10 @@
 
       <div class="main-header text-center pt-3 pb-3">
 
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+       <script 
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+          
+integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
           crossorigin="anonymous"></script>
       <script src="./javascript/script.js"></script>
 
@@ -194,8 +201,10 @@
   <h1>
   <div class="main-header text-center pt-3 pb-3">
             </div>
-           <button onclick="location.href = 'index.html';" id="myButton" class="float-right submit-button" >Go Back Home</button>
-            <form class="form-signin" id="post-form" action="" onsubmit="event.preventDefault();post();">
+           <button onclick="location.href = 'index.html';" id="myButton" 
+class="float-right submit-button" >Go Back Home</button>
+            <form class="form-signin" id="post-form" action="" 
+onsubmit="event.preventDefault();post();">
 
 
 </br>
@@ -243,7 +252,7 @@
   <input type="text" id="userName" name="userName"></br>
   <label for="songzID">Song ID:</label></br>
   <input type="text" id="songID" name="songID"></br>
-</br><button type="submit" name="save">save</button></br>
+ </br> <button type="submit" name="save">save</button></br>
 </body>
 
 <?php
@@ -252,18 +261,22 @@ $servername = "db.luddy.indiana.edu";
 $username = "i494f20_team12";
 $password = "my+sql=i494f20_team12";
 
-$conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
+$conn = mysqli_connect($servername, $username, $password, 
+'i494f20_team12');
 if ($conn-> connect_error) {
   die("Connection falied:". $conn-> connect_error);
 }
 
 //showing table of songs
-$sql = "SELECT songID, artistID, artistName, length, genre, title FROM Song";
+$sql = "SELECT songID, artistID, artistName, length, genre, title FROM 
+Song";
 $result = $conn-> query($sql);
 
 if ($result-> num_rows > 0) {
   while ($row = $result-> fetch_assoc()) {
-    echo "<tr><td>". $row["songID"] ."</td><td>". $row["artistID"] ."</td><td>". $row["artistName"] ."</td><td>". $row["length"] ."</td><td>". $row["genre"] ."</td><td>". $row["title"] ."</td></tr>";
+    echo "<tr><td>". $row["songID"] ."</td><td>". $row["artistID"] 
+."</td><td>". $row["artistName"] ."</td><td>". $row["length"] 
+."</td><td>". $row["genre"] ."</td><td>". $row["title"] ."</td></tr>";
   }
   echo "</table>";
 }
@@ -280,7 +293,8 @@ $userName = mysqli_real_escape_string($conn, $_REQUEST['userName']);
 // Attempt insert query execution
 if(isset($_POST['save']))
 {
-  $sql = "INSERT INTO saveSong(song, userName) VALUES ('$song', '$userName')";
+  $sql = "INSERT INTO saveSong(song, userName) VALUES ('$song', 
+'$userName')";
   if(mysqli_query($conn, $sql)){
     echo "Records inserted successfully.";
   } else{
@@ -294,4 +308,3 @@ $conn-> close();
 
 </body>
 </html>
-
