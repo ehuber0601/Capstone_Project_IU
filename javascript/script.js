@@ -76,6 +76,7 @@ function load_posts() {
     })
     .then(function (json) {
       var myarray = json["posts"];
+      console.log("post here, ", json);
       myarray.forEach(function (item, index) {
         document.getElementById(
           "post-content"
@@ -137,7 +138,7 @@ function show_profile() {
         document.getElementById("first-last-name").innerHTML =
           json["firstName"] + " " + json["lastName"];
         document.getElementById("bio-content").innerHTML = json["bio"];
-        document.getElementById("username").innerHTML = json["username"];
+        // document.getElementById("username").innerHTML = json["username"];
       })
       .catch((err) => console.error(err));
   }
