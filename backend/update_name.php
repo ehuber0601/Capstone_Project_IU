@@ -24,7 +24,7 @@ if (empty($sessionID)) {
 
     $update = mysqli_query($conn, $updateQuery);
 
-    if (mysqli_affected_rows($mysqli) > 0) {
+    if (mysqli_affected_rows($conn) > 0) {
         $response_header["message"] = "Successfully updated Name";
         $response_header["firstName"] = $firstName;
         $response_header["lastName"] = $lastName;
