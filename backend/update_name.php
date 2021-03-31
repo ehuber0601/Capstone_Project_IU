@@ -20,7 +20,7 @@ if (empty($sessionID)) {
     echo json_encode($response_header);
 } else {
 
-    $updateQuery = "Update User set `firstName` = '$name' , `lastName` = '$lastName' WHERE `userID` = '$userID'";
+    $updateQuery = "Update User set `firstName` = '$firstName' , `lastName` = '$lastName' WHERE `userID` = '$userID'";
 
     $update = mysqli_query($conn, $updateQuery);
 
