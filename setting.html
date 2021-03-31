@@ -39,7 +39,7 @@
 
                         <ul class="dropdown-menu setting-dropdown" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item text-center " href="./setting.html">Setting</a></li>
-                            <li><a class="dropdown-item" href="#">Notification
+                            <li><a class="dropdown-item" href="#">Update Profile
                                 </a>
                                 <span class="fa fa-angle-right"></span>
                             </li>
@@ -86,7 +86,7 @@
                     </div>
                     <div id="notification" class="d-flex justify-content-between mt-2 mb-2 setting-box"
                         onclick="show_tabs('notification')">
-                        <p>Notification </p>
+                        <p>Update Profile</p>
                         <i class="fa fa-angle-right"></i>
                     </div>
                     <div id="account" class="d-flex justify-content-between mt-2 setting-box"
@@ -128,38 +128,77 @@
 
                 <div id="notification-details" class="col-lg-9 col-md-8 col-sm-12 ms-auto mt-2 p-2 d-none">
 
-                    <div class="notiication-content d-flex justify-content-start m-3 border p-3">
-                        <i class="fa fa-bell w-25"></i>
-                        <p>You revieved new comments</p>
-                    </div>
-                    <div class="notiication-content d-flex justify-content-start m-3 border p-3">
-                        <i class="fa fa-bell w-25"></i>
-                        <p>You revieved new like</p>
-                    </div>
-                    <div class="notiication-content d-flex justify-content-start m-3 border p-3">
-                        <i class="fa fa-bell w-25"></i>
-                        <p>Your password was changed</p>
-                    </div>
-                    <div class="notiication-content d-flex justify-content-start m-3 border p-3">
-                        <i class="fa fa-bell w-25"></i>
-                        <p>You revieved new comments</p>
-                    </div>
-                    <div class="notiication-content d-flex justify-content-start m-3 border p-3">
-                        <i class="fa fa-bell w-25"></i>
-                        <p>Live Streaming near you</p>
-                    </div>
-                    <div class="notiication-content d-flex justify-content-start m-3 border p-3">
-                        <i class="fa fa-bell w-25"></i>
-                        <p>You revieved new comments</p>
+                    <div class="m-3 p-3">
+                        <button class="collapsible">Update First and Last
+                            Name</button>
+                        <div class="collapsible-content">
+                            <form id="update_name_form" action="" onsubmit="event.preventDefault(); update_name();">
+                                <div class="update-input">
+                                    <label for="firstName">First Name</label> <input type="text" name="firstName"
+                                        required
+                                        style="display: inline-block; width: 80%; outline: none; border: none; background: none; text-align: center;">
+                                </div>
+
+                                <div class="update-input">
+                                    <label for="firstName">Last Name</label> <input type="text" name="lastName" required
+                                        style="display: inline-block; width: 80%; outline: none; border: none; background: none; text-align: center;">
+                                </div>
+
+                                <p id="update_response"></p>
+
+                                <div><button type="submit" class="btn btn-primary m-2">Update Name</button></div>
+                            </form>
+                        </div>
                     </div>
 
-                    <div class="notiication-content d-flex justify-content-start m-3 border p-3">
-                        <i class="fa fa-bell w-25"></i>
-                        <p>Your password was changed</p>
+                    <div class="m-3 p-3">
+                        <button class="collapsible">Update Password</button>
+                        <div class="collapsible-content">
+                            <form id="update_password_form" action=""
+                                onsubmit="event.preventDefault(); update_password();">
+                                <div class="update-input">
+                                    <label for="Current Password">Current Password</label> <input type="password"
+                                        name="currentPassword" required
+                                        style="display: inline-block; width: 80%; outline: none; border: none; background: none; text-align: center;">
+                                </div>
+
+                                <div class="update-input">
+                                    <label for="firstName">New Password</label> <input type="password"
+                                        name="newPassword" required
+                                        style="display: inline-block; width: 80%; outline: none; border: none; background: none; text-align: center;">
+                                </div>
+                                <p id="update_password_response"></p>
+                                <div><button type="submit" class="btn btn-primary m-2">Update Password</button></div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="notiication-content d-flex justify-content-start m-3 border p-3">
-                        <i class="fa fa-bell w-25"></i>
-                        <p>You revieved new comments</p>
+
+                    <div class="m-3 p-3">
+                        <button class="collapsible">Update Bio</button>
+                        <div class="collapsible-content">
+                            <form id="update_bio_form" action="" onsubmit="event.preventDefault(); update_bio();">
+                                <div class="update-input">
+                                    <label for="Bio">Enter Bio</label> <input type="text" name="bio" required
+                                        style="display: inline-block; width: 80%; outline: none; border: none; background: none; text-align: center;">
+                                </div>
+                                <p id="update_bio_response"></p>
+                                <div><button type="submit" class="btn btn-primary m-2">Update Bio</button></div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="m-3 p-3">
+                        <button class="collapsible">Update Email</button>
+                        <div class="collapsible-content">
+                            <form id="update_email_form" action="" onsubmit="event.preventDefault(); update_email();">
+                                <div class="update-input">
+                                    <label for="Bio">Enter new email</label> <input type="email" name="email" required
+                                        style="display: inline-block; width: 80%; outline: none; border: none; background: none; text-align: center;">
+                                </div>
+                                <p id="update_email_response"></p>
+                                <div><button type="submit" class="btn btn-primary m-2">Update Email</button></div>
+                            </form>
+                        </div>
                     </div>
 
 
@@ -410,6 +449,25 @@
             </div>
 
         </div>
+
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+
+        <script src="./javascript/setting.js"></script>
 
     </body>
 

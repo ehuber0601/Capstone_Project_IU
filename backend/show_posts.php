@@ -12,11 +12,24 @@ $session_id = $incoming_data['session_id'];
 if ($session_id != null) {
     $sql = "SELECT * FROM Posts";
 
+    $posts = [];
+
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
-            $response_header["posts"] =
-                mysqli_fetch_all($result, MYSQLI_ASSOC);
-            // $response_header["UserID_test"] = $response_header["posts"][0]["userID"];
+            while ($row = mysqli_fetch_assoc($result)) {
+
+                $userID = $row['userID'];
+
+                $username_query = mysqli_query($mysqli, "SELECT `firstName` , `lastName` from User where `userID` = $userID");
+                $userName = mysqli_fetch_assoc($username_query);
+
+                $row["name"] = $userName['firstName'] . ' ' . $userName['lastName'];
+
+                array_push($posts, $row);
+            }
+
+            $response_header["posts"] = $posts;
+            // mysqli_fetch_all($result, MYSQLI_ASSOC);
             echo json_encode($response_header);
         } else {
             $response_header["message"] = " No Post found";
