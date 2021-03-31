@@ -20,7 +20,7 @@ if ($session_id != null) {
 
                 $userID = $row['userID'];
 
-                $username_query = mysqli_query($mysqli, "SELECT `firstName` , `lastName` from User where `userID` = $userID");
+                $username_query = mysqli_query($conn, "SELECT `firstName` , `lastName` from User where `userID` = '$userID'");
                 $userName = mysqli_fetch_assoc($username_query);
 
                 $row["name"] = $userName['firstName'] . ' ' . $userName['lastName'];
