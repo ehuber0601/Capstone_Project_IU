@@ -28,12 +28,12 @@ function update_name() {
       if (!response.ok) {
         throw new Error("Could not reach website.");
       }
-      console.log(response);
       return response.json();
     })
     .then(function (json) {
       document.getElementById("update_response").innerHTML =
-        json["response_message"];
+      json["response_message"];
+      console.log("response is, ", json);
     })
     .catch(
       (err) => (document.getElementById("update_response").innerHTML = err)
