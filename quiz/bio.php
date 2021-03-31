@@ -1,5 +1,5 @@
 <?php
-//connecting to server (can change to your personal database)
+//connecting to server
 $servername = "db.luddy.indiana.edu";
 $username = "i494f20_team12";
 $password = "my+sql=i494f20_team12";
@@ -10,14 +10,13 @@ if ($conn-> connect_error) {
 }
 
 
-$song = mysqli_real_escape_string($conn, $_REQUEST[songID]);
 $userName = mysqli_real_escape_string($conn, $_REQUEST['userName']);
 $hometown = mysqli_real_escape_string($conn, $_REQUEST['hometown']);
 $genre = mysqli_real_escape_string($conn, $_REQUEST['genre']);
 $artist = mysqli_real_escape_string($conn, $_REQUEST['artist']);
 $song = mysqli_real_escape_string($conn, $_REQUEST['song']);
 
-// Attempt insert query execution
+//insert query execution
 if(isset($_POST['save']))
 {
   $sql = "INSERT INTO bio (userName, hometown, genre, artist, song) VALUES ('$userName','$hometown','$genre','$artist','$song')";
