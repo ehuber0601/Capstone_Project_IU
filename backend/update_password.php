@@ -29,21 +29,21 @@ if (empty($sessionID)) {
             echo json_encode($response_header);
         } else {
 
-            $sql = "UPDATE User set `password` = $newPassword  WHERE `userID` = $userID ";
+            $sql = "UPDATE User set `password` = '$newPassword'  WHERE `userID` = '$userID' ";
             $update = mysqli_query($conn, $sql);
 
             if (mysqli_affected_rows($conn) > 0) {
-                $response_header["message"] = "Successfully updated Password";
+                $response_header["response_message"] = "Successfully updated Password";
                 $response_header["response_code"] = 200;
                 echo json_encode($response_header);
             } else {
-                $response_header["message"] = "Sorry we Could not Password !! " . mysqli_error($conn);
+                $response_header["response_message"] = "Sorry we Could not Password !! " . mysqli_error($conn);
                 $response_header["response_code"] = 207;
                 echo json_encode($response_header);
             }
         }
     } else {
-        $response_header["message"] = "Sorry we Could not Password !! " . mysqli_error($conn);
+        $response_header["response_message"] = "Sorry we Could not Password !! " . mysqli_error($conn);
         $response_header["response_code"] = 207;
         echo json_encode($response_header);
     }
