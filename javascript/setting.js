@@ -32,7 +32,7 @@ function update_name() {
     })
     .then(function (json) {
       document.getElementById("update_response").innerHTML =
-      json["response_message"];
+      json["message"];
       console.log("response is, ", json);
     })
     .catch(
