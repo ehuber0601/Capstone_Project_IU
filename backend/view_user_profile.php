@@ -10,7 +10,7 @@ $name  = $incoming_data['username'];
 
 // $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$sql = "SELECT * FROM Profile WHERE `username` = '$name'";
+$sql = "SELECT * FROM User WHERE `username` = '$name'";
 
 try {
     if ($result = mysqli_query($conn, $sql)) {

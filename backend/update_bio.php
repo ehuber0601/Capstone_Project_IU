@@ -16,6 +16,7 @@ $sessionID = $incoming_data['session_id'];
 if (empty($sessionID)) {
     $response_header['message'] = "Sorry you have not logged in ";
     $response_header['response_code'] = 206;
+    echo json_encode($response_header);
 } else {
 
     $updateQuery = "Update User set `bio` = $new_bio  WHERE `userID` = $userID";
@@ -25,8 +26,10 @@ if (empty($sessionID)) {
     if (mysqli_affected_rows($mysqli) > 0) {
         $response_header["message"] = "Successfully updated Bio";
         $response_header["response_code"] = 200;
+        echo json_encode($response_header);
     } else {
         $response_header["message"] = "Sorry we Could not update Bio " . mysqli_error($mysqli);
         $response_header["response_code"] = 200;
+        echo json_encode($response_header);
     }
 }

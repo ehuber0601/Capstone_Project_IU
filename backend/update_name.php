@@ -17,6 +17,7 @@ $userID = $incoming_data['userID'];
 if (empty($sessionID)) {
     $response_header['message'] = "Sorry you have not logged in ";
     $response_header['response_code'] = 206;
+    echo json_encode($response_header);
 } else {
 
     $updateQuery = "Update User set `firstName` = $name , `lastName` = $lastName WHERE `userID` = $userID";
@@ -28,8 +29,10 @@ if (empty($sessionID)) {
         $response_header["firstName"] = $firstName;
         $response_header["lastName"] = $lastName;
         $response_header["response_code"] = 200;
+        echo json_encode($response_header);
     } else {
         $response_header["message"] = "Sorry we Could not update Name!! " . mysqli_error($mysqli);
         $response_header["response_code"] = 207;
+        echo json_encode($response_header);
     }
 }
