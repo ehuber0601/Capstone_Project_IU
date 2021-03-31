@@ -5,12 +5,12 @@ include_once("./connection.php");
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$name  = $incoming_data['username'];
+$name  = $incoming_data['userID'];
 // $name  = 'erat';
 
 // $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$sql = "SELECT * FROM User WHERE `username` = '$name'";
+$sql = "SELECT * FROM User WHERE `userID` = '$name'";
 
 try {
     if ($result = mysqli_query($conn, $sql)) {

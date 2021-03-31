@@ -30,20 +30,20 @@ if (empty($sessionID)) {
         } else {
 
             $sql = "UPDATE User set `password` = $newPassword  WHERE `userID` = $userID ";
-            $update = mysqli_query($mysqli, $sql);
+            $update = mysqli_query($conn, $sql);
 
-            if (mysqli_affected_rows($mysqli) > 0) {
+            if (mysqli_affected_rows($conn) > 0) {
                 $response_header["message"] = "Successfully updated Password";
                 $response_header["response_code"] = 200;
                 echo json_encode($response_header);
             } else {
-                $response_header["message"] = "Sorry we Could not Password !! " . mysqli_error($mysqli);
+                $response_header["message"] = "Sorry we Could not Password !! " . mysqli_error($conn);
                 $response_header["response_code"] = 207;
                 echo json_encode($response_header);
             }
         }
     } else {
-        $response_header["message"] = "Sorry we Could not Password !! " . mysqli_error($mysqli);
+        $response_header["message"] = "Sorry we Could not Password !! " . mysqli_error($conn);
         $response_header["response_code"] = 207;
         echo json_encode($response_header);
     }

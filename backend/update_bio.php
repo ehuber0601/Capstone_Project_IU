@@ -21,14 +21,14 @@ if (empty($sessionID)) {
 
     $updateQuery = "Update User set `bio` = $new_bio  WHERE `userID` = $userID";
 
-    $update = mysqli_query($mysqli, $updateQuery);
+    $update = mysqli_query($conn, $updateQuery);
 
-    if (mysqli_affected_rows($mysqli) > 0) {
+    if (mysqli_affected_rows($conn) > 0) {
         $response_header["message"] = "Successfully updated Bio";
         $response_header["response_code"] = 200;
         echo json_encode($response_header);
     } else {
-        $response_header["message"] = "Sorry we Could not update Bio " . mysqli_error($mysqli);
+        $response_header["message"] = "Sorry we Could not update Bio " . mysqli_error($conn);
         $response_header["response_code"] = 200;
         echo json_encode($response_header);
     }
