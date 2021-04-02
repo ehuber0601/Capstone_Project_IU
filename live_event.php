@@ -12,6 +12,7 @@ $servername='db.luddy.indiana.edu';
                 }
                 
                 $user = $_REQUEST['user'];
+<<<<<<< Updated upstream
                 $event = $_REQUEST['event_name'];
                 $date = $_REQUEST
                 
@@ -19,3 +20,16 @@ $servername='db.luddy.indiana.edu';
             $result = $conn->query($sql);
             
             echo mysqli_error(); ?>
+=======
+          $userID = $_REQUEST['userID'];
+                $event = $_REQUEST['event_name'];
+                $date = $_REQUEST['event_date'];
+                $time = $_REQUEST['event_time'];
+                
+                $sql = "INSERT INTO Event (userID, eventName, date, time ) VALUES ('$userID','$event','$date', '$time')";
+            $result = $conn->query($sql);
+            
+            echo mysqli_error(); ?>
+            
+            <a href = "profile.php?user=<?php echo $user; ?>">Back to Profile</a>
+>>>>>>> Stashed changes
