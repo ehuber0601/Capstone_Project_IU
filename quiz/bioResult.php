@@ -1,8 +1,7 @@
 <?php
 
 $username = $_POST['username'];
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
+/* Attempt MySQL server connection.  */
 $servername = "db.luddy.indiana.edu";
 $username = "i494f20_team12";
 $password = "my+sql=i494f20_team12";
