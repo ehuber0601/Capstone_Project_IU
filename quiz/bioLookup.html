@@ -1,49 +1,76 @@
-<?php
+<html>
+<head>
+<link rel="stylesheet" href="allisonstyle.css">
+<link href='https://fonts.googleapis.com/css?family=Almarai'
+rel='stylesheet'>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-//$username = $_POST['username'];
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-$servername = "db.luddy.indiana.edu";
-$username = "i494f20_team12";
-$password = "my+sql=i494f20_team12";
-$db = "i494f20_team12";
-
-$conn = new mysqli($servername, $username, $password, $db);
-
-if ($conn->connect_error){
-	die("Connection failed: ". $conn->connect_error);
+<style>
+.topnav {
+  overflow: hidden;
+  background-color: #333;
 }
- 
 
-// Attempt select query execution
-$sql = "SELECT * FROM bio";
-if($result = mysqli_query($conn, $sql)){
-    if(mysqli_num_rows($result) > 0){
-        echo "<table>";
-            echo "<tr>";
-                echo "<th>userName</th>";
-                echo "<th>hometown</th>";
-                echo "<th>artist</th>";
-                echo "<th>song</th>";
-            echo "</tr>";
-        while($row = mysqli_fetch_array($result)){
-            echo "<tr>";
-                echo "<td>" . $row['userName'] . "</td>";
-                echo "<td>" . $row['hometown'] . "</td>";
-                echo "<td>" . $row['artist'] . "</td>";
-                echo "<td>" . $row['song'] . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-        // Free result set
-        mysqli_free_result($result);
-    } else{
-        echo "No records matching your query were found.";
-    }
-} else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
- 
-// Close connection
-mysqli_close($link);
-?>
+
+.topnav a:hover {
+  background-color: #f1faee;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #8D99AE;
+  color: white;
+}
+
+h1 {
+  font-family: 'Brush Script MT', cursive;
+  text-align: center;
+}
+
+div.form {
+        border-style: outset;
+        border-color: #2B2D42;
+        background-color: #8D99AE;
+        border-width:5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    width: 50%;
+}
+</style>
+	
+<body>
+<div class="topnav">
+  <a href="./index.html">Home</a>
+  <a href="#,/profile.php">Profile</a>
+  <a href="./post-form.html">Make Post</a>
+  <a href="./search.html">Search</a>
+  <a href="./saveSong.php">Save Song</a>
+  <a href="playlist">Make Playlist</a>
+  <a class="active" href="./setting.html">Settings</a>
+</div>
+
+<h1> Enter your username to create bio:</h1>
+<div class="form">
+<form action="bioPHP.php" method="post">
+Search <input type="text" name="username"><br>
+<input type ="submit">   
+</form>
+</div>
+    
+</body>
+</html>
