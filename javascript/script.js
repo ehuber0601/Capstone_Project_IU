@@ -42,11 +42,13 @@ function login() {
 
       if (json["result_code"] === 200) {
         console.log("hi", json);
+
         sessionStorage.setItem("session_id", json["session_id"]); // login and logout
         sessionStorage.setItem("username", json["username"]);
         sessionStorage.setItem("userID", json["userID"]); // when we post something we will use this id
         sessionStorage.setItem("firstName", json["firstName"]); // when we post something we will use this id
         sessionStorage.setItem("lastName", json["lastName"]); // when we post something we will use this id
+
         window.location = "./index.html";
       } else if (json["result_code"] === 206) {
         console.log("206");
@@ -59,7 +61,9 @@ function login() {
 }
 
 function load_posts() {
+
   var json = { session_id: sessionStorage.getItem("session_id") };
+
   fetch(this.base_url + "show_posts.php", {
     method: "POST",
     mode: "no-cors",
@@ -105,6 +109,7 @@ function load_posts() {
     .catch((err) => console.error(err));
 }
 
+
 function show_profile() {
   if (
     sessionStorage.getItem(
@@ -146,31 +151,63 @@ function show_profile() {
 
 function update_likes(post_id) {}
 
-function show_tabs(current_class_id) {
-  document
-    .getElementById(this.current_item_active)
-    .classList.remove("setting-active");
 
-  console.log("current active class", this.current_item_active);
-  document.getElementById(current_class_id).classList.add("setting-active");
-  document
-    .getElementById(this.current_item_active + "-details")
-    .classList.add("d-none");
 
-  this.current_item_active = current_class_id;
+function load_posts() {
+  var json = { session_id: localStorage.getItem("session_id") };
+  fetch(this.base_url + "show_posts.php", {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(json),
+    headers: {
+      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        console.log("response is", response);
+        throw new Error("Could not reach website.");
+      }
+      console.log(response);
+      return response.json();
+    })
+    .then(function (json) {
+      console.log("Data from fetch");
+      console.log(json["posts"]);
+      var myarray = json["posts"];
+      myarray.forEach(function (item, index) {
 
-  console.log("current classs detials ", current_class_id + "-details");
+        document.getElementById(
+          "post-content"
+        ).innerHTML += `<div class="post p-2 border mt-2 mb-2">
+                <P class="top-heading mb-2">Posted-by <span></span></P>
+                <p class="top-heading mb-2">Post Content</p>
+                <p class="mt-2 mb-2">${item.postContent}</p>
+                <p class="mt-2 mb-2 top-heading"> Posted on <span> ${
+                  item.postDate
+                } </span></p>
 
-  if (current_class_id + "-details" === "posts-details") {
-    document.getElementById("post-content").innerHTML = "";
+                <div class="d-flex justify-content-between mt-2 mb-2">
+                    <p onclick="update_likes(${
+                      item.postID
+                    })">Like <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span> ${
+          item.likes
+        }</span>
+                </div>
+            </div>`;
+        
+      });
 
-    document
-      .getElementById(current_class_id + "-details")
-      .classList.remove("d-none");
-    load_posts();
-  } else {
-    document
-      .getElementById(current_class_id + "-details")
-      .classList.remove("d-none");
-  }
+
+      if (json["result_code"] === 200) {
+        console.log("hi");
+       
+      } else if (json["result_code"] === 206) {
+        console.log("206");
+        // window.location = "./index.html";
+      }
+    })
+    .catch((err) => console.error(err));
 }
+
+

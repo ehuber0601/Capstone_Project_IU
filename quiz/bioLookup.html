@@ -1,10 +1,8 @@
-<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="allisonstyle.css">
-
-<link href='https://fonts.googleapis.com/css?family=Almarai' rel='stylesheet'>
-
+<link href='https://fonts.googleapis.com/css?family=Almarai'
+rel='stylesheet'>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -39,12 +37,10 @@ h1 {
 }
 
 div.form {
-
-	border-style: outset;
-	border-color: #2B2D42;
-	background-color: #8D99AE;
-	border-width:5px;
-
+        border-style: outset;
+        border-color: #2B2D42;
+        background-color: #8D99AE;
+        border-width:5px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -56,7 +52,7 @@ div.form {
     width: 50%;
 }
 </style>
-
+	
 <body>
 <div class="topnav">
   <a href="./index.html">Home</a>
@@ -68,33 +64,13 @@ div.form {
   <a class="active" href="./setting.html">Settings</a>
 </div>
 
-<h1>Customize your Bio</h1>
-
-
-<div>Tell us more about yourself to customize your profile.</div>
-  </br>
-<div class= "form">
-  <form action="bio.php" method="post">
-  </br><label for="userName">Your Username:</label>
-  <input type="text" id="userName" name="userName"></br>
-  
-   <label for="hometown">Hometown:</label>
-  <input type="text" id="hometown" name="hometown"></br>
-  
-  <label for="genre">Favorite Genre:</label>
-  <input type="text" id="genre" name="genre"></br>
-  
-  <label for="artist">Favorite Artist</label>
-  <input type="text" id="artist" name="artist"></br>
-
-   <label for="song">Favorite Song:</label>
-  <input type="text" id="song" name="song"></br>
-  
-</br><button type="submit" name="save">Submit</button></br>
-
+<h1> Enter your username to create bio:</h1>
+<div class="form">
+<form action="bioPHP.php" method="post">
+Search <input type="text" name="username"><br>
+<input type ="submit">   
+</form>
 </div>
-  
+    
 </body>
-
-</html>	
-
+</html>

@@ -13,6 +13,7 @@ if ($session_id != null) {
 
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
+
             while ($row = mysqli_fetch_assoc($result)) {
 
                 $userID = $row['userID'];
@@ -25,8 +26,11 @@ if ($session_id != null) {
                 array_push($posts, $row);
             }
 
-            $response_header["posts"] = $posts;
-            // mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+            $response_header["posts"] =
+                mysqli_fetch_all($result, MYSQLI_ASSOC);
+            // $response_header["UserID_test"] = $response_header["posts"][0]["userID"];
+
             echo json_encode($response_header);
         } else {
             $response_header["message"] = " No Post found";
