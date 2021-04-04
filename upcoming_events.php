@@ -1,4 +1,4 @@
-<button onclick="location.href = 'index.php';" id="myButton" class="float-left submit-button" >Homepage</button>
+<button onclick="location.href = 'index.html';" id="myButton" class="float-left submit-button" >Homepage</button>
 <?php 
 
 $servername='db.luddy.indiana.edu';
