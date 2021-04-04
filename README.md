@@ -23,7 +23,7 @@ Features
 <ul>
   <li>Settings Page (Sprint 09)</li>
   <li>Post to home page (Sprint 10)</li>
-  <li>Follow other users (Sprint 12)</li>
+  <li>User Messaging (Sprint 12)</li>
 </ul>
 
 <b>Huberman, Eric (ehuberm)</b>
@@ -44,7 +44,7 @@ Main Role: Developer
 Features
 <ul>
   <li>Homepage (Sprint 09)</li>
-  <li>Search bar to find music (Sprint 10)</li>
+  <li>Save songs to account (Sprint 10)</li>
   <li>Payment System (Sprint 12)</li>
 </ul>
 
@@ -55,8 +55,8 @@ Main Role: Developer
 Features
 <ul>
   <li>Login System (Sprint 09)</li>
-  <li>Save music (Sprint 10)</li>
-  <li>Musical Assesment (Sprint 12)</li>
+  <li>Search bar for songs (Sprint 10)</li>
+  <li>Custom Bio (Sprint 12)</li>
 </ul>
 
 This repository will be used to store team file for our project.

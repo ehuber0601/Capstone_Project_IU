@@ -93,13 +93,14 @@ CREATE TABLE Playlist (
 	FOREIGN KEY(songsID) REFERENCES Song(songID)
 	);
 	
-CREATE TABLE Quiz (
-    username VARCHAR(250),
-    color VARCHAR(250),
-    day VARCHAR(250),
-    season VARCHAR(250),
-    vacation VARCHAR(250),
-    food VARCHAR(250)
+CREATE TABLE bio (
+    bioID INT NOT NULL AUTO_INCREMENT,
+    userName VARCHAR(50),
+    hometown VARCHAR(50),
+    genre VARCHAR(50),
+    artist VARCHAR(50),
+    song VARCHAR(50),
+    PRIMARY KEY (bioID)
     );
 
 

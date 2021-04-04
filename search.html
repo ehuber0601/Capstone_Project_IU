@@ -1,3 +1,4 @@
+
 <html>
 
     <head>
@@ -92,6 +93,10 @@ color: black; }
             <a class="profilepage" id= "profilelink"
 href="./profile.php">My Profile</a>
             </div>
+                             <form method="POST" action="phpSearch.php">
+                       <input type="text" name="searchbar"   />
+                       <input type="submit" value="Search Song" />
+                 </form>
                 </div>
                 <div class="col-1 text-end">
                     <i class="d-inline fa fa-home me-2"
@@ -164,34 +169,15 @@ integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroa
         <script src="./javascript/script.js"></script>
                             
         <script> load_posts()</script>
+        
 
-<?php
 
-$search = $_POST['search'];
+<body>
+    <p> Enter a song title</p>
+<form action="phpSearch.php" method="post">
+Search <input type="text" name="search"><br>
+<input type ="submit">
+</form>
 
-$servername = "db.luddy.indiana.edu";
-$username = "i494f20_team12";
-$password = "my+sql=i494f20_team12";
-$db = "i494f20_team12";
-
-$conn = new mysqli($servername, $username, $password, $db);
-
-if ($conn->connect_error){
-	die("Connection failed: ". $conn->connect_error);
-}
-
-$sql = "select * from Song where title like '%$search%'";
-
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0){
-while($row = $result->fetch_assoc() ){
-	echo $row["title"]."  ".$row["artistName"]."  ".$row["genre"]."<br>";
-}
-} else {
-	echo "0 records";
-}
-
-$conn->close();
-
-?>
+</body>
+</html>

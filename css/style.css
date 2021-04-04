@@ -111,3 +111,78 @@ input {
   color: white;
   font-weight: bold;
 }
+
+/* Update profile setting */
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active,
+.collapsible:hover {
+  background-color: #555;
+}
+
+.collapsible:after {
+  content: "\002B";
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.collapsible-content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease-out;
+  background-color: #f1f1f1;
+}
+
+.collapsible-content form {
+  padding: 20px 0px;
+}
+
+.collapsible-content form label {
+  font-weight: 800;
+}
+
+.collapsible-content form .update-input {
+  padding: 10px;
+  box-shadow: 5px 5px 5px #16161681;
+  border-radius: 20px;
+  margin: 10px 0px;
+}
+
+.group-setting{
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px #00000085;
+}
+
+.group-setting P span{
+  font-weight: bold;
+}
+
+.group-setting button{
+  outline: none;
+  border: none;
+  margin: auto;
+
+}
+
