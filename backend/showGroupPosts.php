@@ -6,39 +6,36 @@ include_once("./connection.php");
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
 $session_id = $incoming_data['session_id'];
+$userID = $incoming_data['userID'];
 if ($session_id != null) {
-    $sql = "SELECT * FROM Posts";
+    $sql = "SELECT * FROM groupPosts , groupMembers WHERE `groupPosts`.`groupID` = `groupMembers`.`groupID` AND `groupMember`.`userID` = '$userID' ";
 
     $posts = [];
 
     if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) > 0) {
-
             while ($row = mysqli_fetch_assoc($result)) {
-
                 $userID = $row['userID'];
 
                 $username_query = mysqli_query($conn, "SELECT `firstName` , `lastName` from User where `userID` = '$userID'");
                 $userName = mysqli_fetch_assoc($username_query);
-
-                $row["name"] = $userName['firstName'] . ' ' . $userName['lastName'];
+                $row["postedBy"] = $userName['firstName'] . ' ' . $userName['lastName'];
 
                 array_push($posts, $row);
             }
 
-
-            $response_header["posts"] =
-                mysqli_fetch_all($result, MYSQLI_ASSOC);
-            // $response_header["UserID_test"] = $response_header["posts"][0]["userID"];
-
+            $response_header["status_code"] = 200;
+            $response_header["groupPosts"] = $posts;
+            // mysqli_fetch_all($result, MYSQLI_ASSOC);
             echo json_encode($response_header);
         } else {
-            $response_header["message"] = " No Post found";
+            $response_header["status_code"] = 404;
+            $response_header["response_message"] = "No Post found";
             echo json_encode($response_header);
         }
         // echo json_encode($response_header);
     } else {
-        $response_header["message"] = " Mysqli error " . mysqli_error($conn);
+        $response_header["message"] = "Mysqli error " . mysqli_error($conn);
         echo json_encode($response_header);
     }
 } else {
