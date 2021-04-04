@@ -1,3 +1,4 @@
+<button onclick="location.href = 'index.html';" id="myButton" class="float-left submit-button" >Homepage</button>
 <?php
 
 //error_reporting(E_ALL);
