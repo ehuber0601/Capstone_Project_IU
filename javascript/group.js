@@ -118,7 +118,7 @@ function searchGroup() {
           }
           else {
             // user is not a part of group
-            buttonHTML = `<button class="btn btn-primary" onclick="joingroup(${element.groupID} , ${userID})">Join +</button>`;
+            buttonHTML = `<button class="btn btn-primary" onclick="joinGroup(${element.groupID} , ${userID})">Join +</button>`;
           }
 
           document.querySelector("#search-result-section").innerHTML += `<div class="group-setting">

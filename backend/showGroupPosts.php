@@ -8,7 +8,7 @@ $incoming_data = json_decode(file_get_contents('php://input'), true);
 $session_id = $incoming_data['session_id'];
 $userID = $incoming_data['userID'];
 if ($session_id != null) {
-    $sql = "SELECT * FROM groupPosts , groupMember WHERE `groupPosts`.`groupID` = `groupMembers`.`groupID` AND `groupMember`.`userID` = '$userID' ";
+    $sql = "SELECT * FROM groupPosts , groupMember WHERE `groupPosts`.`groupID` = `groupMember`.`groupID` AND `groupMember`.`userID` = '$userID' ";
 
     $posts = [];
 
