@@ -80,6 +80,7 @@ function addGroupPosts() {
 }
 
 function searchGroup() {
+  console.log("Search is called");
   document.querySelector(".search-result").innerHTML = "";
   var url = baseURL + "searchGroup.php";
   var json = {

@@ -8,7 +8,7 @@ $incoming_data = json_decode(file_get_contents('php://input'), true);
 $session_id = $incoming_data['session_id'];
 $userID = $incoming_data['userID'];
 if ($session_id != null) {
-    $sql = "SELECT * FROM groupPosts , groupMembers WHERE `groupPosts`.`groupID` = `groupMembers`.`groupID` AND `groupMember`.`userID` = '$userID' ";
+    $sql = "SELECT * FROM groupPosts , groupMember WHERE `groupPosts`.`groupID` = `groupMembers`.`groupID` AND `groupMember`.`userID` = '$userID' ";
 
     $posts = [];
 
@@ -35,11 +35,11 @@ if ($session_id != null) {
         }
         // echo json_encode($response_header);
     } else {
-        $response_header["message"] = "Mysqli error " . mysqli_error($conn);
+        $response_header["response_message"] = "Mysqli error " . mysqli_error($conn);
         echo json_encode($response_header);
     }
 } else {
     $response_header['session_id'] = $session_id;
-    $response_header["message"] = " Please login again";
+    $response_header["response_message"] = " Please login again";
     echo json_encode($response_header);
 }

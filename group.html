@@ -36,9 +36,10 @@
                 
                 <div class="setting-box">
                     <h2 class="main-header">Search for a group</h2>
-                    <form action="" onsubmit="event.preventDefault(); "></form>
-                    <input type="text" placeholder="Enter group Name" required id="groupName">
-                    <button class="btn-primary" type="submit">Search Group</button>
+                    <form action="" onsubmit="event.preventDefault(); searchGroup();"> 
+                        <input type="text" placeholder="Enter group Name" id="groupName" required>
+                        <button class="btn-primary" type="submit">Search Group</button>
+                    </form>
                 </div>
 
                 <div class="search-result setting-box" id="search-result-section">
@@ -54,14 +55,14 @@
             <div class="col-lg-8 col-md-12 col-sm-12">
                 <div class="group-setting">
                     <form action="" onsubmit="event.preventDefault(); createGroup();">
-                        <input type="text" name="groupName" id="newGroupName" placeholder="Enter unique group Name">
+                        <input type="text" name="groupName" id="newGroupName" placeholder="Enter unique group Name" required>
                         <button class="btn btn-primary"> Create Group</button>
                     </form>
                     <p id="create-group-response" class="response-message"></p>
                 </div>
                 <div class="create-group-posts group-setting">
                     <form action="" onsubmit="event.preventDefault(); addGroupPosts();">
-                        <input class="d-block w-100 mt-2 mb-2" type="text" name="groupPostContent" id="newGroupPost" placeholder="Enter Content for group posts">
+                        <input class="d-block w-100 mt-2 mb-2" type="text" name="groupPostContent" required id="newGroupPost" placeholder="Enter Content for group posts">
                         <button class="btn btn-primary"> Create Post</button>
                     </form>
                     <p id="create-group-response" class="response-message"></p>

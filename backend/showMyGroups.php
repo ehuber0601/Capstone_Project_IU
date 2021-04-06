@@ -11,7 +11,7 @@ if ($session_id != null) {
 
     // query to get group id of user who joined group .. it will return a list of groups, joined by user
 
-    $sql = "SELECT `groupID` FROM  groupMembers WHERE  `groupMembers`.`userID` = '$userID' ";
+    $sql = "SELECT `groupID` FROM  groupMember WHERE  `groupMember`.`userID` = '$userID' ";
 
     $posts = [];
 
@@ -19,10 +19,9 @@ if ($session_id != null) {
         if (mysqli_num_rows($result) > 0) {
             // loop through each row and append owner name to group
             while ($row = mysqli_fetch_assoc($result)) {
-
                 $groupID = $row['groupID'];
 
-                $groupOwner =mysqli_fetch_assoc( mysqli_query($conn , "SELECT `userID` as ownerID , `groupName` FROM groupName where `groupID` = '$groupID'"));
+                $groupOwner =mysqli_fetch_assoc(mysqli_query($conn, "SELECT `userID` as ownerID , `groupName` FROM groupName where `groupID` = '$groupID'"));
                 $ownerID = $groupOwner['ownerID'];
                     
                 $username_query = mysqli_query($conn, "SELECT `firstName` , `lastName` from User where `userID` = '$groupOwner'");
@@ -30,7 +29,7 @@ if ($session_id != null) {
                 $userName = mysqli_fetch_assoc($username_query);
                 $row["groupOwner"] = $userName['firstName'] . ' ' . $userName['lastName'];
                 $row["groupName"] = $groupOwner["groupName"];
-                $row["groupID"] = $groupID;    
+                $row["groupID"] = $groupID;
                 array_push($posts, $row);
             }
 
@@ -45,11 +44,11 @@ if ($session_id != null) {
         }
         // echo json_encode($response_header);
     } else {
-        $response_header["message"] = "Mysqli error " . mysqli_error($conn);
+        $response_header["response_message"] = "Mysqli error " . mysqli_error($conn);
         echo json_encode($response_header);
     }
 } else {
     $response_header['session_id'] = $session_id;
-    $response_header["message"] = " Please login again";
+    $response_header["response_message"] = " Please login again";
     echo json_encode($response_header);
 }
