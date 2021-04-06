@@ -28,7 +28,7 @@ function showGroupPosts() {
       var myPosts = json['groupPosts'];
       myPosts.forEach(item => {
         document.getElementById("group-posts-section").innerHTML += `<div class="post p-2 border mt-2 mb-2">
-      <P class="top-heading mb-2">Posted-by <span>${item.name
+      <P class="top-heading mb-2">Posted-by <span>${item.postedBy
           }</span></P>
       <p class="top-heading mb-2">Post Content</p>
       <p class="mt-2 mb-2">${item.postContent}</p>
@@ -55,7 +55,9 @@ function addGroupPosts() {
   var json = {
     userID: sessionStorage.getItem("userID"),
     session_id: sessionStorage.getItem("session_id"),
-    groupID: sessionStorage.getItem("groupID")
+    groupID: sessionStorage.getItem("groupID"),
+    postContent: document.getElementById("newGroupPost").value
+
   };
 
   fetch(url, {
