@@ -24,6 +24,7 @@ function showGroupPosts() {
       return response.json();
     })
     .then(function (json) {
+      console.log(json);
       var myPosts = json['groupPosts'];
       myPosts.forEach(item => {
         document.getElementById("group-posts-section").innerHTML += `<div class="post p-2 border mt-2 mb-2">
@@ -73,7 +74,6 @@ function addGroupPosts() {
     })
     .then(function (json) {
 
-
       console.log(json);
     })
     .catch((err) => console.log(err));
@@ -103,6 +103,7 @@ function searchGroup() {
       return response.json();
     })
     .then(function (json) {
+      console.log("Search result", json);
       if (json["status_code"] === 200) {
         var groups = json['groups'];
         var userID = sessionStorage.getItem("userID");
@@ -178,6 +179,7 @@ function showMyGroups() {
       return response.json();
     })
     .then(function (json) {
+      console.log(json);
       if (json.status_code == 200) {
         var myGroups = json.groupsList;
 
@@ -188,7 +190,7 @@ function showMyGroups() {
           sessionStorage.setItem("groupID", element.groupID);
 
         });
-        // console.log(json.response_message);
+        console.log(json);
       }
 
     })
