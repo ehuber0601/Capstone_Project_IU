@@ -31,7 +31,10 @@
                     <input class="w-25 ms-2" type="text" placeholder="Search item Here">
                 </div>
                 <div class="col-1 text-end">
-                    <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
+               <div class="d-inline">
+                   <a role="button"  href ="./index.html" class=" btn d-inline fa fa-home me-2" aria-hidden="true"></a>
+                </div>
+               
                     <div class="d-inline dropdown">
                         <a class="btn fa fa-cog" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -47,7 +50,7 @@
                                 </a>
                                 <span class="fa fa-angle-right"></span>
                             </li>
-                            <li><a class="dropdown-item" href="#">Security
+                            <li><a class="dropdown-item" href="./group.html">Groups
                                 </a>
                                 <span class="fa fa-angle-right"></span>
                             </li>
@@ -105,8 +108,8 @@
                         <i class="fa fa-angle-right"></i>
                     </div>
                     <div id="liked-posts" class="d-flex justify-content-between mt-2 setting-box"
-                        onclick="show_tabs('liked-posts')">
-                        <p>Liked Posts </p>
+                        onclick="show_tabs('liked-posts') ; window.location.href = './group.html'">
+                        <p>Groups </p>
                         <i class="fa fa-angle-right"></i>
                     </div>
                     <div id="privacy" class="d-flex justify-content-between mt-2 setting-box"
