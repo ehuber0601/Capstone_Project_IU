@@ -80,25 +80,14 @@ function load_posts() {
       myarray.forEach(function (item, index) {
         document.getElementById(
           "post-content"
-        ).innerHTML += `<div class="post p-2 border mt-2 mb-2">
-                <P class="top-heading mb-2">Posted-by <span>${
-                  item.name
-                }</span></P>
+        ).innerHTML += `<div class="post p-2 mt-2 mb-2">
+                <P class="top-heading mb-2">Posted-by <span>${item.name
+          }</span></P>
                 <p class="top-heading mb-2">Post Content</p>
                 <p class="mt-2 mb-2">${item.postContent}</p>
-                <p class="mt-2 mb-2 top-heading"> Posted on <span> ${
-                  item.postDate
-                } </span></p>
+                <p class="mt-2 mb-2 top-heading"> Posted on <span> ${item.postDate
+          } </span></p>
 
-                <div class="d-flex justify-content-between mt-2 mb-2">
-                    <p onclick="update_likes(${
-                      item.postID
-                    })">Like <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span> ${
-          item.likes
-        }</span> </p>
-                    <p>comments <i class="fa fa-comment" aria-hidden="true"></i> <span></span> </p>
-                    <p>Total Views <span>${item.likes * 2}</span> </p>
-                </div>
             </div>`;
       });
     })
@@ -144,7 +133,7 @@ function show_profile() {
   }
 }
 
-function update_likes(post_id) {}
+function update_likes(post_id) { }
 
 function show_tabs(current_class_id) {
   document
