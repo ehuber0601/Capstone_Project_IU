@@ -108,9 +108,9 @@ color: black; }
   <table>
   <tr>  
     <th>Hometown</th>
-    <th>Genre</th>
-    <th>Artist</th>
-    <th>Song</th>
+    <th>Favorite Genre</th>
+    <th>Favorite Artist</th>
+    <th>Favorite Song</th>
   </tr>
 
 <?php
