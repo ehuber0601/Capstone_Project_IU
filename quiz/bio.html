@@ -9,6 +9,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+	background-color:#e6f5ff;
+  font-family: Lucida Console, Courier New, monospace;
+}
+
+/* Style the header */
+header {
+  background-color: #333;
+  padding: 1px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  background: #b3d9ff;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: skyblue;
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
 .topnav {
   overflow: hidden;
   background-color: #333;
@@ -55,23 +109,35 @@ div.form {
     padding-bottom: 5px;
     width: 50%;
 }
+
+
+body {
+	background-color:#e6f5ff;
+  font-family: Lucida Console, Courier New, monospace;
+}
+
 </style>
 
 <body>
 <div class="topnav">
   <a href="./index.html">Home</a>
   <a href="./post-form.html">Make Post</a>
-  <a href="./search.html">Search Music </a>
   <a href="./saveSong.php">Save Music</a>
   <a href="upcoming_events.php">Events</a>
   <a class="active" href="./bio.html">Create Bio</a>
   <a href="./profile.php">My Profile</a>
   <a href="./teammembers.html">Team Members</a>
   <a href="./setting.html">Settings</a>
+    <form method="POST" action="phpSearch.php">
+                                <input type="text" name="search" />
+                                <input type="submit" value="Search Song" />
+                        </form>
 </div>
 
 <h1>About Me</h1>
 
+<section>
+<article>
 
 <div>Tell us more about yourself to customize your bio.</div>
   </br>
@@ -93,8 +159,21 @@ div.form {
   <input type="text" id="song" name="song"></br>
   
 </br><button type="submit" name="save">Submit</button></br>
+</br>
 
 </div>
+</article>
+
+<nav>
+<h2>Enter your username to read your bio. </hw>
+<div class="form">
+<form action="bioPHP.php" method="post">
+Username <input type="text" name="username"><br>
+<button type="submit" name="bio"> Search Bio</button>  
+</form>
+</div>
+</br>
+<nav>
   
 </body>
 
