@@ -15,11 +15,9 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Create Bio</title>
 
-    </head>
 <link rel="stylesheet" href="style.css">
 
 
-</head>
 <link rel="stylesheet" href="style.css">
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,9 +47,7 @@ div.form {
 }
 </style>
 
-<body>
-
-      <nav class="container-fluid">
+        <nav class="container-fluid">
             <div class="row">
               
                 <div class="col-12 col-sm-12 text-center">
@@ -77,23 +73,20 @@ div.form {
                         Music</button>
                         <button onclick="location.href = 'upcoming_events.php';" id="myButton" class="float-left submit-button">Upcoming Events
                         </button>
-                    
-                         <button onclick="location.href = 'bio.html';" id="myButton" class="float-left submit-button">Create Bio
+     <button on			click="location.href = 'bio.html';" id="myButton" class="float-left submit-button">Create Bio
                         </button>
-
                         <button onclick="location.href = 'profile.php';" id="myButton" class="float-left submit-button">My Profile
                         </button>
                 </div>
             </div>
         </nav>
 
-
-
-<h1>Social Sounds</h1>
+        <div class="main-header text-center pt-3 pb-3">
+            <h2>Thank you for using Social Sounds.</h2>
+        </div>
         
 <div
-      <p>Thank you for using Social Sounds. </p>
-      Click <a href ="./bioLoopkup.html"> here </a> to view your bio.
+     <p> Click <a href ="./bioLoopkup.html"> here </a> to view your bio.</p>
     
 
 </div>
@@ -121,8 +114,8 @@ $song = mysqli_real_escape_string($conn, $_REQUEST['song']);
 //insert query execution
 if(isset($_POST['save']))
 {
-  $sql = "INSERT INTO bio (userName, hometown, genre, artist, song) VALUES
-('$userName','$hometown','$genre','$artist','$song')";
+  $sql = mysqli_real_escape_string("INSERT INTO bio (userName, hometown, genre, artist, song) VALUES
+('$userName','$hometown','$genre','$artist','$song')");
   if(mysqli_query($conn, $sql)){
     echo "<script>alert('Records inserted successfully.')</script>";
   } else{
