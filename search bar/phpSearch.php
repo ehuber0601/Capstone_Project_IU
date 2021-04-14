@@ -15,6 +15,27 @@
         <title>Search Results</title>
 
     </head>
+    
+    <style>
+      table {
+      margin: auto;
+    border-collapse: collapse;
+    width: 40%;
+    color: #b3b3b4;
+    font-family: "Manrope", sans-serif;
+    font-size: 25px;
+    text-align: left;
+  }
+  th {
+    background-color: #353b48;
+    color: white;
+  }
+  tr:nth-child(even) {background-color: #f2f2f2;}
+
+  tr:nth-child(odd) {background-color: white;}
+
+
+</style>
 
     <body>
         <nav class="container-fluid">
