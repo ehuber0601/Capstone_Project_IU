@@ -1,1 +1,1 @@
-This folder contains the backend code to run Javascript for Social Sounds.
+This folder contains the backend code for Social Sounds.
