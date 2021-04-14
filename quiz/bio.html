@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="allisonstyle.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/style.css">
 
-<link href='https://fonts.googleapis.com/css?family=Almarai' rel='stylesheet'>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Create Bio</title>
+
+    </head>
+<link rel="stylesheet" href="style.css">
+
 
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 * {
   box-sizing: border-box;
 }
 
-body {
-	background-color:#e6f5ff;
-  font-family: Lucida Console, Courier New, monospace;
-}
-
-/* Style the header */
-header {
-  background-color: #333;
-  padding: 1px;
-  text-align: center;
-  font-size: 30px;
-  color: white;
-}
 
 /* Create two columns/boxes that floats next to each other */
 nav {
   float: left;
   width: 30%;
-  background: #b3d9ff;
   padding: 20px;
 }
 
@@ -45,7 +43,6 @@ article {
   float: left;
   padding: 20px;
   width: 70%;
-  background-color: skyblue;
 }
 
 /* Clear floats after the columns */
@@ -55,42 +52,6 @@ section::after {
   clear: both;
 }
 
-/* Style the footer */
-footer {
-  background-color: #333;
-  padding: 10px;
-  text-align: center;
-  color: white;
-}
-
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.topnav a.active {
-  background-color: #D8BFD8;
-  color: white;
-}
-
-h1 {
-  font-family: 'Brush Script MT', cursive;
-  text-align: center;
-}
 
 div.form {
 
@@ -111,28 +72,45 @@ div.form {
 }
 
 
-body {
-	background-color:#e6f5ff;
-  font-family: Lucida Console, Courier New, monospace;
-}
-
 </style>
 
 <body>
-<div class="topnav">
-  <a href="./index.html">Home</a>
-  <a href="./post-form.html">Make Post</a>
-  <a href="./saveSong.php">Save Music</a>
-  <a href="upcoming_events.php">Events</a>
-  <a class="active" href="./bio.html">Create Bio</a>
-  <a href="./profile.php">My Profile</a>
-  <a href="./teammembers.html">Team Members</a>
-  <a href="./setting.html">Settings</a>
-    <form method="POST" action="phpSearch.php">
-                                <input type="text" name="search" />
-                                <input type="submit" value="Search Song" />
-                        </form>
-</div>
+
+      <nav class="container-fluid">
+            <div class="row">
+              
+                <div class="col-12 col-sm-12 text-center">
+                    <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
+                    <a  href ="./group.html">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+
+                    </a>
+                    <div class="d-inline dropdown">
+                        <a class="btn fa fa-cog" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        </a>
+
+                        <ul class="dropdown-menu setting-dropdown" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item text-center " href="./setting.html">Setting</a></li>
+                        </ul>
+                    </div>
+                        <button onclick="location.href = 'post-form.html';" id="makePostButton" class="submit-button">Make
+                        Post</button>
+                         <button onclick="location.href = 'search.html';" id="myButton" class="float-left submit-button">Search Music
+                        </button>
+                    <button onclick="location.href = 'saveSong.php';" id="saveMusicButton" class="submit-button">Save
+                        Music</button>
+                        <button onclick="location.href = 'upcoming_events.php';" id="myButton" class="float-left submit-button">Upcoming Events
+                        </button>
+                    
+                         <button onclick="location.href = 'bio.html';" id="myButton" class="float-left submit-button">Create Bio
+                        </button>
+
+                        <button onclick="location.href = 'profile.php';" id="myButton" class="float-left submit-button">My Profile
+                        </button>
+                </div>
+            </div>
+        </nav>
 
 <h1>About Me</h1>
 
