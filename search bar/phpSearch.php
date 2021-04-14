@@ -19,16 +19,19 @@
     <style>
       table {
       margin: auto;
+    padding: 15px;
     border-collapse: collapse;
     width: 40%;
     color: #b3b3b4;
     font-family: "Manrope", sans-serif;
     font-size: 25px;
     text-align: left;
+    box-shadow: 0px 0px 5px #00000085;
   }
   th {
     background-color: #353b48;
     color: white;
+    padding: 15px;
   }
   tr:nth-child(even) {background-color: #f2f2f2;}
 
@@ -75,7 +78,7 @@
         
           <table>
   <tr>  
-    <th>Song Title</th>
+    <th>Title</th>
     <th>Artist</th>
     <th>Genre</th>
   </tr>
@@ -103,7 +106,7 @@ $result = $conn->query($sql);
 
 if ($result-> num_rows > 0) {
   while ($row = $result-> fetch_assoc()) {
-    echo "<tr><td>". $row["title"] .$row["artistName"] ."</td><td>". $row["genre"] ."</td></tr>";
+    echo "<tr><td>". $row["title"]."</td><td>" .$row["artistName"] ."</td><td>". $row["genre"] ."</td></tr>";
   }
   echo "</table>";
 }
