@@ -52,6 +52,13 @@
             <h2>Search Results</h2>
         </div>
         
+          <table>
+  <tr>  
+    <th>Song Title</th>
+    <th>Artist</th>
+    <th>Genre</th>
+  </tr>
+        
 
 
 <?php
@@ -73,13 +80,16 @@ $sql = "select * from Song where title like '%$search%'";
 
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0){
-while($row = $result->fetch_assoc() ){
-	echo $row["title"]."  ".$row["artistName"]."  ".$row["genre"]."<br>";
+if ($result-> num_rows > 0) {
+  while ($row = $result-> fetch_assoc()) {
+    echo "<tr><td>". $row["title"] .$row["artistName"] ."</td><td>". $row["genre"] ."</td></tr>";
+  }
+  echo "</table>";
 }
-} else {
-	echo "0 records";
+else {
+  echo "No results matching title found";
 }
+
 
 $conn->close();
 
