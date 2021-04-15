@@ -21,54 +21,14 @@
 </head>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
-
-/* Create two columns/boxes that floats next to each other */
-nav {
-  float: left;
+.group-setting {
+  margin: auto;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px #00000085;
   width: 30%;
-  padding: 20px;
-}
-
-/* Style the list inside the menu */
-nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-article {
-  float: left;
-  padding: 20px;
-  width: 70%;
-}
-
-/* Clear floats after the columns */
-section::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-
-div.form {
-
-	border-style: outset;
-	border-color: #2B2D42;
-	background-color: #8D99AE;
-	border-width:5px;
-
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    padding-top: 25px;
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-bottom: 5px;
-    width: 50%;
 }
 
 
@@ -110,13 +70,15 @@ div.form {
             </div>
         </nav>
 
-<h1>Create Bio</h1>
+   <div class="main-header text-center pt-3 pb-3">
+            <h2>Create Bio</h2>
+        </div>
 
 
-<div>Tell us more about yourself to customize your bio.</div>
   </br>
 <div class= "group-setting">
   <form action="bio.php" method="post">
+  <p>Tell us more about yourself to customize your bio.</p>
   </br><label for="userName">Your Username:</label>
   <input type="text" id="userName" name="userName"></br>
   
@@ -140,4 +102,4 @@ div.form {
   
 </body>
 
-</html>	
+</html>
