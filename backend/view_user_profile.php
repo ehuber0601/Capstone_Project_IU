@@ -5,7 +5,7 @@ include_once("./connection.php");
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$name  = $incoming_data['userID'];
+$name  = cleanInput($incoming_data['userID']);
 // $name  = 'erat';
 
 // $incoming_data = json_decode(file_get_contents('php://input'), true);

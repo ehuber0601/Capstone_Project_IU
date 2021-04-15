@@ -5,7 +5,7 @@ include_once("./connection.php");
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$session_id = $incoming_data['session_id'];
+$session_id = cleanInput($incoming_data['session_id']);
 if ($session_id != null) {
     $sql = "SELECT * FROM Posts";
 

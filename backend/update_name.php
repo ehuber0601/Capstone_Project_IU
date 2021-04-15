@@ -7,10 +7,10 @@ header('Access-Control-Allow-Methods: GET, POST, PUT');
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$firstName = $incoming_data['firstName'];
-$lastName = $incoming_data['lastName'];
-$sessionID = $incoming_data['session_id'];
-$userID = $incoming_data['userID'];
+$firstName = cleanInput($incoming_data['firstName']);
+$lastName = cleanInput($incoming_data['lastName']);
+$sessionID = cleanInput($incoming_data['session_id']);
+$userID = cleanInput($incoming_data['userID']);
 
 
 

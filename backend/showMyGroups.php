@@ -5,8 +5,8 @@ include_once("./connection.php");
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$session_id = $incoming_data['session_id'];
-$userID = $incoming_data['userID'];
+$session_id = cleanInput($incoming_data['session_id']);
+$userID = cleanInput($incoming_data['userID']);
 if ($session_id != null) {
 
     // query to get group id of user who joined group .. it will return a list of groups, joined by user
@@ -21,9 +21,9 @@ if ($session_id != null) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $groupID = $row['groupID'];
 
-                $groupOwner =mysqli_fetch_assoc(mysqli_query($conn, "SELECT `userID` as ownerID , `groupName` FROM groupName where `groupID` = '$groupID'"));
+                $groupOwner = mysqli_fetch_assoc(mysqli_query($conn, "SELECT `userID` as ownerID , `groupName` FROM groupName where `groupID` = '$groupID'"));
                 $ownerID = $groupOwner['ownerID'];
-                    
+
                 $username_query = mysqli_query($conn, "SELECT `firstName` , `lastName` from User where `userID` = '$groupOwner'");
 
                 $userName = mysqli_fetch_assoc($username_query);

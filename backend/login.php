@@ -11,8 +11,8 @@ session_start();
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$name = $incoming_data['username'];
-$userPassword = $incoming_data['password'];
+$name = cleanInput($incoming_data['username']);
+$userPassword = cleanInput($incoming_data['password']);
 
 
 $sql = " SELECT * FROM `User` WHERE `username` = '$name'";
@@ -26,12 +26,10 @@ if ($result = mysqli_query($conn, $sql)) {
         $response_header['result_code'] = 206;
         echo json_encode($response_header);
     } else {
-
         $sql = " SELECT * FROM `User` WHERE `username` = '$name' AND `password` = '$userPassword'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) >= 1) {
-
             $row = mysqli_fetch_assoc($result);
             // session_start();
             $_SESSION['username'] = $name;
@@ -45,7 +43,6 @@ if ($result = mysqli_query($conn, $sql)) {
             $response_header['response_message'] = "Success";
             echo json_encode($response_header);
         } else {
-
             $response_header['response_message'] = "Sorry You gave entered invalid password ! try another password";
             $response_header['result_code'] = 206;
             echo json_encode($response_header);

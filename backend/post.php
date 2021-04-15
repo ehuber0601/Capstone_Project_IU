@@ -9,7 +9,7 @@ header('Access-Control-Allow-Methods: GET, POST, PUT');
 session_start();
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$postbox = $incoming_data['postbox'];
+$postbox = cleanInput($incoming_data['postbox']);
 $currentdate = date('Y-m-d');
 $dummy_likes = 0;
 

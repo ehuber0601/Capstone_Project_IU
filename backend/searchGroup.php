@@ -4,8 +4,8 @@ include_once("./connection.php");
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$session_id = $incoming_data['session_id'];
-$searchQuery = $incoming_data['searchQuery'];
+$session_id = cleanInput($incoming_data['session_id']);
+$searchQuery = cleanInput($incoming_data['searchQuery']);
 
 if ($session_id != null) {
     $sql = "SELECT * FROM groupName WHERE `groupName` like '$searchQuery'";
