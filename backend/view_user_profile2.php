@@ -23,8 +23,12 @@ try {
             $row = mysqli_fetch_assoc($result);
             echo json_encode($row);
         } else {
+<<<<<<< HEAD
             $response_header["message"] = "Sorry no profile exist with 
 username " . $name;
+=======
+            $response_header["message"] = "Sorry no profile exist with username " . $name;
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
             echo json_encode($response_header);
         }
     } else {
@@ -34,4 +38,8 @@ username " . $name;
 } catch (Exception $excpetion) {
     $response_header["message"] = " " . mysqli_error($conn);
     echo json_encode($response_header);
+<<<<<<< HEAD
 } ?>
+=======
+} ?>
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a

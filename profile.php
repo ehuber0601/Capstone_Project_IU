@@ -31,6 +31,7 @@ src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
         <style>
         h1 { font-size: 20px; font-weight: 700; }
         .create_playlist {display: none;}
+<<<<<<< HEAD
         .create_event {display: none;}
 a:link {
   color: black;
@@ -133,6 +134,44 @@ id="DonateButton" class="submit-button">Donate </button>
     		$name = $_COOKIE['name'] ;
 
 
+=======
+                .create_event {display: none;}
+        </style>
+        
+    </head>
+
+    <body >
+    
+    <script>
+    
+        var username = localStorage.getItem("username2") ;
+    
+    //alert(username);
+    
+   var username = localStorage.getItem("username") ;
+
+//alert(username);
+    
+    
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    <?php 
+    
+     
+
+    		
+    		  $user = $_COOKIE['username'] ;
+    
+    		$name = $_COOKIE['name'] ;
+
+    		
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
     		$servername='db.luddy.indiana.edu';
         	$username= 'i494f20_team12';
         	$password = 'my+sql=i494f20_team12';
@@ -145,6 +184,7 @@ $dbname);
         	if ($conn->connect_error) {
   			die("Connection failed: " . $conn->connect_error);
                 }
+<<<<<<< HEAD
 
             $sql = "SELECT UserID FROM User WHERE userName='$user'";
             $result = $conn->query($sql);
@@ -159,6 +199,21 @@ userID='".$row['UserID']."'";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
       //      echo "[$sql][".$row['artistID']."]";
+=======
+            
+            $sql = "SELECT UserID FROM User WHERE userName='$user'";
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+    
+    		$userID = $row['UserID'] ;
+    
+            
+            $sql = "SELECT artistID FROM Artist WHERE userID='".$row['UserID']."'";
+     //    echo $sql;
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+      //      echo "[$sql][".$row['artistID']."]"; 
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
              ?>
 
         <div class="container-fluid">
@@ -166,10 +221,16 @@ userID='".$row['UserID']."'";
                 <div class=""> <img src="./images/profile.png" 
 alt=""></div>
                 <div>
+<<<<<<< HEAD
                 	 <div class='user_info'>
                     <p class='mt-2 name' id='first-last-name'><?php echo 
 $name; ?></p> <div class='verfication'>
 <?php
+=======
+                	 <div class='user_info'>
+                    <p class='mt-2 name' id='first-last-name'><?php echo $name; ?></p> <div class='verfication'>
+<?php 
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
 
 $isArtist = FALSE ;
 
@@ -185,8 +246,12 @@ if ($isArtist ) {
 ?>
 </div></div>
                     <p class="mt-2" id="username"><?php echo $user; ?></p>
+<<<<<<< HEAD
                     <button class="btn btn-primary pe-2 ps-2 
 mt-2">Follow</button>
+=======
+                    <button class="btn btn-primary pe-2 ps-2 mt-2">Follow</button>
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
                 </div>
 
                 <div class="bio-section">
@@ -228,24 +293,28 @@ id="" rows="15"
             </div>
             <!-- <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
+
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
             </div>
             <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
+
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
             </div>
             <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
+
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
             </div>
             <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
+
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
@@ -311,13 +380,20 @@ Playlist</button>
         <form action='new_playlist.php' method="post">
         Playlist Name:
         <input type='text' value='' name='playlist_name'><br>
+<<<<<<< HEAD
 
         <?php
 
+=======
+        
+        <?php
+        
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
                     		$servername='db.luddy.indiana.edu';
         	$username= 'i494f20_team12';
         	$password = 'my+sql=i494f20_team12';
         	$dbname = 'i494f20_team12';
+<<<<<<< HEAD
 
         	$conn = mysqli_connect($servername, $username, $password, 
 $dbname);
@@ -346,6 +422,33 @@ name='song".$counter."' value='".$row['songID']."'>".$row['title']."
 
         ?>
 
+=======
+        	
+        	$conn = mysqli_connect($servername, $username, $password, $dbname);
+        	
+        	
+        	if ($conn->connect_error) {
+  			die("Connection failed: " . $conn->connect_error);
+                }
+        
+        $sql = 'select * from Song' ;
+        
+               $result = $conn->query($sql);
+        
+        $counter = 0 ;
+        
+		while ($row = $result->fetch_assoc()) {
+		
+        echo "<input type='checkbox' id='song".$counter."' name='song".$counter."' value='".$row['songID']."'>".$row['title']." (".$row['artistName'].")<br>" ;
+        
+        $counter = $counter + 1;
+        
+        } 
+        
+        
+        ?>
+        
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
         <input type='hidden' value='<?php echo $user; ?>' name='user' >
        <input type='submit' value='submit'>
                </form>
@@ -367,18 +470,30 @@ $dbname);
         	if ($conn->connect_error) {
   			die("Connection failed: " . $conn->connect_error);
                 }
+<<<<<<< HEAD
 
         $sql = "SELECT playlistName, playlistID FROM Playlist WHERE email 
 = '$user'";
 
+=======
+        
+        $sql = "SELECT playlistName, playlistID FROM Playlist WHERE email = '$user'";
+        
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
         $result = $conn->query($sql);
 
 		while ($row = $result->fetch_assoc()) {
+<<<<<<< HEAD
 
         echo "<a 
 href='display_playlist.php?playlist=".$row['playlistID']."'>".$row['playlistName']."</a><br>" 
 ;
 
+=======
+		
+        echo "<a href='display_playlist.php?playlist=".$row['playlistID']."'>".$row['playlistName']."</a><br>" ;
+        
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
         }
 
         ?>
@@ -388,7 +503,29 @@ href='display_playlist.php?playlist=".$row['playlistID']."'>".$row['playlistName
         if ($isArtist ) {
 
         ?>
+        
+<hr>
+        <?php 
+        if ($isArtist ) {
+        
+        ?>
+        
+<h1>Live Events</h1>
+<button onclick="$('.create_event').css('display','block');">Create Event</button>
+<div class='create_event'>
+<form action='live_event.php' method='post'>
+Event Name: <input type='text' value='' name='event_name'><br>
+<input type='hidden' value='<?php echo $userID; ?>' name='userID' >
+<input type='hidden' value='<?php echo $user; ?>' name='user' >
+Date: <input type='date' name='event_date' value='<?php echo date('Y-m-d'); ?>'> (yyyy-mm-dd)<br>
+Time: <input type='time' name='event_time' min='00:00' max='23:59'> (hh:mm)<br>
+<input type='submit' value='submit'>
+</form>
+</div>
+<br>
+<?php
 
+<<<<<<< HEAD
 <h1>Live Events</h1>
 <button onclick="$('.create_event').css('display','block');">Create 
 Event</button>
@@ -409,10 +546,15 @@ Time: <input type='time' name='event_time' min='00:00' max='23:59'>
 
    }
 
+=======
+   }     
+   
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
              		$servername='db.luddy.indiana.edu';
         	$username= 'i494f20_team12';
         	$password = 'my+sql=i494f20_team12';
         	$dbname = 'i494f20_team12';
+<<<<<<< HEAD
 
         	$conn = mysqli_connect($servername, $username, $password, 
 $dbname);
@@ -437,6 +579,29 @@ $row['eventID']."'>".$row['date']." ".$row['time']."
         }
 
 
+=======
+        	
+        	$conn = mysqli_connect($servername, $username, $password, $dbname);
+        	
+        	
+        	if ($conn->connect_error) {
+  			die("Connection failed: " . $conn->connect_error);
+                }
+        
+        $sql = "SELECT * FROM Event WHERE userID = '$userID'";
+        
+        $result = $conn->query($sql);
+        
+        
+        
+		while ($row = $result->fetch_assoc()) {
+		
+        echo "<a href='view_event.php?event=". $row['eventID']."'>".$row['date']." ".$row['time']." ".$row['eventName']."</a><br>" ;
+        
+        }
+   
+   
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
 ?>
 
 
@@ -446,7 +611,11 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle
 integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
             crossorigin="anonymous"></script>
         <script src="./javascript/newscript.js"></script>
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
     </body>
 
 </html>

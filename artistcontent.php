@@ -10,7 +10,11 @@
         	if ($conn->connect_error) {
   			die("Connection failed: " . $conn->connect_error);
                 }
+<<<<<<< HEAD
             $user = $_COOKIE['username'] ;  
+=======
+            $user = $_COOKIE['username'] ; 
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
             $sql = "SELECT UserID FROM User WHERE userName='$user'";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();

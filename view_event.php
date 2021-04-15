@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <head>
 <title>View Event</title>
@@ -69,6 +70,9 @@ id="DonateButton" class="submit-button">Donate </button>
             </div>
         </nav>
 <br>
+=======
+<button onclick="location.href = 'index.html';" id="myButton" class="float-left submit-button" >Homepage</button>
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
 <?php
 
 //error_reporting(E_ALL);
@@ -81,8 +85,12 @@ id="DonateButton" class="submit-button">Donate </button>
         	$password = 'my+sql=i494f20_team12';
         	$dbname = 'i494f20_team12';
         	
+<<<<<<< HEAD
         	$conn = mysqli_connect($servername, $username, $password, 
 $dbname);
+=======
+        	$conn = mysqli_connect($servername, $username, $password, $dbname);
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
         	
         	
         	if ($conn->connect_error) {
@@ -99,12 +107,19 @@ $dbname);
         
 		$row = $result->fetch_assoc() ;
 		
+<<<<<<< HEAD
   	//		echo 
 "[".$row['playlistID']."][".$row['playlistName']."][".$row['Song']."]" ;
   	
   	
   	echo "Event: ".$row['eventName']." ".$row['date']." 
 ".$row['time']."<hr>" ;
+=======
+  	//		echo "[".$row['playlistID']."][".$row['playlistName']."][".$row['Song']."]" ;
+  	
+  	
+  	echo "Event: ".$row['eventName']." ".$row['date']." ".$row['time']."<hr>" ;
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
   			       
   
   $date = date('Y-m-d') ;
@@ -114,10 +129,14 @@ $dbname);
   
         
   
+<<<<<<< HEAD
   echo '<iframe width="560" height="315" 
 src="https://www.youtube.com/embed/oSzwQLxxA2E" title="YouTube video 
 player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
 encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ;
+=======
+  echo '<iframe width="560" height="315" src="https://www.youtube.com/embed/oSzwQLxxA2E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
   
  
  }
@@ -128,3 +147,7 @@ encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ;
 
  
 ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a

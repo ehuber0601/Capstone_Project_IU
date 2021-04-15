@@ -35,3 +35,20 @@ function generateRandomString($length = 10)
     }
     return $randomString;
 }
+
+function cleanInput($input)
+{
+    $search = array(
+        '@<script[^>]*?>.*?</script>@si',   // Strip out javascript
+        '@<[\/\!]*?[^<>]*?>@si',            // Strip out HTML tags
+        '@<style[^>]*?>.*?</style>@siU',    // Strip style tags properly
+        '@<![\s\S]*?--[ \t\n\r]*>@'         // Strip multi-line comments
+    );
+
+    $output = preg_replace($search, '', $input);
+
+    $output = stripslashes($output);
+
+
+    return preg_replace('/[^A-Za-z0-9@.]/', ' ', $output); // Removes special chars.but we will allow @ and . because email has @ and . character
+}

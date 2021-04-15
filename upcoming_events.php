@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <head>
 <title>Upcoming Events</title>
@@ -70,6 +71,9 @@ id="DonateButton" class="submit-button">Donate </button>
         </nav>
 <br>
 
+=======
+<button onclick="location.href = 'index.html';" id="myButton" class="float-left submit-button" >Homepage</button>
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
 <?php 
 
 $servername='db.luddy.indiana.edu';
@@ -77,8 +81,12 @@ $servername='db.luddy.indiana.edu';
         	$password = 'my+sql=i494f20_team12';
         	$dbname = 'i494f20_team12';
         	
+<<<<<<< HEAD
         	$conn = mysqli_connect($servername, $username, $password, 
 $dbname);
+=======
+        	$conn = mysqli_connect($servername, $username, $password, $dbname);
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
         	
         	
         	if ($conn->connect_error) {
@@ -93,6 +101,7 @@ $dbname);
   
   echo "<h1>Upcoming Events</h1>";
   
+<<<<<<< HEAD
 
   echo "<br><table>";
 
@@ -100,12 +109,15 @@ $dbname);
 Name</td><td>Last Name</td></tr>";
 
 
+=======
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
   while ($row = $result->fetch_assoc()) {
   
   
   
   
   
+<<<<<<< HEAD
   echo "<tr><td><a href='view_event.php?event=". 
 $row['eventID']."'>".$row['eventName']."</td><td>".$row['date']."</td><td>".$row['time']."</td><td>".$row['firstName']."</td><td>".$row['lastName']."</td></tr>";
   
@@ -147,3 +159,10 @@ h1{font-size: 24px;}
   
   </body>
   </html>
+=======
+  echo "<a href='view_event.php?event=". $row['eventID']."'>".$row['eventName']." ".$row['date']." ".$row['time']." ".$row['firstName']." ".$row['lastName']."<br>";
+  
+  
+  }
+  ?>
+>>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a

@@ -12,32 +12,23 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Search Results</title>
+        <title>Bio Redirect</title>
 
     </head>
     
-    <style>
-      table {
-      margin: auto;
-    padding: 15px;
-    border-collapse: collapse;
-    width: 50%;
-    color: #b3b3b4;
-    font-family: "Manrope", sans-serif;
-    font-size: 25px;
-    text-align: left;
-    box-shadow: 0px 0px 5px #00000085;
-  }
-  th {
-    background-color: #353b48;
-    color: white;
-    padding: 15px;
-  }
-  tr:nth-child(even) {background-color: #f2f2f2;}
-
-  tr:nth-child(odd) {background-color: white;}
-
-
+<style>
+.group-setting {
+  margin: auto;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px #00000085;
+  width: 55%;
+  text-align: center;
+  font-size: 25px;
+  
+}
 </style>
 
     <body>
@@ -77,50 +68,56 @@
         </nav>
 
         <div class="main-header text-center pt-3 pb-3">
-            <h2>Search Results</h2>
+            <h2>Bio Successfully Created</h2>
         </div>
-        
-          <table>
-  <tr>  
-    <th>Title</th>
-    <th>Artist</th>
-    <th>Genre</th>
-  </tr>
-        
+        </br>
 
 
-<?php
 
-$search = $_POST['search'];
 
+<div class="group-setting"
+      <p>Click <a href ="./bioLookup.html"> here </a> to find your personalized bio.</p>
+</div>
+
+    
+<body>
+</html>
+    
+ 
+<?php   
+//connecting to server
 $servername = "db.luddy.indiana.edu";
 $username = "i494f20_team12";
 $password = "my+sql=i494f20_team12";
-$db = "i494f20_team12";
+  
+$conn = mysqli_connect($servername, $username, $password,
+'i494f20_team12');
 
-$conn = new mysqli($servername, $username, $password, $db);
-
-if ($conn->connect_error){
-	die("Connection failed: ". $conn->connect_error);
+if ($conn-> connect_error) {
+  die("Connection falied:". $conn-> connect_error);
 }
 
-$sql = "select * from Song where title like '%$search%'";
 
-$result = $conn->query($sql);
+$userName = mysqli_real_escape_string($conn, $_REQUEST['userName']);
+$hometown = mysqli_real_escape_string($conn, $_REQUEST['hometown']);
+$genre = mysqli_real_escape_string($conn, $_REQUEST['genre']);
+$artist = mysqli_real_escape_string($conn, $_REQUEST['artist']);
+$song = mysqli_real_escape_string($conn, $_REQUEST['song']);
 
-if ($result-> num_rows > 0) {
-  while ($row = $result-> fetch_assoc()) {
-    echo "<tr><td>". $row["title"]."</td><td>" .$row["artistName"] ."</td><td>". $row["genre"] ."</td></tr>";
+//insert query execution
+if(isset($_POST['save']))
+{
+
+  $sql = "INSERT INTO bio (userName, hometown, genre, artist, song) VALUES ('$userName','$hometown','$genre','$artist','$song')";
+  if(mysqli_query($conn, $sql)){
+    echo "<script>alert('Records inserted successfully.')</script>";
+  } else{
+    echo "<script>alert('ERROR: Could not able to execute $sql.')</script>" . mysqli_error($conn);
+
   }
-  echo "</table>";
-}
-else {
-  echo "No results matching title found";
 }
 
-
-$conn->close();
-
+$conn-> close();
 ?>
 
 </body>

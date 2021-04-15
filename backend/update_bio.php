@@ -8,10 +8,10 @@ header('Access-Control-Allow-Methods: GET, POST, PUT');
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$userID = $incoming_data['userID'];
-$new_bio = $incoming_data['bio'];
+$userID = cleanInput($incoming_data['userID']);
+$new_bio = cleanInput($incoming_data['bio']);
 
-$sessionID = $incoming_data['session_id'];
+$sessionID = cleanInput($incoming_data['session_id']);
 
 if (empty($sessionID)) {
     $response_header['response_message'] = "Sorry you have not logged in ";
