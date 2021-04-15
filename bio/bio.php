@@ -1,6 +1,5 @@
-<html>
-<head>
-<title>Bio Redirect</title>
+<html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,43 +12,28 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Create Bio</title>
+        <title>Bio Redirect</title>
 
-<link rel="stylesheet" href="style.css">
-
-
-<link rel="stylesheet" href="style.css">
-</head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-
-
-h1 {
-  font-family: 'Brush Script MT', cursive;
-  text-align: center;
+    </head>
+    
+    <style>
+.group-setting {
+  margin: auto;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px #00000085;
+  width: 40%;
 }
 
-div.form {
-        border-style: outset;
-        border-color: #2B2D42;
-        background-color: #8D99AE;
-        border-width:5px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    padding-top: 25px;
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-bottom: 5px;
-    width: 50%;
-}
+
 </style>
 
+    <body>
         <nav class="container-fluid">
             <div class="row">
-              
+              	<a href="./index.html">
                 <div class="col-12 col-sm-12 text-center">
                     <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
                     <a  href ="./group.html">
@@ -67,29 +51,37 @@ div.form {
                     </div>
                         <button onclick="location.href = 'post-form.html';" id="makePostButton" class="submit-button">Make
                         Post</button>
-                         <button onclick="location.href = 'search.html';" id="myButton" class="float-left submit-button">Search Music
-                        </button>
+                        <button onclick="location.href = 'search.html';" id="searchMusicButton" class="submit-button">Search Music
+        			</button>
                     <button onclick="location.href = 'saveSong.php';" id="saveMusicButton" class="submit-button">Save
                         Music</button>
                         <button onclick="location.href = 'upcoming_events.php';" id="myButton" class="float-left submit-button">Upcoming Events
                         </button>
-     <button on			click="location.href = 'bio.html';" id="myButton" class="float-left submit-button">Create Bio
-                        </button>
+                        <button onclick="location.href = 'bio.html';" id="CreateBioButton" class="submit-button">Create Bio</button>
+
                         <button onclick="location.href = 'profile.php';" id="myButton" class="float-left submit-button">My Profile
                         </button>
+                          <button onclick="location.href = 'paypal.html';" id="DonateButton" class="submit-button">Donate </button>
                 </div>
             </div>
         </nav>
 
         <div class="main-header text-center pt-3 pb-3">
-            <h2>Thank you for using Social Sounds.</h2>
+            <h2>Bio Lookup</h2>
         </div>
-        
-<div
-     <p> Click <a href ="./bioLoopkup.html"> here </a> to view your bio.</p>
-    
 
+        <div class="group-setting">
+<p> Enter your username to view your personal bio information</p>
+</br>
+<form action="bioResults.php" method="post">
+Search <input type="text" name="username"><br>
+<input type ="submit">   
+</form>
 </div>
+    
+</body>
+</html>
+        
 
   
 <?php
