@@ -1,7 +1,7 @@
-<html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
+<html>
+<head>
+<title>Upcoming Events</title>
+<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, 
 initial-scale=1.0">
         <link 
@@ -20,11 +20,8 @@ rel="stylesheet">
         <link rel="stylesheet"
             
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Home Page</title>
-
-    </head>
-
-    <body>
+</head>
+<body>
         <nav class="container-fluid">
             <div class="row">
               	<a href="./index.html">
@@ -71,27 +68,82 @@ id="DonateButton" class="submit-button">Donate </button>
                 </div>
             </div>
         </nav>
+<br>
 
-        <div class="main-header text-center pt-3 pb-3">
-            <h2>Home</h2>
-        </div>
-       
+<?php 
 
-        <div class="container">
-            <div id="post-content"></div>
+$servername='db.luddy.indiana.edu';
+        	$username= 'i494f20_team12';
+        	$password = 'my+sql=i494f20_team12';
+        	$dbname = 'i494f20_team12';
+        	
+        	$conn = mysqli_connect($servername, $username, $password, 
+$dbname);
+        	
+        	
+        	if ($conn->connect_error) {
+  			die("Connection failed: " . $conn->connect_error);
+  			
+  			}
+  
+  $sql= "SELECT * from Event as e JOIN User as u On u.userID=e.userID";
+
+          $result = $conn->query($sql);
+          $row = $result->fetch_assoc() ;
+  
+  echo "<h1>Upcoming Events</h1>";
+  
+
+  echo "<br><table>";
+
+    echo "<tr><td>Name</td><td>Date</td><td>Time</td><td>First 
+Name</td><td>Last Name</td></tr>";
 
 
-        </div>
-
-        <script 
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-            
-integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-            crossorigin="anonymous"></script>
-        <script src="./javascript/script.js"></script>
-        <script> load_posts()</script>
-
-
-    </body>
-
-</html>
+  while ($row = $result->fetch_assoc()) {
+  
+  
+  
+  
+  
+  echo "<tr><td><a href='view_event.php?event=". 
+$row['eventID']."'>".$row['eventName']."</td><td>".$row['date']."</td><td>".$row['time']."</td><td>".$row['firstName']."</td><td>".$row['lastName']."</td></tr>";
+  
+  
+  }
+  ?>
+  </table>
+  
+  <style>
+  
+  td {
+  
+  padding: 10px;
+  border: 1px solid #ffffff;
+  }
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:visited {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+}
+h1{font-size: 24px;}  
+  </style>
+  
+  
+  </body>
+  </html>

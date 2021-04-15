@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Group Page</title>
@@ -46,7 +47,8 @@
                     <!-- <div class="group-setting">
                         <P>Group name <span>group name here</span></P>
                         <P>Created By <span>Owner name</span></P>
-                        <button class="btn btn-primary" onclick="joingroup('${element.groupID}')">Join +</button>
+                        <button class="btn btn-primary" onclick="joingroup('${element.groupID}')">Join 
++</button>
                     </div> -->
 
                 </div>
@@ -55,14 +57,16 @@
             <div class="col-lg-8 col-md-12 col-sm-12">
                 <div class="group-setting">
                     <form action="" onsubmit="event.preventDefault(); createGroup();">
-                        <input type="text" name="groupName" id="newGroupName" placeholder="Enter unique group Name" required>
+                        <input type="text" name="groupName" id="newGroupName" placeholder="Enter unique group 
+Name" required>
                         <button class="btn btn-primary"> Create Group</button>
                     </form>
                     <p id="create-group-response" class="response-message"></p>
                 </div>
                 <div class="create-group-posts group-setting">
                     <form action="" onsubmit="event.preventDefault(); addGroupPosts();">
-                        <input class="d-block w-100 mt-2 mb-2" type="text" name="groupPostContent" required id="newGroupPost" placeholder="Enter Content for group posts">
+                        <input class="d-block w-100 mt-2 mb-2" type="text" name="groupPostContent" required 
+id="newGroupPost" placeholder="Enter Content for group posts">
                         <button class="btn btn-primary"> Create Post</button>
                     </form>
                     <p id="create-group-response" class="response-message"></p>
@@ -74,7 +78,8 @@
 
                 <!-- <div id="refresh-content">
                             <p>Change it</p>
-                            <button onclick="document.querySelector('#change-me p').innerHTML = 'hi'"> change content to
+                            <button onclick="document.querySelector('#change-me p').innerHTML = 'hi'"> change 
+content to
                                 hi</button>
                         </div> -->
             </div>

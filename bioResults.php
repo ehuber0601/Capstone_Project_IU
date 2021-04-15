@@ -20,9 +20,33 @@ rel="stylesheet">
         <link rel="stylesheet"
             
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Home Page</title>
+        <title>Your Bio</title>
 
     </head>
+
+    <style>
+      table {
+      margin: auto;
+    padding: 15px;
+    border-collapse: collapse;
+    width: 60%;
+    color: #b3b3b4;
+    font-family: "Manrope", sans-serif;
+    font-size: 25px;
+    text-align: left;
+    box-shadow: 0px 0px 5px #00000085;
+  }
+  th {
+    background-color: #353b48;
+    color: white;
+    padding: 15px;
+  }
+  tr:nth-child(even) {background-color: #f2f2f2;}
+
+  tr:nth-child(odd) {background-color: white;}
+
+
+</style>
 
     <body>
         <nav class="container-fluid">
@@ -73,25 +97,50 @@ id="DonateButton" class="submit-button">Donate </button>
         </nav>
 
         <div class="main-header text-center pt-3 pb-3">
-            <h2>Home</h2>
-        </div>
-       
-
-        <div class="container">
-            <div id="post-content"></div>
-
-
+            <h2>Your Bio Information</h2>
         </div>
 
-        <script 
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-            
-integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-            crossorigin="anonymous"></script>
-        <script src="./javascript/script.js"></script>
-        <script> load_posts()</script>
+        
+  <table>
+  <tr>  
+    <th>Hometown</th>
+    <th>Favorite Genre</th>
+    <th>Favorite Artist</th>
+    <th>Favorite Song</th>
+  </tr>
 
+<?php
 
-    </body>
+$search = $_POST['search'];
 
+$servername = "db.luddy.indiana.edu";
+$username = "i494f20_team12";
+$password = "my+sql=i494f20_team12";
+$db = "i494f20_team12";
+  
+$conn = new mysqli($servername, $username, $password, $db);
+  
+if ($conn->connect_error){
+        die("Connection failed: ". $conn->connect_error);
+}
+$sql = "SELECT hometown, genre, artist, song FROM bio WHERE userName like 
+'%$search%'";
+
+$result = $conn->query($sql);
+  
+if ($result-> num_rows > 0) {
+  while ($row = $result-> fetch_assoc()) {
+    echo "<tr><td>". $row["hometown"] ."</td><td>". $row["genre"] 
+."</td><td>". $row["artist"] ."</td><td>". $row["song"] ."</td></tr>";
+  }
+  echo "</table>";
+}
+else {
+  echo "No bio found for this user";
+}
+
+$conn-> close();
+?>
+
+</body>
 </html>

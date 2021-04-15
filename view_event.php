@@ -1,7 +1,7 @@
-<html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
+<html>
+<head>
+<title>View Event</title>
+<meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, 
 initial-scale=1.0">
         <link 
@@ -20,11 +20,8 @@ rel="stylesheet">
         <link rel="stylesheet"
             
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Home Page</title>
-
-    </head>
-
-    <body>
+</head>
+<body>
         <nav class="container-fluid">
             <div class="row">
               	<a href="./index.html">
@@ -71,27 +68,63 @@ id="DonateButton" class="submit-button">Donate </button>
                 </div>
             </div>
         </nav>
+<br>
+<?php
 
-        <div class="main-header text-center pt-3 pb-3">
-            <h2>Home</h2>
-        </div>
-       
-
-        <div class="container">
-            <div id="post-content"></div>
+//error_reporting(E_ALL);
+//ini_set("display_errors", 1);
 
 
-        </div>
 
-        <script 
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-            
-integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-            crossorigin="anonymous"></script>
-        <script src="./javascript/script.js"></script>
-        <script> load_posts()</script>
+            		$servername='db.luddy.indiana.edu';
+        	$username= 'i494f20_team12';
+        	$password = 'my+sql=i494f20_team12';
+        	$dbname = 'i494f20_team12';
+        	
+        	$conn = mysqli_connect($servername, $username, $password, 
+$dbname);
+        	
+        	
+        	if ($conn->connect_error) {
+  			die("Connection failed: " . $conn->connect_error);
+                }
+                
+                $eventID = $_REQUEST['event'] ;
+        
+    $sql = "SELECT * FROM Event where eventID = '".$eventID."'";
+    
+  //  echo "[$sql]";
+        
+        $result = $conn->query($sql);
+        
+		$row = $result->fetch_assoc() ;
+		
+  	//		echo 
+"[".$row['playlistID']."][".$row['playlistName']."][".$row['Song']."]" ;
+  	
+  	
+  	echo "Event: ".$row['eventName']." ".$row['date']." 
+".$row['time']."<hr>" ;
+  			       
+  
+  $date = date('Y-m-d') ;
+  $time = date("H:i:s") ;
+  
+  if (($date >= $row['date']) and ($time >= $row['time']) ) {
+  
+        
+  
+  echo '<iframe width="560" height="315" 
+src="https://www.youtube.com/embed/oSzwQLxxA2E" title="YouTube video 
+player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' ;
+  
+ 
+ }
+ 		
+      
 
 
-    </body>
 
-</html>
+ 
+?>

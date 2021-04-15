@@ -10,8 +10,8 @@
         	if ($conn->connect_error) {
   			die("Connection failed: " . $conn->connect_error);
                 }
-            
-            $sql = "SELECT UserID FROM User WHERE email='$user'";
+            $user = $_COOKIE['username'] ;  
+            $sql = "SELECT UserID FROM User WHERE userName='$user'";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
             //echo "[$sql][".$row['UserID']."]"; 
