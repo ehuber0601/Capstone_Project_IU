@@ -12,11 +12,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Bio Redirect</title>
+        <title>Home Page</title>
 
     </head>
     
-    <style>
+<style>
 .group-setting {
   margin: auto;
   padding: 10px;
@@ -24,10 +24,11 @@
   border: none;
   background-color: #ffffff;
   box-shadow: 0px 0px 5px #00000085;
-  width: 40%;
+  width: 55%;
+  text-align: center;
+  font-size: 25px;
+  
 }
-
-
 </style>
 
     <body>
@@ -67,36 +68,36 @@
         </nav>
 
         <div class="main-header text-center pt-3 pb-3">
-            <h2>Bio Lookup</h2>
+            <h2>Bio Successfully Created</h2>
         </div>
+        </br>
 
-        <div class="group-setting">
-<p> Enter your username to view your personal bio information</p>
-</br>
-<form action="bioResults.php" method="post">
-Search <input type="text" name="username"><br>
-<input type ="submit">   
-</form>
+
+
+
+<div class="group-setting"
+      <p>Click <a href ="./bioLookup.html"> here </a> to find your personalized bio.</p>
 </div>
-    
-</body>
-</html>
-        
 
-  
-<?php
+    
+<body>
+</html>
+    
+ 
+<?php   
 //connecting to server
-$servername = "db.luddy.indiana.edu"; 
+$servername = "db.luddy.indiana.edu";
 $username = "i494f20_team12";
 $password = "my+sql=i494f20_team12";
-
+  
 $conn = mysqli_connect($servername, $username, $password,
 'i494f20_team12');
+
 if ($conn-> connect_error) {
   die("Connection falied:". $conn-> connect_error);
 }
-    
-      
+
+
 $userName = mysqli_real_escape_string($conn, $_REQUEST['userName']);
 $hometown = mysqli_real_escape_string($conn, $_REQUEST['hometown']);
 $genre = mysqli_real_escape_string($conn, $_REQUEST['genre']);
@@ -106,13 +107,13 @@ $song = mysqli_real_escape_string($conn, $_REQUEST['song']);
 //insert query execution
 if(isset($_POST['save']))
 {
-  $sql = mysqli_real_escape_string("INSERT INTO bio (userName, hometown, genre, artist, song) VALUES
-('$userName','$hometown','$genre','$artist','$song')");
+
+  $sql = "INSERT INTO bio (userName, hometown, genre, artist, song) VALUES ('$userName','$hometown','$genre','$artist','$song')";
   if(mysqli_query($conn, $sql)){
     echo "<script>alert('Records inserted successfully.')</script>";
   } else{
-    echo "<script>alert('ERROR: Could not able to execute
-$sql.')</script>" . mysqli_error($conn);
+    echo "<script>alert('ERROR: Could not able to execute $sql.')</script>" . mysqli_error($conn);
+
   }
 }
 
