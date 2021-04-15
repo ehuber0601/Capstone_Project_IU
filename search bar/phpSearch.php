@@ -19,16 +19,19 @@
     <style>
       table {
       margin: auto;
+    padding: 15px;
     border-collapse: collapse;
     width: 40%;
     color: #b3b3b4;
     font-family: "Manrope", sans-serif;
     font-size: 25px;
     text-align: left;
+    box-shadow: 0px 0px 5px #00000085;
   }
   th {
     background-color: #353b48;
     color: white;
+    padding: 15px;
   }
   tr:nth-child(even) {background-color: #f2f2f2;}
 
@@ -40,7 +43,7 @@
     <body>
         <nav class="container-fluid">
             <div class="row">
-              
+              	<a href="./index.html">
                 <div class="col-12 col-sm-12 text-center">
                     <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
                     <a  href ="./group.html">
@@ -58,13 +61,17 @@
                     </div>
                         <button onclick="location.href = 'post-form.html';" id="makePostButton" class="submit-button">Make
                         Post</button>
+                        <button onclick="location.href = 'search.html';" id="searchMusicButton" class="submit-button">Search Music
+        			</button>
                     <button onclick="location.href = 'saveSong.php';" id="saveMusicButton" class="submit-button">Save
                         Music</button>
                         <button onclick="location.href = 'upcoming_events.php';" id="myButton" class="float-left submit-button">Upcoming Events
                         </button>
+                        <button onclick="location.href = 'bio.html';" id="CreateBioButton" class="submit-button">Create Bio</button>
 
                         <button onclick="location.href = 'profile.php';" id="myButton" class="float-left submit-button">My Profile
                         </button>
+                          <button onclick="location.href = 'paypal.html';" id="DonateButton" class="submit-button">Donate </button>
                 </div>
             </div>
         </nav>
@@ -75,7 +82,7 @@
         
           <table>
   <tr>  
-    <th>Song Title</th>
+    <th>Title</th>
     <th>Artist</th>
     <th>Genre</th>
   </tr>
@@ -103,7 +110,7 @@ $result = $conn->query($sql);
 
 if ($result-> num_rows > 0) {
   while ($row = $result-> fetch_assoc()) {
-    echo "<tr><td>". $row["title"] .$row["artistName"] ."</td><td>". $row["genre"] ."</td></tr>";
+    echo "<tr><td>". $row["title"]."</td><td>" .$row["artistName"] ."</td><td>". $row["genre"] ."</td></tr>";
   }
   echo "</table>";
 }
