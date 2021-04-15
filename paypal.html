@@ -12,30 +12,22 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Search Results</title>
+        <title>Bio Redirect</title>
 
     </head>
     
     <style>
-      table {
-      margin: auto;
-    padding: 15px;
-    border-collapse: collapse;
-    width: 50%;
-    color: #b3b3b4;
-    font-family: "Manrope", sans-serif;
-    font-size: 25px;
-    text-align: left;
-    box-shadow: 0px 0px 5px #00000085;
-  }
-  th {
-    background-color: #353b48;
-    color: white;
-    padding: 15px;
-  }
-  tr:nth-child(even) {background-color: #f2f2f2;}
-
-  tr:nth-child(odd) {background-color: white;}
+.group-setting {
+  margin: auto;
+  padding: 10px;
+  font-size: 25px;
+  line-height: 50px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px #00000085;
+  width: 70%;
+}
 
 
 </style>
@@ -77,51 +69,14 @@
         </nav>
 
         <div class="main-header text-center pt-3 pb-3">
-            <h2>Search Results</h2>
+            <h2>Donate to Social Sounds</h2>
+        </div>
+        </br>
+        
+        <div class="group-setting"> Thank you for using Social Sounds. Social Sounds is operated and funded by the generous
+        donations of our users. If you enjoy using our site we encourage you to take a moment to consider make a donation using the 
+        secure Pay Pal portal.
         </div>
         
-          <table>
-  <tr>  
-    <th>Title</th>
-    <th>Artist</th>
-    <th>Genre</th>
-  </tr>
-        
-
-
-<?php
-
-$search = $_POST['search'];
-
-$servername = "db.luddy.indiana.edu";
-$username = "i494f20_team12";
-$password = "my+sql=i494f20_team12";
-$db = "i494f20_team12";
-
-$conn = new mysqli($servername, $username, $password, $db);
-
-if ($conn->connect_error){
-	die("Connection failed: ". $conn->connect_error);
-}
-
-$sql = "select * from Song where title like '%$search%'";
-
-$result = $conn->query($sql);
-
-if ($result-> num_rows > 0) {
-  while ($row = $result-> fetch_assoc()) {
-    echo "<tr><td>". $row["title"]."</td><td>" .$row["artistName"] ."</td><td>". $row["genre"] ."</td></tr>";
-  }
-  echo "</table>";
-}
-else {
-  echo "No results matching title found";
-}
-
-
-$conn->close();
-
-?>
-
 </body>
 </html>

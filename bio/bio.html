@@ -1,5 +1,5 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,30 +12,27 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Search Results</title>
+        <title>Create Bio</title>
 
     </head>
-    
-    <style>
-      table {
-      margin: auto;
-    padding: 15px;
-    border-collapse: collapse;
-    width: 50%;
-    color: #b3b3b4;
-    font-family: "Manrope", sans-serif;
-    font-size: 25px;
-    text-align: left;
-    box-shadow: 0px 0px 5px #00000085;
-  }
-  th {
-    background-color: #353b48;
-    color: white;
-    padding: 15px;
-  }
-  tr:nth-child(even) {background-color: #f2f2f2;}
+<link rel="stylesheet" href="style.css">
 
-  tr:nth-child(odd) {background-color: white;}
+
+</head>
+
+<style>
+.group-setting {
+  margin: auto;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px #00000085;
+  width: 40%;
+  text-align: center;
+  font-size: 25px;
+  
+}
 
 
 </style>
@@ -76,52 +73,40 @@
             </div>
         </nav>
 
-        <div class="main-header text-center pt-3 pb-3">
-            <h2>Search Results</h2>
+   <div class="main-header text-center pt-3 pb-3">
+            <h2>Create Bio</h2>
         </div>
-        
-          <table>
-  <tr>  
-    <th>Title</th>
-    <th>Artist</th>
-    <th>Genre</th>
-  </tr>
-        
 
 
-<?php
+  </br>
+<div class= "group-setting">
+  <form action="bio.php" method="post">
+  <p>Tell us more about yourself to customize your bio.</p>
+  </br><label for="userName">Your Username:</label>
+  <input type="text" id="userName" name="userName"></br>
+  
+   <label for="hometown">Hometown:</label>
+  <input type="text" id="hometown" name="hometown"></br>
+  
+  <label for="genre">Favorite Genre:</label>
+  <input type="text" id="genre" name="genre"></br>
+  
+  <label for="artist">Favorite Artist</label>
+  <input type="text" id="artist" name="artist"></br>
 
-$search = $_POST['search'];
-
-$servername = "db.luddy.indiana.edu";
-$username = "i494f20_team12";
-$password = "my+sql=i494f20_team12";
-$db = "i494f20_team12";
-
-$conn = new mysqli($servername, $username, $password, $db);
-
-if ($conn->connect_error){
-	die("Connection failed: ". $conn->connect_error);
-}
-
-$sql = "select * from Song where title like '%$search%'";
-
-$result = $conn->query($sql);
-
-if ($result-> num_rows > 0) {
-  while ($row = $result-> fetch_assoc()) {
-    echo "<tr><td>". $row["title"]."</td><td>" .$row["artistName"] ."</td><td>". $row["genre"] ."</td></tr>";
-  }
-  echo "</table>";
-}
-else {
-  echo "No results matching title found";
-}
+   <label for="song">Favorite Song:</label>
+  <input type="text" id="song" name="song"></br>
+  
+</br><button type="submit" name="save">Submit</button></br>
+</br>
+<div class=".setting-box"> Already created a bio?
+ <button onclick="location.href = 'bio.php';" id="bioLookup" class="submit-button">Find Bio </button></div>
+</br>
 
 
-$conn->close();
+</div>
 
-?>
-
+  
 </body>
-</html>
+
+</html>	

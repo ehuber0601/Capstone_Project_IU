@@ -1,3 +1,4 @@
+
 <html lang="en">
 
     <head>
@@ -15,7 +16,6 @@
         <!-- <script>if (localStorage.getItem('username') === null || localStorage.getItem('session_id') === "" || localStorage.getItem('session_id') === "") {
                 window.location = "./Login.html"
             }
-
         </script> -->
 
         <script src="./javascript/script.js"></script>
@@ -26,15 +26,13 @@
     <body>
         <nav class="container-fluid">
             <div class="row">
-                <div class="col-11 text-center">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    <input class="w-25 ms-2" type="text" placeholder="Search item Here">
-                </div>
-                <div class="col-1 text-end">
-               <div class="d-inline">
-                   <a role="button"  href ="./index.html" class=" btn d-inline fa fa-home me-2" aria-hidden="true"></a>
-                </div>
-               
+              	<a href="./index.html">
+                <div class="col-12 col-sm-12 text-center">
+                    <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
+                    <a  href ="./group.html">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+
+                    </a>
                     <div class="d-inline dropdown">
                         <a class="btn fa fa-cog" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -42,50 +40,32 @@
 
                         <ul class="dropdown-menu setting-dropdown" aria-labelledby="dropdownMenuLink">
                             <li><a class="dropdown-item text-center " href="./setting.html">Setting</a></li>
-                            <li><a class="dropdown-item" href="#">Update Profile
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Account
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item" href="./group.html">Groups
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Posts
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Liked Posts
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Privacy
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Your Music
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
-                            <li><a class="dropdown-item" href="#">Support
-                                </a>
-                                <span class="fa fa-angle-right"></span>
-                            </li>
                         </ul>
                     </div>
+                        <button onclick="location.href = 'post-form.html';" id="makePostButton" class="submit-button">Make
+                        Post</button>
+                        <button onclick="location.href = 'search.html';" id="searchMusicButton" class="submit-button">Search Music
+        			</button>
+                    <button onclick="location.href = 'saveSong.php';" id="saveMusicButton" class="submit-button">Save
+                        Music</button>
+                        <button onclick="location.href = 'upcoming_events.php';" id="myButton" class="float-left submit-button">Upcoming Events
+                        </button>
+                        <button onclick="location.href = 'bio.html';" id="CreateBioButton" class="submit-button">Create Bio</button>
+
+                        <button onclick="location.href = 'profile.php';" id="myButton" class="float-left submit-button">My Profile
+                        </button>
+                          <button onclick="location.href = 'paypal.html';" id="DonateButton" class="submit-button">Donate </button>
                 </div>
             </div>
         </nav>
+        </br>
 
         <div class="container m-auto">
 
             <div class="row">
                 <div class="col-lg-3 col-md-8 col-sm-12 p-2 me-auto">
                     <div id="setting" class="main-header pb-3">
-                        <h2>Setting</h2>
+                        <h2>Settings</h2>
                     </div>
                     <div id="notification" class="d-flex justify-content-between mt-2 mb-2 setting-box"
                         onclick="show_tabs('notification')">
@@ -217,65 +197,55 @@
                             <p class="mt-2">@username</p>
                             <button class="btn btn-primary pe-2 ps-2 mt-2">Follow</button>
                         </div>
-
                         <div class="bio-section">
                             <textarea class="text-center" name="" id="" rows="6" cols="30"> User Bio </textarea>
                         </div>
-
                     </div> -->
 
                     <!-- <div class="post p-2 border mt-2 mb-2">
                         <p class="p-2">Date and time</p>
-
                         <div class="border p-2">
                             <h3>Content of post</h3>
                         </div>
                     </div>
                     <div class="post p-2 border mt-2 mb-2">
                         <p class="p-2">Date and time</p>
-
                         <div class="border p-2">
                             <h3>Content of post</h3>
                         </div>
                     </div>
                     <div class="post p-2 border mt-2 mb-2">
                         <p class="p-2">Date and time</p>
-
                         <div class="border p-2">
                             <h3>Content of post</h3>
                         </div>
                     </div>
                     <div class="post p-2 border mt-2 mb-2">
                         <p class="p-2">Date and time</p>
-
                         <div class="border p-2">
                             <h3>Content of post</h3>
                         </div>
                     </div>
                     <div class="post p-2 border mt-2 mb-2">
                         <p class="p-2">Date and time</p>
-
                         <div class="border p-2">
                             <h3>Content of post</h3>
                         </div>
                     </div>
                     <div class="post p-2 border mt-2 mb-2">
                         <p class="p-2">Date and time</p>
-
                         <div class="border p-2">
                             <h3>Content of post</h3>
                         </div>
                     </div>
                     <div class="post p-2 border mt-2 mb-2">
                         <p class="p-2">Date and time</p>
-
                         <div class="border p-2">
                             <h3>Content of post</h3>
                         </div>
                     </div>
                     <div class="post p-2 border mt-2 mb-2">
                         <p class="p-2">Date and time</p>
-
                         <div class="border p-2">
                             <h3>Content of post</h3>
                         </div>

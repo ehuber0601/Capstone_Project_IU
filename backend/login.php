@@ -32,6 +32,8 @@ if ($result = mysqli_query($conn, $sql)) {
         if (mysqli_num_rows($result) >= 1) {
             $row = mysqli_fetch_assoc($result);
             // session_start();
+            setcookie('username',$name,time()+3600,'/');
+            setcookie('name',$row['firstName']." ".$row['lastName'],time()+3600,'/') ;
             $_SESSION['username'] = $name;
             $session_id = generateRandomString(12);
             $_SESSION['session_id'] = $session_id;
