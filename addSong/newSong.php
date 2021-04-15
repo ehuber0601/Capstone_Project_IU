@@ -104,6 +104,8 @@ $artist = mysqli_real_escape_string($conn, $_REQUEST['artist']);
 $length = mysqli_real_escape_string($conn, $_REQUEST['length']);
 
 
+
+
 //insert query execution
 if(isset($_POST['save']))
 {
