@@ -74,11 +74,10 @@ div.form {
 
 </style>
 
-<body>
-
-      <nav class="container-fluid">
+    <body>
+        <nav class="container-fluid">
             <div class="row">
-              
+              	<a href="./index.html">
                 <div class="col-12 col-sm-12 text-center">
                     <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
                     <a  href ="./group.html">
@@ -96,30 +95,27 @@ div.form {
                     </div>
                         <button onclick="location.href = 'post-form.html';" id="makePostButton" class="submit-button">Make
                         Post</button>
-                         <button onclick="location.href = 'search.html';" id="myButton" class="float-left submit-button">Search Music
-                        </button>
+                        <button onclick="location.href = 'search.html';" id="searchMusicButton" class="submit-button">Search Music
+        			</button>
                     <button onclick="location.href = 'saveSong.php';" id="saveMusicButton" class="submit-button">Save
                         Music</button>
                         <button onclick="location.href = 'upcoming_events.php';" id="myButton" class="float-left submit-button">Upcoming Events
                         </button>
-                    
-                         <button onclick="location.href = 'bio.html';" id="myButton" class="float-left submit-button">Create Bio
-                        </button>
+                        <button onclick="location.href = 'bio.html';" id="CreateBioButton" class="submit-button">Create Bio</button>
 
                         <button onclick="location.href = 'profile.php';" id="myButton" class="float-left submit-button">My Profile
                         </button>
+                          <button onclick="location.href = 'paypal.html';" id="DonateButton" class="submit-button">Donate </button>
                 </div>
             </div>
         </nav>
 
-<h1>About Me</h1>
+<h1>Create Bio</h1>
 
-<section>
-<article>
 
 <div>Tell us more about yourself to customize your bio.</div>
   </br>
-<div class= "form">
+<div class= "group-setting">
   <form action="bio.php" method="post">
   </br><label for="userName">Your Username:</label>
   <input type="text" id="userName" name="userName"></br>
@@ -140,18 +136,7 @@ div.form {
 </br>
 
 </div>
-</article>
 
-<nav>
-<h2>Enter your username to read your bio. </hw>
-<div class="form">
-<form action="bioPHP.php" method="post">
-Username <input type="text" name="username"><br>
-<button type="submit" name="bio"> Search Bio</button>  
-</form>
-</div>
-</br>
-<nav>
   
 </body>
 
