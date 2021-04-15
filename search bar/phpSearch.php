@@ -21,7 +21,7 @@
       margin: auto;
     padding: 15px;
     border-collapse: collapse;
-    width: 40%;
+    width: 50%;
     color: #b3b3b4;
     font-family: "Manrope", sans-serif;
     font-size: 25px;
