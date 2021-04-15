@@ -1,6 +1,5 @@
-<html>
-<head>
-<title>Bio Redirect</title>
+<html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,47 +12,29 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Create Bio</title>
+        <title>Home Page</title>
 
     </head>
-<link rel="stylesheet" href="style.css">
-
-
-</head>
-<link rel="stylesheet" href="style.css">
-</head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
 <style>
-
-
-h1 {
-  font-family: 'Brush Script MT', cursive;
+.group-setting {
+  margin: auto;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px #00000085;
+  width: 55%;
   text-align: center;
-}
-
-div.form {
-        border-style: outset;
-        border-color: #2B2D42;
-        background-color: #8D99AE;
-        border-width:5px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    padding-top: 25px;
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-bottom: 5px;
-    width: 50%;
+  font-size: 25px;
+  
 }
 </style>
 
-<body>
-
-      <nav class="container-fluid">
+    <body>
+        <nav class="container-fluid">
             <div class="row">
-              
+              	<a href="./index.html">
                 <div class="col-12 col-sm-12 text-center">
                     <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
                     <a  href ="./group.html">
@@ -71,47 +52,52 @@ div.form {
                     </div>
                         <button onclick="location.href = 'post-form.html';" id="makePostButton" class="submit-button">Make
                         Post</button>
-                         <button onclick="location.href = 'search.html';" id="myButton" class="float-left submit-button">Search Music
-                        </button>
+                        <button onclick="location.href = 'search.html';" id="searchMusicButton" class="submit-button">Search Music
+        			</button>
                     <button onclick="location.href = 'saveSong.php';" id="saveMusicButton" class="submit-button">Save
                         Music</button>
                         <button onclick="location.href = 'upcoming_events.php';" id="myButton" class="float-left submit-button">Upcoming Events
                         </button>
-                    
-                         <button onclick="location.href = 'bio.html';" id="myButton" class="float-left submit-button">Create Bio
-                        </button>
+                        <button onclick="location.href = 'bio.html';" id="CreateBioButton" class="submit-button">Create Bio</button>
 
                         <button onclick="location.href = 'profile.php';" id="myButton" class="float-left submit-button">My Profile
                         </button>
+                          <button onclick="location.href = 'paypal.html';" id="DonateButton" class="submit-button">Donate </button>
                 </div>
             </div>
         </nav>
 
+        <div class="main-header text-center pt-3 pb-3">
+            <h2>Bio Successfully Created</h2>
+        </div>
+        </br>
 
 
-<h1>Social Sounds</h1>
-        
-<div
-      <p>Thank you for using Social Sounds. </p>
-      Click <a href ="./bioLoopkup.html"> here </a> to view your bio.
-    
 
+
+<div class="group-setting"
+      <p>Click <a href ="./bioLookup.html"> here </a> to find your personalized bio.</p>
 </div>
 
-  
-<?php
+    
+<body>
+</html>
+    
+ 
+<?php   
 //connecting to server
-$servername = "db.luddy.indiana.edu"; 
+$servername = "db.luddy.indiana.edu";
 $username = "i494f20_team12";
 $password = "my+sql=i494f20_team12";
-
+  
 $conn = mysqli_connect($servername, $username, $password,
 'i494f20_team12');
+
 if ($conn-> connect_error) {
   die("Connection falied:". $conn-> connect_error);
 }
-    
-      
+
+
 $userName = mysqli_real_escape_string($conn, $_REQUEST['userName']);
 $hometown = mysqli_real_escape_string($conn, $_REQUEST['hometown']);
 $genre = mysqli_real_escape_string($conn, $_REQUEST['genre']);
@@ -121,13 +107,13 @@ $song = mysqli_real_escape_string($conn, $_REQUEST['song']);
 //insert query execution
 if(isset($_POST['save']))
 {
-  $sql = "INSERT INTO bio (userName, hometown, genre, artist, song) VALUES
-('$userName','$hometown','$genre','$artist','$song')";
+
+  $sql = "INSERT INTO bio (userName, hometown, genre, artist, song) VALUES ('$userName','$hometown','$genre','$artist','$song')";
   if(mysqli_query($conn, $sql)){
     echo "<script>alert('Records inserted successfully.')</script>";
   } else{
-    echo "<script>alert('ERROR: Could not able to execute
-$sql.')</script>" . mysqli_error($conn);
+    echo "<script>alert('ERROR: Could not able to execute $sql.')</script>" . mysqli_error($conn);
+
   }
 }
 
