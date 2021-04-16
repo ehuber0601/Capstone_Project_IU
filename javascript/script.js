@@ -168,10 +168,7 @@ function show_tabs(current_class_id) {
 
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
 
   var json = { 
     email: profile.getEmail() ,
@@ -194,8 +191,8 @@ function onSignIn(googleUser) {
       return response.json();
     })
     .then(function (json) {
-      console.log(json.response_message);
-      console.log("google sign up response",json);
+      // console.log(json.response_message);
+      // console.log("google sign up response",json);
       sessionStorage.setItem("session_id", json["session_id"]); // login and logout
       sessionStorage.setItem("username", json["username"]);
       sessionStorage.setItem("userID", json["userID"]); // when we post something we will use this id
@@ -203,5 +200,5 @@ function onSignIn(googleUser) {
       sessionStorage.setItem("lastName", json["lastName"]); // when we post something we will use this id
     })
     .catch((err) => console.error(err));
-    // window.location = "./index.html";
+    window.location = "./index.html";
 }

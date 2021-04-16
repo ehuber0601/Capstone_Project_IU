@@ -24,7 +24,7 @@ function showGroupPosts() {
             return response.json();
         })
         .then(function(json) {
-            console.log(json);
+            // console.log(json);
             document.getElementById("group-posts-section").innerHTML = "";
             var myPosts = json['groupPosts'];
             myPosts.forEach(item => {
@@ -45,7 +45,7 @@ function showGroupPosts() {
       </div>
   </div>`
             });
-            console.log(json);
+            // console.log(json);
         })
         .catch((err) => console.log(err));
 }
@@ -89,7 +89,7 @@ function groupPostResponse(groupID) {
         })
         .then(function(json) {
 
-            console.log(json);
+            // console.log(json);
             document.getElementById("create-groupPost-response").innerHTML = json.response_message;
 
         })
@@ -100,7 +100,7 @@ function groupPostResponse(groupID) {
 }
 
 function searchGroup() {
-    console.log("Search is called");
+    // console.log("Search is called");
     document.querySelector(".search-result").innerHTML = "";
     var url = baseURL + "searchGroup.php";
     var json = {
@@ -124,7 +124,7 @@ function searchGroup() {
             return response.json();
         })
         .then(function(json) {
-            console.log("Search result", json);
+            // console.log("Search result", json);
             if (json["status_code"] === 200) {
                 var groups = json['groups'];
                 var userID = sessionStorage.getItem("userID");
@@ -132,7 +132,7 @@ function searchGroup() {
                 groups.forEach(element => {
                     var buttonHTML;
                     // user is already a part of group
-                    if (element.group_status === "joined") {
+                    if (element.group_status == "joined") {
                         //  buttonHTML = 
                         buttonHTML = `<button class="btn btn-primary" onclick="leaveGroup(${element.groupID} , ${userID})">Leave -</button>`;
                     } else {
@@ -172,7 +172,7 @@ function joinGroup(groupID, userID) {
             return response.json();
         })
         .then(function(json) {
-            console.log(json.response_message);
+            // console.log(json.response_message);
             showPopUpMessage(json.response_message);
             showMyGroups();
             showGroupPosts();
@@ -202,7 +202,7 @@ function showMyGroups() {
             return response.json();
         })
         .then(function(json) {
-            console.log(json);
+            // console.log(json);
             if (json.status_code == 200) {
                 var myGroups = json.groupsList;
                 if (myGroups.length === 0) {
@@ -215,7 +215,7 @@ function showMyGroups() {
           <button class="button button-primary" onclick="addGroupPosts(${element.groupID})">Create Post</button>
       </div>`;
                 });
-                console.log(json);
+                // console.log(json);
             }
 
         })

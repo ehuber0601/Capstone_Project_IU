@@ -1,6 +1,6 @@
 <?php
 
-include_once("./connection.php");
+include("./connection.php");
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
@@ -27,11 +27,11 @@ if ($session_id != null) {
                 $row["owner"] = $userName['firstName'] . ' ' . $userName['lastName'];
 
                 // sending the group information to user if they are already a part of group or not
-                if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM groupMember WHERE `userID` = '$userID' AND `groupID` = '$groupID'")) > 0) {
-                    $row["group_status"] = "joined";
-                } else {
-                    $row["group_status"] = "not joined";
-                }
+                // if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM groupMember WHERE `userID` = '$userID' AND `groupID` = '$groupID'")) > 0) {
+                    $row["group_status"] = getGroupStatus($groupID, $userID);
+                // } else {
+                    // $row["group_status"] = "not joined";
+                // }
 
                 array_push($posts, $row);
             }
@@ -52,4 +52,17 @@ if ($session_id != null) {
     $response_header['session_id'] = $session_id;
     $response_header["response_message"] = "Please login again";
     echo json_encode($response_header);
+}
+
+
+function getGroupStatus($groupID, $userID){
+    
+    $result = mysqli_query($conn, "SELECT * FROM groupMember WHERE `userID` = '$userID' AND `groupID` = '$groupID'");
+
+    if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM groupMember WHERE `userID` = '$userID' AND `groupID` = '$groupID'")) > 0) {
+        return "joined";
+    } else {
+        return "not joined";
+    }
+
 }

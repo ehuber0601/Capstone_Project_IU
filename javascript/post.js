@@ -27,7 +27,7 @@ function post() {
       if (!response.ok) {
         throw new Error("Could not reach website.");
       }
-      console.log(response);
+      // console.log(response);
       return response.json();
     })
     .then(function (json) {
