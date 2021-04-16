@@ -33,12 +33,13 @@ if (!$conn) {
             $session_id = generateRandomString(12);
             $response_header['username'] =$email;
             $response_header['session_id'] = $session_id;
+            $userID = 1;
             $query = mysqli_query($conn, "SELECT userID FROM User WHERE `email` = $email");
             while ($row = mysqli_fetch_assoc($query)) {
                 $userID = $row['userID'];
             }
             $response_header['userID'] = $userID;
-            $response_header['result_code'] = 200;
+            $response_header['status_code'] = 200;
             $response_header['response_message'] = "Success";
             echo json_encode($response_header);
 
@@ -60,12 +61,8 @@ if (!$conn) {
                 $session_id = generateRandomString(12);
                 $response_header['username'] =$email;
                 $response_header['session_id'] = $session_id;
-                $query = mysqli_query($conn, "SELECT userID FROM User WHERE `email` = $email");
-                while ($row = mysqli_fetch_assoc($query)) {
-                    $userID = $row['userID'];
-                }
                 $response_header['userID'] = $userID;
-                $response_header['result_code'] = 200;
+                $response_header['status_code'] = 200;
                 $response_header['response_message'] = "Success";
                 echo json_encode($response_header);
                 // mysql_free_result() 
