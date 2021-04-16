@@ -201,5 +201,5 @@ function onSignIn(googleUser) {
       sessionStorage.setItem("lastName", json["lastName"]); // when we post something we will use this id
     })
     .catch((err) => console.error(err));
-    window.location = "./index.html";
+    // window.location = "./index.html";
 }
