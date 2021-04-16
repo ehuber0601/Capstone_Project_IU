@@ -62,7 +62,7 @@ function getGroupStatus($groupID, $userID){
     if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM groupMember WHERE `userID` = '$userID' AND `groupID` = '$groupID'")) > 0) {
         return "joined";
     } else {
-        return "not joined";
+        return "not joined " . mysqli_error($conn);
     }
 
 }
