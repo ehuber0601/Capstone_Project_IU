@@ -172,4 +172,34 @@ function onSignIn(googleUser) {
   console.log('Name: ' + profile.getName());
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+  var json = { email: profile.getEmail() ,
+    first_name : profile.getName(), 
+    password: profile.getId(),
+    username: profile.getEmail()
+   };
+  fetch(this.base_url + "signup.php", {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(json),
+    headers: {
+      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Could not reach website.");
+      }
+      return response.json();
+    })
+    .then(function (json) {
+      console.log(json.response_message);
+      sessionStorage.setItem("session_id", json["session_id"]); // login and logout
+      sessionStorage.setItem("username", json["username"]);
+      sessionStorage.setItem("userID", json["userID"]); // when we post something we will use this id
+      sessionStorage.setItem("firstName", json["firstName"]); // when we post something we will use this id
+      sessionStorage.setItem("lastName", json["lastName"]); // when we post something we will use this id
+    })
+    .catch((err) => console.error(err));
+    window.location = "./index.html";
 }
