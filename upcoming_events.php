@@ -98,7 +98,7 @@ $servername='db.luddy.indiana.edu';
 
   echo "<br><table>";
 
-    echo "<tr><th>Name</th><th>Date</th><th>Time</th><th>First Name</th><td>Last Name</th></tr>";
+    echo "<tr><th>Name</th><th>Date</th><th>Time</th><th>First Name</th><th>Last Name</th></tr>";
 
 
   while ($row = $result->fetch_assoc()) {
