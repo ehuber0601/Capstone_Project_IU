@@ -23,7 +23,7 @@ Features
 <ul>
   <li>Settings Page (Sprint 09)</li>
   <li>Post to Home Page(Sprint 10)</li>
-  <li>User Messaging (Sprint 12)</li>
+  <li>Groups (Sprint 12)</li>
 </ul>
 
 <b>Huberman, Eric (ehuberm)</b>
@@ -34,7 +34,7 @@ Features
 <ul>
   <li>Artist Content Page (Sprint 09)</li>
   <li>Create Playlists (Sprint 10)</li>
-  <li>Live stream video (Sprint 12)</li>
+  <li>Live Events (Sprint 12)</li>
 </ul>
 
 <b>Liford, Emily (eliford)</b>
