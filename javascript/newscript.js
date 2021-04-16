@@ -17,7 +17,7 @@ function login() {
   }, {});
 
   var request_url = this.base_url + "login.php";
-   console.log("reuested url is ", request_url);
+  console.log("reuested url is ", request_url);
 
   fetch(request_url, {
     method: "POST",
@@ -53,12 +53,7 @@ function login() {
       }
     })
     .catch(
-<<<<<<< HEAD
-      (err) => (document.getElementById("response-message").innerHTML = 
-err)
-=======
       (err) => (document.getElementById("response-message").innerHTML = err)
->>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
     );
 }
 
@@ -102,19 +97,11 @@ function load_posts() {
                 <div class="d-flex justify-content-between mt-2 mb-2">
                     <p onclick="update_likes(${
                       item.postID
-<<<<<<< HEAD
                     })">Like <i class="fa fa-thumbs-o-up" 
-aria-hidden="true"></i> <span> ${
-          item.likes
-        }</span> </p>
+aria-hidden="true"></i> <span> ${item.likes}</span> </p>
                     <p>comments <i class="fa fa-comment" 
 aria-hidden="true"></i> <span></span> </p>
-=======
-                    })">Like <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span> ${
-          item.likes
-        }</span> </p>
-                    <p>comments <i class="fa fa-comment" aria-hidden="true"></i> <span></span> </p>
->>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
+
                     <p>Total Views <span>${item.likes * 2}</span> </p>
                 </div>
             </div>`;
@@ -138,14 +125,8 @@ aria-hidden="true"></i> <span></span> </p>
 }
 
 function show_profile() {
-
-
-  var username = localStorage.getItem("username") ;
-<<<<<<< HEAD
-=======
-  
->>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
-  alert("username:" + username) ;
+  var username = localStorage.getItem("username");
+  alert("username:" + username);
 
   if (
     localStorage.getItem(
@@ -153,17 +134,10 @@ function show_profile() {
     )
   ) {
     window.location = "./index.html";
- 
   } else {
+    var request_url =
+      "https://cgi.sice.indiana.edu/~team12/backend/view_user_profile2.php";
 
-  
-<<<<<<< HEAD
-    var request_url = 
-"https://cgi.sice.indiana.edu/~team12/backend/view_user_profile2.php";
-=======
-    var request_url = "https://cgi.sice.indiana.edu/~team12/backend/view_user_profile2.php";
->>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
-  
     console.log("requested url ", request_url);
     var json = { username: localStorage.getItem("username") };
 
@@ -172,30 +146,20 @@ function show_profile() {
       mode: "no-cors",
       body: JSON.stringify(json),
       headers: {
-<<<<<<< HEAD
-        "Content-type": "application/x-www-form-urlencoded; 
-charset=UTF-8",
-=======
         "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
->>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
       },
     })
       .then((response) => {
-      
-  
         if (!response.ok) {
           console.log("response is, ", response);
           throw new Error("Could not reach website.");
         }
         console.log(response);
- 
+
         return response.json();
       })
       .then(function (json) {
-<<<<<<< HEAD
-=======
-        alert('response');
->>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
+        alert("response");
         console.log("Data from fetch");
         console.log(json);
         document.getElementById("first-last-name").innerHTML =
@@ -215,12 +179,8 @@ function show_tabs(current_class_id) {
     .classList.remove("setting-active");
 
   console.log("current active class", this.current_item_active);
-<<<<<<< HEAD
-  
-document.getElementById(current_class_id).classList.add("setting-active");
-=======
+
   document.getElementById(current_class_id).classList.add("setting-active");
->>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
   document
     .getElementById(this.current_item_active + "-details")
     .classList.add("d-none");

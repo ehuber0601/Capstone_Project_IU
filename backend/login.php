@@ -33,12 +33,12 @@ if ($result = mysqli_query($conn, $sql)) {
             $row = mysqli_fetch_assoc($result);
             // session_start();
 
-	    setcookie('username',$name,time()+3600,'/');
-	   setcookie('name',$row['firstName']." 
-".$row['lastName'],time()+3600,'/') ;
+            setcookie('username', $name, time() + 3600, '/');
+            setcookie('name', $row['firstName'] . " 
+" . $row['lastName'], time() + 3600, '/');
 
-            setcookie('username',$name,time()+3600,'/');
-            setcookie('name',$row['firstName']." ".$row['lastName'],time()+3600,'/') ;
+            setcookie('username', $name, time() + 3600, '/');
+            setcookie('name', $row['firstName'] . " " . $row['lastName'], time() + 3600, '/');
 
             $_SESSION['username'] = $name;
             $session_id = generateRandomString(12);
@@ -51,7 +51,7 @@ if ($result = mysqli_query($conn, $sql)) {
             $response_header['response_message'] = "Success";
             echo json_encode($response_header);
         } else {
-            $response_header['response_message'] = "Sorry You gave entered invalid password ! try another password";
+            $response_header['response_message'] = "Sorry You have entered invalid password ! try another password";
             $response_header['result_code'] = 206;
             echo json_encode($response_header);
         }
