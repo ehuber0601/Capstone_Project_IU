@@ -19,7 +19,7 @@ if (!$conn) {
     // $form_data = array_values($form_data);
 
     $firstName = cleanInput($form_data['first_name']);
-    $lastName = cleanInput($form_data['last_name']);
+    $lastName = '';
     $username = cleanInput($form_data['username']);
     $email = cleanInput($form_data['email']);
     $password = cleanInput($form_data['password']);
@@ -29,9 +29,19 @@ if (!$conn) {
     if ($result = mysqli_query($conn, $sql)) {
 
         if (mysqli_num_rows($result) > 0) {
-            $response_header['status_code'] = 205;
-            $response_header['response_message'] = 'User Email ' . $email . ' already exists ';
+
+            $session_id = generateRandomString(12);
+            $response_header['username'] =$email;
+            $response_header['session_id'] = $session_id;
+            $query = mysqli_query($conn, "SELECT userID FROM User WHERE `email` = $email");
+            while ($row = mysqli_fetch_assoc($query)) {
+                $userID = $row['userID'];
+            }
+            $response_header['userID'] = $userID;
+            $response_header['result_code'] = 200;
+            $response_header['response_message'] = "Success";
             echo json_encode($response_header);
+
         } else {
             // $password_encription
             // = password_hash($form_data[3], PASSWORD_DEFAULT);
@@ -41,16 +51,22 @@ if (!$conn) {
                 $userID = $row['id'];
             }
             $userID = (int)$userID + 1;
-
-            // $$userID = rand(pow(10, 20), pow(10, 23) - 1);
-            // $sql_insert = "INSERT INTO User (`userID` , `username`,  `firstName`, `lastName`, `email` , `phoneNumber` , `DOB`,  `password`, `followers` , `bio` ) VALUES ( '$userID',  '$form_data[3]' , '$form_data[1]', '$form_data[2]' , '$form_data[0]' , '$form_data[4]' , ''  , '' , '' , '')";
+ //`DOB`,  `password`, `followers` , `bio` ) VALUES ( '$userID',  '$form_data[3]' , '$form_data[1]', '$form_data[2]' , '$form_data[0]' , '$form_data[4]' , ''  , '' , '' , '')";
             $sql_insert = "INSERT INTO User (`userID` , `username`,  `firstName`, `lastName`, `email` , `phoneNumber` , `DOB`,  `password`, `followers` , `bio` ) VALUES ( '$userID',   '$email' , '$firstName', '$lastName' , '$email' , '' , ''  , '$password' , '' , '')";
 
             if (mysqli_query($conn, $sql_insert)) {
                 $delete_blank = "DELETE FROM `user` WHERE `email` = '' ";
                 mysqli_query($conn, $delete_blank);
-                $response_header['status_code'] = 200;
-                $response_header['response_message'] = 'Account Registered Successfully with userID : ' . $userID;
+                $session_id = generateRandomString(12);
+                $response_header['username'] =$email;
+                $response_header['session_id'] = $session_id;
+                $query = mysqli_query($conn, "SELECT userID FROM User WHERE `email` = $email");
+                while ($row = mysqli_fetch_assoc($query)) {
+                    $userID = $row['userID'];
+                }
+                $response_header['userID'] = $userID;
+                $response_header['result_code'] = 200;
+                $response_header['response_message'] = "Success";
                 echo json_encode($response_header);
                 // mysql_free_result() 
             } else {

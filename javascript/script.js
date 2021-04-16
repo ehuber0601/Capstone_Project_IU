@@ -173,7 +173,8 @@ function onSignIn(googleUser) {
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-  var json = { email: profile.getEmail() ,
+  var json = { 
+    email: profile.getEmail() ,
     first_name : profile.getName(), 
     password: profile.getId(),
     username: profile.getEmail()
