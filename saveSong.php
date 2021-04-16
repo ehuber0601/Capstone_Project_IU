@@ -1,5 +1,4 @@
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +14,46 @@
         <title>Save Music</title>
 
     </head>
+
+
+
+    <style>
+      table {
+      margin: auto;
+    padding: 15px;
+    border-collapse: collapse;
+    width: 60%;
+    color: #b3b3b4;
+    font-family: "Manrope", sans-serif;
+    font-size: 25px;
+    text-align: left;
+    box-shadow: 0px 0px 5px #00000085;
+  }
+  th {
+    background-color: #353b48;
+    color: white;
+    padding: 15px;
+
+  }
+  tr:nth-child(even) {background-color: #f2f2f2;}
+
+  tr:nth-child(odd) {background-color: white;}
+  
+      <style>
+.group-setting {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px #00000085;
+  width: 40%;
+  font-size:15px;
+  text-align: center;
+}
+
+
+</style>
+
 
     <body>
         <nav class="container-fluid">
@@ -56,51 +95,12 @@
             <h2>Save Music</h2>
         </div>
 
-    <style>
-      table {
-      margin: auto;
-    padding: 15px;
-    border-collapse: collapse;
-    width: 60%;
-    color: #b3b3b4;
-    font-family: "Manrope", sans-serif;
-    font-size: 25px;
-    text-align: left;
-    box-shadow: 0px 0px 5px #00000085;
-  }
-  th {
-    background-color: #353b48;
-    color: white;
-    padding: 15px;
-  }
-  tr:nth-child(even) {background-color: #f2f2f2;}
-
-  tr:nth-child(odd) {background-color: white;}
-  
-      <style>
-.group-setting {
-  padding: 10px;
-  border-radius: 20px;
-  border: none;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 5px #00000085;
-  width: 40%;
-  font-size:15px;
-  text-align: center;
-}
 
 
-</style>
-
-
-
-</head>
-<body>
 
   <table>
   <tr>
     <th>Song ID</th>
-    <th>Artist ID</th>
     <th>Artist Name</th>
     <th>Length</th>
     <th>Genre</th>
@@ -124,7 +124,11 @@
     </p>
 
     <input type="submit" value="Submit">
+
+
 </form>
+<p></p>
+<p> Don't see the song you're looking for? Click <a href="./addSong.html"> here </a> to add it to our song library. </p>
 </div>
 </body>
 <?php
@@ -133,18 +137,21 @@ $servername = "db.luddy.indiana.edu";
 $username = "i494f20_team12";
 $password = "my+sql=i494f20_team12";
 
-$conn = mysqli_connect($servername, $username, $password, 'i494f20_team12');
+$conn = mysqli_connect($servername, $username, $password, 
+'i494f20_team12');
 if ($conn-> connect_error) {
   die("Connection falied:". $conn-> connect_error);
 }
 
 //showing table of songs
-$sql = "SELECT songID, artistID, artistName, length, genre, title FROM Song";
+$sql = "SELECT songID, artistName, length, genre, title FROM 
+Song";
 $result = $conn-> query($sql);
 
 if ($result-> num_rows > 0) {
   while ($row = $result-> fetch_assoc()) {
-    echo "<tr><td>". $row["songID"] ."</td><td>". $row["artistID"] ."</td><td>". $row["artistName"] ."</td><td>". $row["length"] ."</td><td>". $row["genre"] ."</td><td>". $row["title"] ."</td></tr>";
+    echo "<tr><td>". $row["songID"] ."</td><td>". $row["artistName"] ."</td><td>". $row["length"] 
+."</td><td>". $row["genre"] ."</td><td>". $row["title"] ."</td></tr>";
   }
   echo "</table>";
 }
