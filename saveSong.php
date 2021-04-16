@@ -1,62 +1,4 @@
 <html lang="en">
-<<<<<<< HEAD
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link 
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
-rel="stylesheet"
-            
-integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
-crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/reset.css">
-        <link rel="stylesheet" href="./css/style.css">
-
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link 
-href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" 
-rel="stylesheet">
-        <link rel="stylesheet"
-            
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<title>Save Song Form</title>
-
-
-
-<style>
-
-table {
-  margin: auto;
-  padding: 10px;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 5px #00000085;
-  width: 80%;
-  text-align: center;
-  font-size: 25px;
-  border-radius: 25px;
-  padding: 20px; 
-  height: 150px;
-  border-collapse:separate;
-  border: 1px;
-  border-radius:6px;
-  -moz-border-radius:6px;
-}
-
-td, th {
-  border-left: 1px;
-  border-top: 1px;
-}
-
-
-
-
-  th {
-    background-color: #487eb0;
-    color: white;
-    border-top: none;
-=======
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -129,7 +71,7 @@ td, th {
     background-color: #353b48;
     color: white;
     padding: 15px;
->>>>>>> 3757a3dfc8433a033a76268d48399f68bed7134a
+
   }
   tr:nth-child(even) {background-color: #f2f2f2;}
 
