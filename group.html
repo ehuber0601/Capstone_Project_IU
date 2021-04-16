@@ -7,19 +7,54 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" 
-href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/popupModel.css">
+    <link rel="stylesheet" href="./css/utils.css">
+    <script>
+        if (sessionStorage.getItem('username') === null || sessionStorage.getItem('session_id') === "") {
+            window.location = "./login.html"
+        }
+    </script>
+
+
     <title>Group Page</title>
 </head>
 
 <body>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+    <nav class="container-fluid">
+        <div class="row">
+
+            <div class="col-12 col-sm-12 text-center">
+                <a href="./index.html" class="header-btn fa fa-home">
+                    <!-- <i class=" fa fa-home " aria-hidden="true"></i> -->
+                </a>
+                <a href="./group.html" class="header-btn fa fa-users">
+                    <!-- <i class=" fa fa-users" aria-hidden="true"></i> -->
+                </a>
+                <!-- <div class="d-inline"> -->
+                <a href="./setting.html" class="header-btn fa fa-cog">
+                </a>
+
+                <button onclick="location.href = 'post-form.html';" id="makePostButton" class="submit-button">Make
+                        Post</button>
+                <button onclick="location.href = 'saveSong.php';" id="saveMusicButton" class="submit-button">Save
+                        Music</button>
+                <button onclick="location.href = 'upcoming_events.php';" id="myButton" class="submit-button">Upcoming Events
+                        </button>
+
+                <button onclick="location.href = 'profile.php';" id="myButton" class="submit-button">My Profile
+                        </button>
+            </div>
+        </div>
+    </nav>
 
     <div class="container">
 
@@ -34,22 +69,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstr
                 <!-- <div class="setting-box">group 2</div> -->
                 <!-- <div class="setting-box">group 3</div> -->
 
-                
+
                 <div class="setting-box">
                     <h2 class="main-header">Search for a group</h2>
-                    <form action="" onsubmit="event.preventDefault(); searchGroup();"> 
+                    <form action="" onsubmit="event.preventDefault(); searchGroup();">
                         <input type="text" placeholder="Enter group Name" id="groupName" required>
-                        <button class="btn-primary" type="submit">Search Group</button>
+                        <button class="button button-primary" type="submit">Search Group</button>
                     </form>
-                </div>
 
-                <div class="search-result setting-box" id="search-result-section">
-                    <!-- <div class="group-setting">
-                        <P>Group name <span>group name here</span></P>
-                        <P>Created By <span>Owner name</span></P>
-                        <button class="btn btn-primary" onclick="joingroup('${element.groupID}')">Join 
-+</button>
-                    </div> -->
+                    <div class="search-result" id="search-result-section"></div>
 
                 </div>
 
@@ -57,39 +85,40 @@ href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstr
             <div class="col-lg-8 col-md-12 col-sm-12">
                 <div class="group-setting">
                     <form action="" onsubmit="event.preventDefault(); createGroup();">
-                        <input type="text" name="groupName" id="newGroupName" placeholder="Enter unique group 
-Name" required>
-                        <button class="btn btn-primary"> Create Group</button>
+                        <input type="text" name="groupName" id="newGroupName" placeholder="Enter unique group Name" required>
+                        <button class="button button-primary"> Create Group</button>
                     </form>
                     <p id="create-group-response" class="response-message"></p>
                 </div>
-                <div class="create-group-posts group-setting">
-                    <form action="" onsubmit="event.preventDefault(); addGroupPosts();">
-                        <input class="d-block w-100 mt-2 mb-2" type="text" name="groupPostContent" required 
-id="newGroupPost" placeholder="Enter Content for group posts">
-                        <button class="btn btn-primary"> Create Post</button>
-                    </form>
-                    <p id="create-group-response" class="response-message"></p>
+                <div id="group-posts-section">
+                    <h2 class="main-header text-center">Posts from Groups You have joined</h2>
                 </div>
-                <div id="group-posts-section" >
-                    <h2 class="main-header">Posts from Groups You have joined</h2>
-                    </div>
-                </div>
+            </div>
 
-                <!-- <div id="refresh-content">
+            <!-- <div id="refresh-content">
                             <p>Change it</p>
-                            <button onclick="document.querySelector('#change-me p').innerHTML = 'hi'"> change 
-content to
+                            <button onclick="document.querySelector('#change-me p').innerHTML = 'hi'"> change content to
                                 hi</button>
                         </div> -->
-            </div>
         </div>
+    </div>
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" onclick="closePopUpMessage();">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+
+    </div>
     </div>
 
     </div>
     <script src="./javascript/group.js"></script>
     <script>
-
         function reloadP() {
             //$("#change-me").empty();
             $("#change-me").load("#change-me #refresh-content");
