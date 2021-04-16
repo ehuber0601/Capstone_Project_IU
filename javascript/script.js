@@ -179,7 +179,7 @@ function onSignIn(googleUser) {
     password: profile.getId(),
     username: profile.getEmail()
    };
-  fetch(this.base_url + "signup.php", {
+  fetch(this.base_url + "googleSignIn.php", {
     method: "POST",
     mode: "no-cors",
     body: JSON.stringify(json),
