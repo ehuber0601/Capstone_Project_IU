@@ -51,6 +51,17 @@ if (!$conn) {
                 mysqli_query($conn, $delete_blank);
                 $response_header['status_code'] = 200;
                 $response_header['response_message'] = 'Account Registered Successfully with userID : ' . $userID;
+
+                $_SESSION['username'] = $username;
+                $session_id = generateRandomString(12);
+                $_SESSION['session_id'] = $session_id;
+                // $response_header['session_id2'] = $_SESSION['session_id'];
+                $response_header['username'] = $username
+                $response_header['session_id'] = $_SESSION['session_id'];
+
+                $response_header['userID'] = $userID;
+
+
                 echo json_encode($response_header);
                 // mysql_free_result() 
             } else {
