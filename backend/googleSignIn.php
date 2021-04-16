@@ -35,7 +35,7 @@ if (!$conn) {
             $response_header['session_id'] = $session_id;
             $userID = 1;
             $query = mysqli_query($conn, "SELECT userID FROM User WHERE `email` = $email");
-            $row = mysqli_fetch_assoc($query)) 
+            $row = mysqli_fetch_assoc($query); 
             $userID = $row["userID"];
             
             $response_header['userID'] = $userID;
