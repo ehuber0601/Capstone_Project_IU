@@ -195,6 +195,7 @@ function onSignIn(googleUser) {
     })
     .then(function (json) {
       console.log(json.response_message);
+      console.log("google sign up response",json);
       sessionStorage.setItem("session_id", json["session_id"]); // login and logout
       sessionStorage.setItem("username", json["username"]);
       sessionStorage.setItem("userID", json["userID"]); // when we post something we will use this id
