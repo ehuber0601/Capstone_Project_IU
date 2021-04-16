@@ -12,7 +12,6 @@ body {
   /* -webkit-appearance: none; */
   outline: none;
   /* background-color: blueviolet; */
-
   /* display: block; */
   font-weight: 600;
   /* width: 100%; */
@@ -32,6 +31,7 @@ body {
   transform: translateY(50px);
   transition: 0.5s ease all;
 }
+
 .dropdown-menu.show {
   display: block;
   visibility: visible;
@@ -93,10 +93,6 @@ input {
   color: white;
 }
 
-.btn-primary {
-  background-color: blueviolet !important;
-}
-
 .name {
   font-weight: 700;
 }
@@ -107,18 +103,21 @@ input {
   box-shadow: 1px 3px 15px black;
 }
 
-.card-body p {
+/* .card-body p {
   /* color: blueviolet; */
-}
+
 
 .setting-box {
   -webkit-box-shadow: 20px 29px 50px -39px rgba(0, 0, 0, 1);
   -moz-box-shadow: 20px 29px 50px -39px rgba(0, 0, 0, 1);
   box-shadow: 20px 29px 50px -39px rgba(0, 0, 0, 1);
-  background-color: #e6e6e6;
+  background-color: #ffffff;
+  border-radius: 14px;
+  margin: 10px 0px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding: 12px 10px 12px 5px;
+  transition: all 2s;
 }
 
 .setting-active {
@@ -127,23 +126,27 @@ input {
   font-weight: bold;
 }
 
+
 /* Update profile setting */
 
 .collapsible {
-  background-color: #777;
-  color: white;
+  background-color: #ffffff;
+  color: #0f0f0f;
   cursor: pointer;
   padding: 18px 10px;
   width: 100%;
   border: none;
+  font-weight: bold;
   text-align: left;
   outline: none;
   font-size: 15px;
+  border-radius: 15px;
 }
 
 .active,
 .collapsible:hover {
-  background-color: #555;
+  background-color: #353b48;
+  color: #fff;
 }
 
 .collapsible:after {
@@ -176,6 +179,8 @@ input {
 
 .collapsible-content form .update-input {
   padding: 10px;
+  color: #fff;
+  background: #353b48e3;
   box-shadow: 5px 5px 5px #16161681;
   border-radius: 20px;
   margin: 10px 0px;
@@ -205,15 +210,19 @@ input {
   color: #273c75;
   border-radius: 15px;
   margin: 0px 5px;
-
   border: none;
   padding: 10px;
   display: inline-block;
   outline: none;
   box-shadow: 5px 5px 5px #201f1f;
-  transition: all linear 0.3s;
+  transition: all 0.3s;
 }
+
 .submit-button:hover {
-  transform: scale(1.01);
+  transform: scale(1.1);
   background-color: #777;
+}
+
+.user-image img {
+  width: 150px !important;
 }
