@@ -57,6 +57,7 @@ Features
   <li>Login System (Sprint 09)</li>
   <li>Search bar for songs (Sprint 10)</li>
   <li>Custom Bio (Sprint 12)</li>
+  <li>Add Songs to Library (Sprint 12)</li>
 </ul>
 
 This repository will be used to store team file for our project.
