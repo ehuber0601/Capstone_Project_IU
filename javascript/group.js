@@ -174,6 +174,7 @@ function joinGroup(groupID, userID) {
         .then(function(json) {
             console.log(json.response_message);
             showPopUpMessage(json.response_message);
+            showMyGroups();
             showGroupPosts();
 
         })
@@ -185,7 +186,7 @@ function showMyGroups() {
     var userID = sessionStorage.getItem('userID');
     var url = baseURL + "showMyGroups.php";
     var json = { userID: sessionStorage.getItem('userID'), session_id: sessionStorage.getItem("session_id") }
-
+    document.getElementById("my-groups-section").innerHTML = "";
     fetch(url, {
             method: "POST",
             mode: "no-cors",
@@ -242,6 +243,7 @@ function leaveGroup(groupid, user_id) {
         .then(function(json) {
             console.log(json.response_message);
             showPopUpMessage(json.response_message);
+            showMyGroups();
             showGroupPosts();
 
         })
