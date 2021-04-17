@@ -197,7 +197,7 @@ function onSignIn(googleUser) {
       sessionStorage.setItem("firstName", json["firstName"]); // when we post something we will use this id
       sessionStorage.setItem("lastName", json["lastName"]); // when we post something we will use this id
       $("body").load("./index.html");
-      window.history.pushState("", "Home Page", "~team12/login.html");
+      // window.history.pushState("", "Home Page", "/login.html");
       window.location.href = "https://cgi.sice.indiana.edu/~team12/index.html";
     })
     .catch((err) => console.error(err));
