@@ -157,12 +157,13 @@ userID='" . $row['UserID'] . "'";
 
     <div class="container-fluid">
         <div class="d-flex justify-content-between mt-2 mb-4">
-            <div class=""> <img src="./images/profile.png" alt=""></div>
+            
             <div>
                 <div class='user_info'>
                     <p class='mt-2 name' id='first-last-name'><?php echo
                                                                 $name; ?></p>
                     <div class='verfication'>
+<br>
                         <?php
 
                         $isArtist = FALSE;
@@ -180,7 +181,7 @@ userID='" . $row['UserID'] . "'";
                     </div>
                 </div>
                 <p class="mt-2" id="username"><?php echo $user; ?></p>
-                <button class="btn btn-primary pe-2 ps-2 mt-2">Follow</button>
+                
             </div>
 
             <div class="bio-section">

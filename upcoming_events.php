@@ -52,7 +52,9 @@ submit-button">Upcoming Events
     </div>
   </nav>
   <br>
-
+<div class="main-header text-center pt-3 pb-3">
+            <h2>Upcoming Events</h2>
+        </div>
   <?php
 
   $servername = 'db.luddy.indiana.edu';
@@ -72,13 +74,13 @@ submit-button">Upcoming Events
   $result = $conn->query($sql);
   $row = $result->fetch_assoc();
 
-  echo "<h1>Upcoming Events</h1>";
+  
 
 
   echo "<br><table>";
 
-  echo "<tr><td>Name</td><td>Date</td><td>Time</td><td>First 
-Name</td><td>Last Name</td></tr>";
+  echo "<tr><th>Name</th><th>Date</th><th>Time</th><th>First 
+Name</th><th>Last Name</th></tr>";
 
 
   while ($row = $result->fetch_assoc()) {
@@ -94,11 +96,25 @@ Name</td><td>Last Name</td></tr>";
   </table>
 
   <style>
-    td {
+    table {
+      margin: auto;
+    padding: 15px;
+    border-collapse: collapse;
+    width: 60%;
+    color: #b3b3b4;
+    font-family: "Manrope", sans-serif;
+    font-size: 25px;
+    text-align: left;
+    box-shadow: 0px 0px 5px #00000085;
+  }
+tr:nth-child(even) {background-color: #f2f2f2;}
 
-      padding: 10px;
-      border: 1px solid #ffffff;
-    }
+  tr:nth-child(odd) {background-color: white;}
+th {
+    background-color: #353b48;
+    color: white;
+    padding: 15px;
+}
 
     a:link {
       color: black;
