@@ -198,6 +198,7 @@ function onSignIn(googleUser) {
       sessionStorage.setItem("lastName", json["lastName"]); // when we post something we will use this id
       $("body").load("./index.html");
       window.history.pushState("", "Home Page", "~team12/login.html");
+      window.location.reload();
     })
     .catch((err) => console.error(err));
 }
