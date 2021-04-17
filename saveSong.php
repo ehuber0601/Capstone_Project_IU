@@ -68,13 +68,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome
             <div class="row">
               	<a href="./index.html">
                 <div class="col-12 col-sm-12 text-center">
+<<<<<<< HEAD
                     <i class="d-inline fa fa-home me-2" 
 aria-hidden="true"></i>
+=======
+                    <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
+>>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
                     <a  href ="./group.html">
                         <i class="fa fa-users" aria-hidden="true"></i>
 
                     </a>
                     <div class="d-inline dropdown">
+<<<<<<< HEAD
                         <a class="btn fa fa-cog" href="#" role="button" 
 id="dropdownMenuLink" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -107,6 +112,29 @@ id="myButton" class="float-left submit-button">My Profile
                         </button>
                           <button onclick="location.href = 'paypal.html';" 
 id="DonateButton" class="submit-button">Donate </button>
+=======
+                        <a class="btn fa fa-cog" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        </a>
+
+                        <ul class="dropdown-menu setting-dropdown" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item text-center " href="./setting.html">Setting</a></li>
+                        </ul>
+                    </div>
+                        <button onclick="location.href = 'post-form.html';" id="makePostButton" class="submit-button">Make
+                        Post</button>
+                        <button onclick="location.href = 'search.html';" id="searchMusicButton" class="submit-button">Search Music
+        			</button>
+                    <button onclick="location.href = 'saveSong.php';" id="saveMusicButton" class="submit-button">Save
+                        Music</button>
+                        <button onclick="location.href = 'upcoming_events.php';" id="myButton" class="float-left submit-button">Upcoming Events
+                        </button>
+                        <button onclick="location.href = 'bio.html';" id="CreateBioButton" class="submit-button">Create Bio</button>
+
+                        <button onclick="location.href = 'profile.php';" id="myButton" class="float-left submit-button">My Profile
+                        </button>
+                          <button onclick="location.href = 'paypal.html';" id="DonateButton" class="submit-button">Donate </button>
+>>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
                 </div>
             </div>
         </nav>
@@ -148,8 +176,12 @@ id="DonateButton" class="submit-button">Donate </button>
 
 </form>
 <p></p>
+<<<<<<< HEAD
 <p> Don't see the song you're looking for? Click <a href="./addSong.html"> 
 here </a> to add it to our song library. </p>
+=======
+<p> Don't see the song you're looking for? Click <a href="./addSong.html"> here </a> to add it to our song library. </p>
+>>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
 </div>
 </body>
 <?php
@@ -171,8 +203,12 @@ $result = $conn-> query($sql);
 
 if ($result-> num_rows > 0) {
   while ($row = $result-> fetch_assoc()) {
+<<<<<<< HEAD
     echo "<tr><td>". $row["songID"] ."</td><td>". $row["artistName"] 
 ."</td><td>". $row["length"] 
+=======
+    echo "<tr><td>". $row["songID"] ."</td><td>". $row["artistName"] ."</td><td>". $row["length"] 
+>>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
 ."</td><td>". $row["genre"] ."</td><td>". $row["title"] ."</td></tr>";
   }
   echo "</table>";
@@ -187,4 +223,8 @@ $conn-> close();
 
 
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
