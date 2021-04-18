@@ -15,14 +15,14 @@ if (!$conn) {
 } else {
     $form_data = json_decode(file_get_contents('php://input'), true);
 
-    $groupID = $form_data['groupID'];
-    $userID = $form_data['userID'];
+    $groupID = cleanInput($form_data['groupID']);
+    $userID = cleanInput($form_data['userID']);
 
     $sql = "DELETE FROM groupMember WHERE `groupID` = '$groupID' AND `userID` = '$userID'";
 
     if (mysqli_query($conn, $sql)) {
         $response_header['status_code'] = 200;
-        $response_header['response_message'] = 'You have left group successfully: ' ;
+        $response_header['response_message'] = 'You have left group successfully: ';
         echo json_encode($response_header);
     } else {
         $response_header['status_code'] = 206;

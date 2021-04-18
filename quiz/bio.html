@@ -1,46 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="allisonstyle.css">
-<link href='https://fonts.googleapis.com/css?family=Almarai' rel='stylesheet'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/reset.css">
+        <link rel="stylesheet" href="./css/style.css">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Create Bio</title>
+
+    </head>
+<link rel="stylesheet" href="style.css">
+
+
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-.topnav {
-  overflow: hidden;
-  background-color: #333;
+* {
+  box-sizing: border-box;
 }
 
-.topnav a {
+
+/* Create two columns/boxes that floats next to each other */
+nav {
   float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+  width: 30%;
+  padding: 20px;
 }
 
-.topnav a:hover {
-  background-color: #f1faee;
-  color: black;
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.topnav a.active {
-  background-color: #8D99AE;
-  color: white;
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
 }
 
-h1 {
-  font-family: 'Brush Script MT', cursive;
-  text-align: center;
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
 }
+
 
 div.form {
+
 	border-style: outset;
 	border-color: #2B2D42;
 	background-color: #8D99AE;
 	border-width:5px;
+
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -51,22 +70,54 @@ div.form {
     padding-bottom: 5px;
     width: 50%;
 }
+
+
 </style>
 
 <body>
-<div class="topnav">
-  <a href="./index.html">Home</a>
-  <a href="#,/profile.php">Profile</a>
-  <a href="./post-form.html">Make Post</a>
-  <a href="./search.html">Search</a>
-  <a href="./saveSong.php">Save Song</a>
-  <a href="playlist">Make Playlist</a>
-  <a class="active" href="./setting.html">Settings</a>
-</div>
 
-<h1>Customize your Bio</h1>
+      <nav class="container-fluid">
+            <div class="row">
+              
+                <div class="col-12 col-sm-12 text-center">
+                    <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
+                    <a  href ="./group.html">
+                        <i class="fa fa-users" aria-hidden="true"></i>
 
-<div>Tell us more about yourself to customize your profile.</div>
+                    </a>
+                    <div class="d-inline dropdown">
+                        <a class="btn fa fa-cog" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                        </a>
+
+                        <ul class="dropdown-menu setting-dropdown" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item text-center " href="./setting.html">Setting</a></li>
+                        </ul>
+                    </div>
+                        <button onclick="location.href = 'post-form.html';" id="makePostButton" class="submit-button">Make
+                        Post</button>
+                         <button onclick="location.href = 'search.html';" id="myButton" class="float-left submit-button">Search Music
+                        </button>
+                    <button onclick="location.href = 'saveSong.php';" id="saveMusicButton" class="submit-button">Save
+                        Music</button>
+                        <button onclick="location.href = 'upcoming_events.php';" id="myButton" class="float-left submit-button">Upcoming Events
+                        </button>
+                    
+                         <button onclick="location.href = 'bio.html';" id="myButton" class="float-left submit-button">Create Bio
+                        </button>
+
+                        <button onclick="location.href = 'profile.php';" id="myButton" class="float-left submit-button">My Profile
+                        </button>
+                </div>
+            </div>
+        </nav>
+
+<h1>About Me</h1>
+
+<section>
+<article>
+
+<div>Tell us more about yourself to customize your bio.</div>
   </br>
 <div class= "form">
   <form action="bio.php" method="post">
@@ -81,12 +132,27 @@ div.form {
   
   <label for="artist">Favorite Artist</label>
   <input type="text" id="artist" name="artist"></br>
-  
+
    <label for="song">Favorite Song:</label>
   <input type="text" id="song" name="song"></br>
   
 </br><button type="submit" name="save">Submit</button></br>
+</br>
 
 </div>
+</article>
 
+<nav>
+<h2>Enter your username to read your bio. </hw>
+<div class="form">
+<form action="bioPHP.php" method="post">
+Username <input type="text" name="username"><br>
+<button type="submit" name="bio"> Search Bio</button>  
+</form>
+</div>
+</br>
+<nav>
+  
 </body>
+
+</html>	

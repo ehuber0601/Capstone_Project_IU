@@ -8,10 +8,10 @@ header('Access-Control-Allow-Methods: GET, POST, PUT');
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$oldPassword = $incoming_data['currentPassword'];
-$newPassword = $incoming_data['newPassword'];
-$sessionID = $incoming_data['session_id'];
-$userID = $incoming_data['userID'];
+$oldPassword = cleanInput($incoming_data['currentPassword']);
+$newPassword = cleanInput($incoming_data['newPassword']);
+$sessionID = cleanInput($incoming_data['session_id']);
+$userID = cleanInput($incoming_data['userID']);
 
 if (empty($sessionID)) {
     $response_header['message'] = "Sorry you have not logged in ";

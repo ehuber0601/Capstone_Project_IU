@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <title>Search for a Song</title>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Search for a Song</title>
+
                        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,
 initial-scale=1.0">
@@ -11,24 +18,26 @@ initial-scale=1.0">
 href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min$
 rel="stylesheet"
 
-integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwK$
-crossorigin="anonymous">
+integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwK$ crossorigin="anonymous">
+
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/style.css">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link
-href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display$
+
+
+        <link 
+href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" 
 rel="stylesheet">
         <link rel="stylesheet"
+            
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Search Music</title>
 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesom$
+    </head>
+    
+    <style>
 
-        <link rel="stylesheet" href="style.css">
-</head>
-
-
-<style>
 .group-setting {
   margin: auto;
   padding: 10px;
@@ -36,53 +45,66 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesom$
   border: none;
   background-color: #ffffff;
   box-shadow: 0px 0px 5px #00000085;
+
+  font-size:25px;
+  text-align: center;
+
   width: 30%;
 }
 </style>
 
-<body>
 
-        <nav class="container-fluid">
+
+
+    <body>
+       <nav class="container-fluid">
             <div class="row">
 
+              	<a href="./index.html">
                 <div class="col-12 col-sm-12 text-center">
-                    <i class="d-inline fa fa-home me-2"
-aria-hidden="true"></i>
+                    <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
+
                     <a  href ="./group.html">
                         <i class="fa fa-users" aria-hidden="true"></i>
 
                     </a>
                     <div class="d-inline dropdown">
-                        <a class="btn fa fa-cog" href="#" role="button"
+
+                        <a class="btn fa fa-cog" href="#" role="button" 
 id="dropdownMenuLink" data-bs-toggle="dropdown"
                             aria-expanded="false">
                         </a>
 
-                        <ul class="dropdown-menu setting-dropdown"
+                        <ul class="dropdown-menu setting-dropdown" 
 aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item text-center "
+                            <li><a class="dropdown-item text-center " 
 href="./setting.html">Setting</a></li>
                         </ul>
                     </div>
-                        <button onclick="location.href =
+                        <button onclick="location.href = 
 'post-form.html';" id="makePostButton" class="submit-button">Make
                         Post</button>
-                         <button onclick="location.href = 'search.html';"
-id="myButton" class="float-left submit-button">Search Music
-                        </button>
-                    <button onclick="location.href = 'saveSong.php';"
-id="saveMusicButton" class="submit-button">Save
+
+                        <button onclick="location.href = 'search.html';" id="searchMusicButton" class="submit-button">Search Music
+        			</button>
+                    <button onclick="location.href = 'saveSong.php';" id="saveMusicButton" class="submit-button">Save
+
                         Music</button>
-                        <button onclick="location.href =
-'upcoming_events.php';" id="myButton" class="float-left
+                        <button onclick="location.href = 
+'upcoming_events.php';" id="myButton" class="float-left 
 submit-button">Upcoming Events
                         </button>
-     <button on                 click="location.href = 'bio.html';"
-id="myButton" class="float-left submit-button">Create Bio
-                        </button>
-                        <button onclick="location.href = 'profile.php';"
+
+                        <button onclick="location.href = 'bio.html';" id="CreateBioButton" class="submit-button">Create Bio</button>
+
+
+                        <button onclick="location.href = 'profile.php';" 
 id="myButton" class="float-left submit-button">My Profile
                         </button>
+
+                          <button onclick="location.href = 'paypal.html';" 
+id="DonateButton" class="submit-button">Donate </button>
+
                 </div>
             </div>
         </nav>
@@ -92,8 +114,12 @@ id="myButton" class="float-left submit-button">My Profile
         </div>
                 <div class= "group-setting">
     <h2> Enter song title</h2>
+
+                    
+
 <form action="phpSearch.php" method="post">
 Search <input type="text" name="search"><br>
+</br>
 <input type ="submit">
 </form>
 </div>

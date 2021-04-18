@@ -1,3 +1,4 @@
+
 <html>
 <head>
 <title>Upcoming Events</title>
@@ -70,6 +71,7 @@ id="DonateButton" class="submit-button">Donate </button>
         </nav>
 
 <br>
+
 <?php 
 
 $servername='db.luddy.indiana.edu';
@@ -99,6 +101,7 @@ $servername='db.luddy.indiana.edu';
 
 
   while ($row = $result->fetch_assoc()) {
+
   
   
   
@@ -112,38 +115,73 @@ $servername='db.luddy.indiana.edu';
   </table>
   
   <style>
-  
-  td {
-  
-  padding: 10px;
-  border: 1px solid #ffffff;
+
+    table {
+      margin: auto;
+    padding: 15px;
+    border-collapse: collapse;
+    width: 60%;
+    color: #b3b3b4;
+    font-family: "Manrope", sans-serif;
+    font-size: 25px;
+    text-align: left;
+    box-shadow: 0px 0px 5px #00000085;
   }
-  a:link {
-  color: black;
-  background-color: transparent;
-  text-decoration: underline;
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+  tr:nth-child(odd) {background-color: white;}
+th {
+    background-color: #353b48;
+    color: white;
+    padding: 15px;
 }
-a:visited {
-  color: red;
-  background-color: transparent;
-  text-decoration: none;
+
+
+    a:link {
+      color: black;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    a:visited {
+      color: red;
+      background-color: transparent;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: red;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    a:active {
+      color: yellow;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+.main-header {
+    font-size: 28px;
+    font-weight: 600;
 }
-a:hover {
-  color: red;
-  background-color: transparent;
-  text-decoration: underline;
+.main-header h2 {
+    font-size: 55px;
+    font-weight: 700;
+    color: #fff;
 }
-a:active {
-  color: yellow;
-  background-color: transparent;
-  text-decoration: underline;
-}
-h1{font-size: 24px;
-}
+ */
+
 
   
   </style>
   
   
   </body>
+
   </html>
+

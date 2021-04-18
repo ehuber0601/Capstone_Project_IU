@@ -1,3 +1,4 @@
+
 <html>
 <head>
 <title>View Event</title>
@@ -122,4 +123,5 @@ id="DonateButton" class="submit-button">Donate </button>
 ?>
 </body>
 </html>
+
 

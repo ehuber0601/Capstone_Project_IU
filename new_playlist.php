@@ -6,6 +6,7 @@ $servername='db.luddy.indiana.edu';
         	$dbname = 'i494f20_team12';
         	
         	$conn = mysqli_connect($servername, $username, $password, $dbname);
+
         	
         	
         	if ($conn->connect_error) {
@@ -38,7 +39,9 @@ $servername='db.luddy.indiana.edu';
                 
   
             
+
             $sql = "INSERT INTO Playlist (playlistName, email, Song ) VALUES ('$playlist','$user', '$song_array')";
+
             $result = $conn->query($sql);
             
             echo mysqli_error();

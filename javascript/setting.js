@@ -33,7 +33,7 @@ function update_name() {
     .then(function (json) {
       document.getElementById("update_response").innerHTML =
       json["response_message"];
-      console.log("response is, ", json);
+      // console.log("response is, ", json);
     })
     .catch(
       (err) => (document.getElementById("update_response").innerHTML = err)
@@ -55,7 +55,7 @@ function update_password() {
   var request_url = this.base_url + "update_password.php";
   json["userID"] = sessionStorage.getItem("userID");
   json["session_id"] = sessionStorage.getItem("session_id");
-  console.log(json);
+  // console.log(json);
 
   fetch(request_url, {
     method: "POST",
@@ -69,7 +69,7 @@ function update_password() {
       if (!response.ok) {
         throw new Error("Could not reach website.");
       }
-      console.log(response);
+      // console.log(response);
       return response.json();
     })
     .then(function (json) {
@@ -154,7 +154,7 @@ function update_email() {
       if (!response.ok) {
         throw new Error("Could not reach website.");
       }
-      console.log(response);
+      // console.log(response);
       return response.json();
     })
     .then(function (json) {

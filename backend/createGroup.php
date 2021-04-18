@@ -15,9 +15,9 @@ if (!$conn) {
 } else {
     $form_data = json_decode(file_get_contents('php://input'), true);
 
-    $groupName = $form_data['groupName'];
-    $userID = $form_data['userID'];
-   
+    $groupName = cleanInput($form_data['groupName']);
+    $userID = cleanInput($form_data['userID']);
+
 
     $sql = "SELECT * FROM groupName WHERE `groupName` = '$groupName' ";
 
@@ -38,7 +38,7 @@ if (!$conn) {
                 $delete_blank = "DELETE FROM groupName  WHERE `groupID` = '' ";
                 mysqli_query($conn, $delete_blank);
                 $response_header['status_code'] = 200;
-                $response_header['response_message'] = 'Group Created successfully : ' ;
+                $response_header['response_message'] = 'Group Created successfully : ';
                 echo json_encode($response_header);
             } else {
                 $response_header['status_code'] = 206;

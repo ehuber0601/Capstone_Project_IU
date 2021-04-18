@@ -2,7 +2,7 @@
 //         Javascript code for calling APi
 
 $(document).ready(function () {
-  console.log("ready!");
+  // console.log("ready!");
 
   $("#signup-button").click(function (event) {
     event.preventDefault();
@@ -93,9 +93,9 @@ function get_response(data) {
 function validate_login_form() {
   event.preventDefault();
   var username = document.getElementById("username-login");
-  console.log(username.value);
+  // console.log(username.value);
   var password = document.getElementById("password-login");
-  console.log(password);
+  // console.log(password);
 
   if (username.value === null || username.value === "") {
     document.getElementsByClassName("login-error-message")[0].innerHTML =

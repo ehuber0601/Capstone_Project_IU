@@ -7,10 +7,10 @@ header('Access-Control-Allow-Methods: GET, POST, PUT');
 
 $incoming_data = json_decode(file_get_contents('php://input'), true);
 
-$groupID = $incoming_data['groupID'];
-$postContent = $incoming_data['postContent'];
+$groupID = cleanInput($incoming_data['groupID']);
+$postContent = cleanInput($incoming_data['postContent']);
 $currentdate = date('Y-m-d');
-$user_id = (int)$incoming_data['userID'] ;
+$user_id = cleanInput((int)$incoming_data['userID']);
 
 
 $query = mysqli_query($conn, "SELECT max(postID) as id FROM groupPosts");
@@ -26,7 +26,7 @@ if (mysqli_query($conn, $sql_insert)) {
     $response_header['status_code'] = 200;
     $response_header['response_message'] = 'Post Added Successfully';
     echo json_encode($response_header);
-// mysql_free_result()
+    // mysql_free_result()
 } else {
     $response_header['status_code'] = 206;
     $response_header['response_message'] = 'Error ' . mysqli_error($conn);

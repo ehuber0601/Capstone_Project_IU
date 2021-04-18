@@ -18,11 +18,11 @@ if (!$conn) {
     $form_data = json_decode(file_get_contents('php://input'), true);
     // $form_data = array_values($form_data);
 
-    $firstName = $form_data['first_name'];
-    $lastName = $form_data['last_name'];
-    $username = $form_data['username'];
-    $email = $form_data['email'];
-    $password = $form_data['password'];
+    $firstName = cleanInput($form_data['first_name']);
+    $lastName = cleanInput($form_data['last_name']);
+    $username = cleanInput($form_data['username']);
+    $email = cleanInput($form_data['email']);
+    $password = cleanInput($form_data['password']);
 
     $sql = "SELECT * FROM User WHERE `email` = '$email' ";
 

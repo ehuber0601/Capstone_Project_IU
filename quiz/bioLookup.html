@@ -1,0 +1,76 @@
+<html>
+<head>
+<link rel="stylesheet" href="allisonstyle.css">
+<link href='https://fonts.googleapis.com/css?family=Almarai'
+rel='stylesheet'>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #f1faee;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #8D99AE;
+  color: white;
+}
+
+h1 {
+  font-family: 'Brush Script MT', cursive;
+  text-align: center;
+}
+
+div.form {
+        border-style: outset;
+        border-color: #2B2D42;
+        background-color: #8D99AE;
+        border-width:5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    width: 50%;
+}
+</style>
+	
+<body>
+<div class="topnav">
+  <a href="./index.html">Home</a>
+  <a href="#,/profile.php">Profile</a>
+  <a href="./post-form.html">Make Post</a>
+  <a href="./search.html">Search</a>
+  <a href="./saveSong.php">Save Song</a>
+  <a href="playlist">Make Playlist</a>
+  <a class="active" href="./setting.html">Settings</a>
+</div>
+
+<h1> Enter your username to create bio:</h1>
+<div class="form">
+<form action="bioPHP.php" method="post">
+Search <input type="text" name="username"><br>
+<input type ="submit">   
+</form>
+</div>
+    
+</body>
+</html>

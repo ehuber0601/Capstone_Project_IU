@@ -81,12 +81,10 @@ function load_posts() {
         document.getElementById(
           "post-content"
         ).innerHTML += `<div class="post p-2 mt-2 mb-2">
-                <P class="top-heading mb-2">Posted-by <span>${item.name
-          }</span></P>
+                <P class="top-heading mb-2">Posted-by <span>${item.name}</span></P>
                 <p class="top-heading mb-2">Post Content</p>
                 <p class="mt-2 mb-2">${item.postContent}</p>
-                <p class="mt-2 mb-2 top-heading"> Posted on <span> ${item.postDate
-          } </span></p>
+                <p class="mt-2 mb-2 top-heading"> Posted on <span> ${item.postDate} </span></p>
 
             </div>`;
       });
@@ -133,7 +131,7 @@ function show_profile() {
   }
 }
 
-function update_likes(post_id) { }
+function update_likes(post_id) {}
 
 function show_tabs(current_class_id) {
   document
@@ -162,4 +160,45 @@ function show_tabs(current_class_id) {
       .getElementById(current_class_id + "-details")
       .classList.remove("d-none");
   }
+}
+
+// google sign In function
+
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+
+  var json = {
+    email: profile.getEmail(),
+    first_name: profile.getName(),
+    password: profile.getId(),
+    username: profile.getEmail(),
+  };
+  fetch(this.base_url + "googleSignIn.php", {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(json),
+    headers: {
+      "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Could not reach website.");
+      }
+      return response.json();
+    })
+    .then(function (json) {
+      // console.log(json.response_message);
+      console.log("google sign up response", json);
+      sessionStorage.setItem("session_id", json["session_id"]); // login and logout
+      sessionStorage.setItem("username", json["username"]);
+      sessionStorage.setItem("userID", json["userID"]); // when we post something we will use this id
+      sessionStorage.setItem("user_ID", json["userID"]); // when we post something we will use this id
+      sessionStorage.setItem("firstName", json["firstName"]); // when we post something we will use this id
+      sessionStorage.setItem("lastName", json["lastName"]); // when we post something we will use this id
+      $("body").load("./index.html");
+      // window.history.pushState("", "Home Page", "/login.html");
+      window.location.href = "https://cgi.sice.indiana.edu/~team12/index.html";
+    })
+    .catch((err) => console.error(err));
 }
