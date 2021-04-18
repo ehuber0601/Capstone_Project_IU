@@ -3,22 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+rel="stylesheet"
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+crossorigin="anonymous">
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/style.css">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" 
+rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Bio Redirect</title>
+        <title>Successful Entry</title>
 
     </head>
     
-
 <style>
-
 .group-setting {
   margin: auto;
   padding: 10px;
@@ -26,13 +27,11 @@
   border: none;
   background-color: #ffffff;
   box-shadow: 0px 0px 5px #00000085;
-
   width: 55%;
   text-align: center;
   font-size: 25px;
   
 }
-
 </style>
 
     <body>
@@ -46,7 +45,8 @@
 
                     </a>
                     <div class="d-inline dropdown">
-                        <a class="btn fa fa-cog" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                        <a class="btn fa fa-cog" href="#" role="button" id="dropdownMenuLink" 
+data-bs-toggle="dropdown"
                             aria-expanded="false">
                         </a>
 
@@ -54,26 +54,32 @@
                             <li><a class="dropdown-item text-center " href="./setting.html">Setting</a></li>
                         </ul>
                     </div>
-                        <button onclick="location.href = 'post-form.html';" id="makePostButton" class="submit-button">Make
+                        <button onclick="location.href = 'post-form.html';" id="makePostButton" 
+class="submit-button">Make
                         Post</button>
-                        <button onclick="location.href = 'search.html';" id="searchMusicButton" class="submit-button">Search Music
+                        <button onclick="location.href = 'search.html';" id="searchMusicButton" 
+class="submit-button">Search Music
         			</button>
-                    <button onclick="location.href = 'saveSong.php';" id="saveMusicButton" class="submit-button">Save
+                    <button onclick="location.href = 'saveSong.php';" id="saveMusicButton" 
+class="submit-button">Save
                         Music</button>
-                        <button onclick="location.href = 'upcoming_events.php';" id="myButton" class="float-left submit-button">Upcoming Events
+                        <button onclick="location.href = 'upcoming_events.php';" id="myButton" class="float-left 
+submit-button">Upcoming Events
                         </button>
-                        <button onclick="location.href = 'bio.html';" id="CreateBioButton" class="submit-button">Create Bio</button>
+                        <button onclick="location.href = 'bio.html';" id="CreateBioButton" 
+class="submit-button">Create Bio</button>
 
-                        <button onclick="location.href = 'profile.php';" id="myButton" class="float-left submit-button">My Profile
+                        <button onclick="location.href = 'profile.php';" id="myButton" class="float-left 
+submit-button">My Profile
                         </button>
-                          <button onclick="location.href = 'paypal.html';" id="DonateButton" class="submit-button">Donate </button>
+                          <button onclick="location.href = 'paypal.html';" id="DonateButton" 
+class="submit-button">Donate </button>
                 </div>
             </div>
         </nav>
 
         <div class="main-header text-center pt-3 pb-3">
-
-            <h2>Bio Successfully Created</h2>
+            <h2>Song Successfully Added</h2>
         </div>
         </br>
 
@@ -81,7 +87,7 @@
 
 
 <div class="group-setting"
-      <p>Click <a href ="./bioLookup.html"> here </a> to find your personalized bio.</p>
+      <p>Song can now be saved to personal account.</p>
 </div>
 
     
@@ -103,24 +109,23 @@ if ($conn-> connect_error) {
 }
 
 
-
-$userName = mysqli_real_escape_string($conn, $_REQUEST['userName']);
-$hometown = mysqli_real_escape_string($conn, $_REQUEST['hometown']);
+$title = mysqli_real_escape_string($conn, $_REQUEST['title']);
 $genre = mysqli_real_escape_string($conn, $_REQUEST['genre']);
 $artist = mysqli_real_escape_string($conn, $_REQUEST['artist']);
-$song = mysqli_real_escape_string($conn, $_REQUEST['song']);
+$length = mysqli_real_escape_string($conn, $_REQUEST['length']);
+
+
+
 
 //insert query execution
 if(isset($_POST['save']))
 {
 
-
-  $sql = "INSERT INTO bio (userName, hometown, genre, artist, song) VALUES ('$userName','$hometown','$genre','$artist','$song')";
+  $sql = "INSERT INTO Song (artistName, length, genre, title) VALUES ('$artist','$length','$genre','$title')";
   if(mysqli_query($conn, $sql)){
     echo "<script>alert('Records inserted successfully.')</script>";
   } else{
     echo "<script>alert('ERROR: Could not able to execute $sql.')</script>" . mysqli_error($conn);
-
 
   }
 }

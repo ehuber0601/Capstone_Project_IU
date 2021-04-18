@@ -20,16 +20,16 @@ rel="stylesheet">
         <link rel="stylesheet"
             
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Search Results</title>
+        <title>Your Bio</title>
 
     </head>
-    
+
     <style>
       table {
       margin: auto;
     padding: 15px;
     border-collapse: collapse;
-    width: 50%;
+    width: 60%;
     color: #b3b3b4;
     font-family: "Manrope", sans-serif;
     font-size: 25px;
@@ -97,17 +97,17 @@ id="DonateButton" class="submit-button">Donate </button>
         </nav>
 
         <div class="main-header text-center pt-3 pb-3">
-            <h2>Search Results</h2>
+            <h2>Your Bio Information</h2>
         </div>
-        
-          <table>
-  <tr>  
-    <th>Title</th>
-    <th>Artist</th>
-    <th>Genre</th>
-  </tr>
-        
 
+        
+  <table>
+  <tr>  
+    <th>Hometown</th>
+    <th>Favorite Genre</th>
+    <th>Favorite Artist</th>
+    <th>Favorite Song</th>
+  </tr>
 
 <?php
 
@@ -117,31 +117,29 @@ $servername = "db.luddy.indiana.edu";
 $username = "i494f20_team12";
 $password = "my+sql=i494f20_team12";
 $db = "i494f20_team12";
-
+  
 $conn = new mysqli($servername, $username, $password, $db);
-
+  
 if ($conn->connect_error){
-	die("Connection failed: ". $conn->connect_error);
+        die("Connection failed: ". $conn->connect_error);
 }
-
-$sql = "select * from Song where title like '%$search%'";
+$sql = "SELECT hometown, genre, artist, song FROM bio WHERE userName like 
+'%$search%'";
 
 $result = $conn->query($sql);
-
+  
 if ($result-> num_rows > 0) {
   while ($row = $result-> fetch_assoc()) {
-    echo "<tr><td>". $row["title"]."</td><td>" .$row["artistName"] 
-."</td><td>". $row["genre"] ."</td></tr>";
+    echo "<tr><td>". $row["hometown"] ."</td><td>". $row["genre"] 
+."</td><td>". $row["artist"] ."</td><td>". $row["song"] ."</td></tr>";
   }
   echo "</table>";
 }
 else {
-  echo "No results matching title found";
+  echo "No bio found for this user";
 }
 
-
-$conn->close();
-
+$conn-> close();
 ?>
 
 </body>
