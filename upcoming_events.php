@@ -73,13 +73,9 @@ id="DonateButton" class="submit-button">Donate </button>
 <div class="main-header text-center pt-3 pb-3">
             <h2>Upcoming Events</h2>
         </div>
-<<<<<<< HEAD
     </div>
   </nav>
   <br>
-<div class="main-header text-center pt-3 pb-3">
-            <h2>Upcoming Events</h2>
-        </div>
   <?php
 
   $servername = 'db.luddy.indiana.edu';
@@ -104,39 +100,9 @@ id="DonateButton" class="submit-button">Donate </button>
 
   echo "<br><table>";
 
-  echo "<tr><th>Name</th><th>Date</th><th>Time</th><th>First 
-Name</th><th>Last Name</th></tr>";
-=======
-<?php 
+  echo "<tr><th>Name</th><th>Date</th><th>Time</th><th>First Name</th><th>Last Name</th></tr>";
 
-$servername='db.luddy.indiana.edu';
-        	$username= 'i494f20_team12';
-        	$password = 'my+sql=i494f20_team12';
-        	$dbname = 'i494f20_team12';
-        	
-        	$conn = mysqli_connect($servername, $username, $password, $dbname);
-        	
-        	
-        	if ($conn->connect_error) {
-  			die("Connection failed: " . $conn->connect_error);
-  			
-  			}
-  
-  $sql= "SELECT * from Event as e JOIN User as u On u.userID=e.userID";
-
-          $result = $conn->query($sql);
-          $row = $result->fetch_assoc() ;
-  
-  
-  
-
-  echo "<br><table>";
-
-    echo "<tr><th>Name</th><th>Date</th><th>Time</th><th>First Name</th><th>Last Name</th></tr>";
->>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
-
-
-  while ($row = $result->fetch_assoc()) {
+ while ($row = $result->fetch_assoc()) {
   
   
   
@@ -150,11 +116,7 @@ $servername='db.luddy.indiana.edu';
   </table>
   
   <style>
-<<<<<<< HEAD
     table {
-=======
-  table {
->>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
       margin: auto;
     padding: 15px;
     border-collapse: collapse;
@@ -173,7 +135,7 @@ th {
     color: white;
     padding: 15px;
 }
-<<<<<<< HEAD
+
 
     a:link {
       color: black;
@@ -202,37 +164,7 @@ th {
     h1 {
       font-size: 24px;
     }
-  </style>
 
-
-</body>
-
-</html>
-=======
-  
-  a:link {
-  color: black;
-  background-color: transparent;
-  text-decoration: underline;
-}
-a:visited {
-  color: red;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:hover {
-  color: red;
-  background-color: transparent;
-  text-decoration: underline;
-}
-a:active {
-  color: yellow;
-  background-color: transparent;
-  text-decoration: underline;
-}
-/* 
-h1{font-size: 24px;
-}
 .main-header {
     font-size: 28px;
     font-weight: 600;
@@ -250,4 +182,3 @@ h1{font-size: 24px;
   
   </body>
   </html>
->>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
