@@ -414,7 +414,7 @@ Time: <input type='time' name='event_time' min='00:00' max='23:59'> (hh:mm)<br>
 <br>
 <?php
 
-   }     
+        
    
              		$servername='db.luddy.indiana.edu';
         	$username= 'i494f20_team12';
