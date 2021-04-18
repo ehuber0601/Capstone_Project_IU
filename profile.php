@@ -397,10 +397,7 @@ $user = mysqli_real_escape_string($conn,$_REQUEST['user']) ;
         ?>
         
 <hr>
-        <?php 
-        if ($isArtist ) {
         
-        ?>
         
 <h1>Live Events</h1>
 <button onclick="$('.create_event').css('display','block');">Create Event</button>
