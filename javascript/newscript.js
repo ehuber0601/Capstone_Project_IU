@@ -136,7 +136,7 @@ function show_profile() {
     window.location = "./index.html";
   } else {
     var request_url =
-      "https://cgi.sice.indiana.edu/~team12/backend/view_user_profile.php";
+      "https://cgi.sice.indiana.edu/~team12/backend/view_user_profile2.php";
 
     console.log("requested url ", request_url);
     var json = { username: localStorage.getItem("username") };
