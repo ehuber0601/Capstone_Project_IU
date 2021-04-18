@@ -2,7 +2,7 @@
 <html>
 <head>
   <h1>Song List</h1>
-<style>
+  <style>
     table {
       border-collapse: collapse;
       width: 100%;
@@ -31,7 +31,7 @@
   <?php
   $servername = "db.luddy.indiana.edu";
   $username = "i494f20_team12";
-$password = "my+sql=i494f20_team12";
+  $password = "my+sql=i494f20_team12";
 
   $conn = mysqli_connect($servername, $username, $password, 
 'i494f20_team12');
@@ -67,5 +67,6 @@ Song";
   <input type="text" id="userID" name="userID"></br>
   <label for="songID">Song ID:</label></br>
   <input type="text" id="songID" name="songID"></br>
+
 </body>
 </html>

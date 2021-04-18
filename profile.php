@@ -57,8 +57,8 @@ ini_set("display_errors", 1);
             <div class="d-flex justify-content-between mt-2 mb-4">
                 <div class=""> <img src="./images/profile.png" alt=""></div>
                 <div>
-                	 <div class='user_info'>
-                    <p class='mt-2 name' id='first-last-name'>First Name Last Name</p> <div class='verfication'>
+                	 <div class='user_info'>
+                    <p class='mt-2 name' id='first-last-name'>First Name Last Name</p> <div class='verfication'>
 <?php 
 if ($row['artistID'] > 0 ) {
    echo "<img src='images/Verify.png' style='width: 25px'>" ;
@@ -108,28 +108,24 @@ if ($row['artistID'] > 0 ) {
             </div>
             <!-- <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
-
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
             </div>
             <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
-
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
             </div>
             <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
-
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
             </div>
             <div class="post p-2 border mt-2 mb-2">
                 <p class="p-2">Date and time</p>
-
                 <div class="border p-2">
                     <h3>Content of post</h3>
                 </div>
