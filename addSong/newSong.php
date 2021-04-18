@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Home Page</title>
+        <title>Successful Entry</title>
 
     </head>
     
@@ -68,7 +68,7 @@
         </nav>
 
         <div class="main-header text-center pt-3 pb-3">
-            <h2>Bio Successfully Created</h2>
+            <h2>Song Successfully Added</h2>
         </div>
         </br>
 
@@ -76,7 +76,7 @@
 
 
 <div class="group-setting"
-      <p>Click <a href ="./bioLookup.html"> here </a> to find your personalized bio.</p>
+      <p>Song can now be saved to personal account.</p>
 </div>
 
     
@@ -98,17 +98,19 @@ if ($conn-> connect_error) {
 }
 
 
-$userName = mysqli_real_escape_string($conn, $_REQUEST['userName']);
-$hometown = mysqli_real_escape_string($conn, $_REQUEST['hometown']);
+$title = mysqli_real_escape_string($conn, $_REQUEST['title']);
 $genre = mysqli_real_escape_string($conn, $_REQUEST['genre']);
 $artist = mysqli_real_escape_string($conn, $_REQUEST['artist']);
-$song = mysqli_real_escape_string($conn, $_REQUEST['song']);
+$length = mysqli_real_escape_string($conn, $_REQUEST['length']);
+
+
+
 
 //insert query execution
 if(isset($_POST['save']))
 {
 
-  $sql = "INSERT INTO bio (userName, hometown, genre, artist, song) VALUES ('$userName','$hometown','$genre','$artist','$song')";
+  $sql = "INSERT INTO Song (artistName, length, genre, title) VALUES ('$artist','$length','$genre','$title')";
   if(mysqli_query($conn, $sql)){
     echo "<script>alert('Records inserted successfully.')</script>";
   } else{

@@ -1,24 +1,25 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, 
-initial-scale=1.0">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link 
 href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
 rel="stylesheet"
             
 integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
 crossorigin="anonymous">
+
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/style.css">
 
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link 
-href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" 
-rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="stylesheet"
             
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <title>Save Music</title>
 
     </head>
@@ -68,18 +69,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome
             <div class="row">
               	<a href="./index.html">
                 <div class="col-12 col-sm-12 text-center">
-<<<<<<< HEAD
-                    <i class="d-inline fa fa-home me-2" 
-aria-hidden="true"></i>
-=======
-                    <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
->>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
-                    <a  href ="./group.html">
-                        <i class="fa fa-users" aria-hidden="true"></i>
 
+                    <i class="d-inline fa fa-home me-2" aria-hidden="true"></i>
+
+
+                    <a  href ="./group.html">
+           <i class="fa fa-users" aria-hidden="true"></i>
                     </a>
                     <div class="d-inline dropdown">
-<<<<<<< HEAD
+
                         <a class="btn fa fa-cog" href="#" role="button" 
 id="dropdownMenuLink" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -112,7 +110,7 @@ id="myButton" class="float-left submit-button">My Profile
                         </button>
                           <button onclick="location.href = 'paypal.html';" 
 id="DonateButton" class="submit-button">Donate </button>
-=======
+
                         <a class="btn fa fa-cog" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                             aria-expanded="false">
                         </a>
@@ -134,7 +132,7 @@ id="DonateButton" class="submit-button">Donate </button>
                         <button onclick="location.href = 'profile.php';" id="myButton" class="float-left submit-button">My Profile
                         </button>
                           <button onclick="location.href = 'paypal.html';" id="DonateButton" class="submit-button">Donate </button>
->>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
+
                 </div>
             </div>
         </nav>
@@ -176,12 +174,9 @@ id="DonateButton" class="submit-button">Donate </button>
 
 </form>
 <p></p>
-<<<<<<< HEAD
-<p> Don't see the song you're looking for? Click <a href="./addSong.html"> 
-here </a> to add it to our song library. </p>
-=======
+
 <p> Don't see the song you're looking for? Click <a href="./addSong.html"> here </a> to add it to our song library. </p>
->>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
+
 </div>
 </body>
 <?php
@@ -203,12 +198,9 @@ $result = $conn-> query($sql);
 
 if ($result-> num_rows > 0) {
   while ($row = $result-> fetch_assoc()) {
-<<<<<<< HEAD
-    echo "<tr><td>". $row["songID"] ."</td><td>". $row["artistName"] 
-."</td><td>". $row["length"] 
-=======
+
     echo "<tr><td>". $row["songID"] ."</td><td>". $row["artistName"] ."</td><td>". $row["length"] 
->>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
+
 ."</td><td>". $row["genre"] ."</td><td>". $row["title"] ."</td></tr>";
   }
   echo "</table>";
@@ -220,11 +212,5 @@ else {
 $conn-> close();
 ?>
 
-
-
-
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 0595759c5328fd22a1d0996ee55856734b5229c3
+

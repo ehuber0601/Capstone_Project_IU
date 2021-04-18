@@ -1,5 +1,5 @@
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +12,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Home Page</title>
+        <title>Add Song</title>
 
     </head>
-    
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
 <style>
 .group-setting {
   margin: auto;
@@ -24,11 +28,13 @@
   border: none;
   background-color: #ffffff;
   box-shadow: 0px 0px 5px #00000085;
-  width: 55%;
+  width: 40%;
   text-align: center;
   font-size: 25px;
   
 }
+
+
 </style>
 
     <body>
@@ -67,58 +73,37 @@
             </div>
         </nav>
 
-        <div class="main-header text-center pt-3 pb-3">
-            <h2>Bio Successfully Created</h2>
+   <div class="main-header text-center pt-3 pb-3">
+            <h2>Add Song to Library</h2>
         </div>
-        </br>
 
 
-
-
-<div class="group-setting"
-      <p>Click <a href ="./bioLookup.html"> here </a> to find your personalized bio.</p>
-</div>
-
-    
-<body>
-</html>
-    
- 
-<?php   
-//connecting to server
-$servername = "db.luddy.indiana.edu";
-$username = "i494f20_team12";
-$password = "my+sql=i494f20_team12";
+  </br>
+<div class= "group-setting">
+  <form action="newSong.php" method="post">
+  <p>Enter the information of the song you want to add to our library</p>
   
-$conn = mysqli_connect($servername, $username, $password,
-'i494f20_team12');
+   <label for="hometown">Song Title:</label>
+  <input type="text" id="title" name="title"></br>
+  
+  <label for="genre">Song Genre:</label>
+  <input type="text" id="genre" name="genre"></br>
+  
+  <label for="artist">Song Artist:</label>
+  <input type="text" id="artist" name="artist"></br>
+  
+    <label for="artist">Song Length:</label>
+  <input type="text" id="length" name="length"></br>
+  
+  
+  
 
-if ($conn-> connect_error) {
-  die("Connection falied:". $conn-> connect_error);
-}
 
+</br><button type="submit" name="save">Submit</button>
+	</form>
+	</div>
 
-$userName = mysqli_real_escape_string($conn, $_REQUEST['userName']);
-$hometown = mysqli_real_escape_string($conn, $_REQUEST['hometown']);
-$genre = mysqli_real_escape_string($conn, $_REQUEST['genre']);
-$artist = mysqli_real_escape_string($conn, $_REQUEST['artist']);
-$song = mysqli_real_escape_string($conn, $_REQUEST['song']);
-
-//insert query execution
-if(isset($_POST['save']))
-{
-
-  $sql = "INSERT INTO bio (userName, hometown, genre, artist, song) VALUES ('$userName','$hometown','$genre','$artist','$song')";
-  if(mysqli_query($conn, $sql)){
-    echo "<script>alert('Records inserted successfully.')</script>";
-  } else{
-    echo "<script>alert('ERROR: Could not able to execute $sql.')</script>" . mysqli_error($conn);
-
-  }
-}
-
-$conn-> close();
-?>
-
+  
 </body>
-</html>
+
+</html>	

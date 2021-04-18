@@ -16,7 +16,9 @@
 
     </head>
     
+
 <style>
+
 .group-setting {
   margin: auto;
   padding: 10px;
@@ -24,11 +26,13 @@
   border: none;
   background-color: #ffffff;
   box-shadow: 0px 0px 5px #00000085;
+
   width: 55%;
   text-align: center;
   font-size: 25px;
   
 }
+
 </style>
 
     <body>
@@ -68,6 +72,7 @@
         </nav>
 
         <div class="main-header text-center pt-3 pb-3">
+
             <h2>Bio Successfully Created</h2>
         </div>
         </br>
@@ -98,6 +103,7 @@ if ($conn-> connect_error) {
 }
 
 
+
 $userName = mysqli_real_escape_string($conn, $_REQUEST['userName']);
 $hometown = mysqli_real_escape_string($conn, $_REQUEST['hometown']);
 $genre = mysqli_real_escape_string($conn, $_REQUEST['genre']);
@@ -108,11 +114,13 @@ $song = mysqli_real_escape_string($conn, $_REQUEST['song']);
 if(isset($_POST['save']))
 {
 
+
   $sql = "INSERT INTO bio (userName, hometown, genre, artist, song) VALUES ('$userName','$hometown','$genre','$artist','$song')";
   if(mysqli_query($conn, $sql)){
     echo "<script>alert('Records inserted successfully.')</script>";
   } else{
     echo "<script>alert('ERROR: Could not able to execute $sql.')</script>" . mysqli_error($conn);
+
 
   }
 }

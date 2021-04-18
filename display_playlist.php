@@ -1,3 +1,4 @@
+
 <html>
 <head>
 <title>Playlist</title>
@@ -69,6 +70,7 @@ id="DonateButton" class="submit-button">Donate </button>
             </div>
         </nav>
 <br>
+
 <?php
 
 //error_reporting(E_ALL);
@@ -81,8 +83,9 @@ id="DonateButton" class="submit-button">Donate </button>
         	$password = 'my+sql=i494f20_team12';
         	$dbname = 'i494f20_team12';
         	
-        	$conn = mysqli_connect($servername, $username, $password, 
-$dbname);
+
+        	$conn = mysqli_connect($servername, $username, $password, $dbname);
+
         	
         	
         	if ($conn->connect_error) {
@@ -99,8 +102,9 @@ $dbname);
         
 		$row = $result->fetch_assoc() ;
 		
-  	//		echo 
-"[".$row['playlistID']."][".$row['playlistName']."][".$row['Song']."]" ;
+
+  	//		echo "[".$row['playlistID']."][".$row['playlistName']."][".$row['Song']."]" ;
+
   	
   	
   	echo "Playlist: ".$row['playlistName']."<hr>" ;
@@ -132,5 +136,7 @@ $dbname);
 
  
 ?>
+
 </body>
 </html>
+
