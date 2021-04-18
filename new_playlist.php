@@ -5,16 +5,15 @@ $servername='db.luddy.indiana.edu';
         	$password = 'my+sql=i494f20_team12';
         	$dbname = 'i494f20_team12';
         	
-        	$conn = mysqli_connect($servername, $username, $password, 
-$dbname);
+        	$conn = mysqli_connect($servername, $username, $password, $dbname);
         	
         	
         	if ($conn->connect_error) {
   			die("Connection failed: " . $conn->connect_error);
                 }
                 
-                $user = $_REQUEST['user'];
-                $playlist = $_REQUEST['playlist_name'];
+                $user = mysqli_real_escape_string($conn,$_REQUEST['user']);
+                $playlist = mysqli_real_escape_string($conn,$_REQUEST['playlist_name']);
                 
                 $counter = 1 ;
                 
@@ -22,7 +21,7 @@ $dbname);
                 
                 while ($counter < 50) {
                 
-                	$songID = $_REQUEST['song'.$counter];
+                	$songID = mysqli_real_escape_string($conn,$_REQUEST['song'.$counter]);
                 
                 	$counter = $counter + 1; 
                 	
@@ -39,14 +38,11 @@ $dbname);
                 
   
             
-            $sql = "INSERT INTO Playlist (playlistName, email, Song ) 
-VALUES ('$playlist','$user', '$song_array')";
+            $sql = "INSERT INTO Playlist (playlistName, email, Song ) VALUES ('$playlist','$user', '$song_array')";
             $result = $conn->query($sql);
             
             echo mysqli_error();
                 
-                
+                header("Location: profile.php") ;
                 
 ?>
-
-<a href = "profile.php?user=<?php echo $user; ?>">Back to Profile</a>

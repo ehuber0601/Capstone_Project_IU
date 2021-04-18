@@ -1,4 +1,3 @@
-
 <html>
 <head>
 <title>Playlist</title>
@@ -21,6 +20,27 @@ rel="stylesheet">
         <link rel="stylesheet"
             
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+ table {
+      margin: auto;
+    padding: 15px;
+    border-collapse: collapse;
+    width: 60%;
+    color: #b3b3b4;
+    font-family: "Manrope", sans-serif;
+    font-size: 25px;
+    text-align: left;
+    box-shadow: 0px 0px 5px #00000085;
+  }
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+  tr:nth-child(odd) {background-color: white;}
+th {
+    background-color: #353b48;
+    color: white;
+    padding: 15px;
+    }
+    </style>
 </head>
 <body>
         <nav class="container-fluid">
@@ -70,7 +90,6 @@ id="DonateButton" class="submit-button">Donate </button>
             </div>
         </nav>
 <br>
-
 <?php
 
 //error_reporting(E_ALL);
@@ -83,16 +102,15 @@ id="DonateButton" class="submit-button">Donate </button>
         	$password = 'my+sql=i494f20_team12';
         	$dbname = 'i494f20_team12';
         	
-
-        	$conn = mysqli_connect($servername, $username, $password, $dbname);
-
+        	$conn = mysqli_connect($servername, $username, $password, 
+$dbname);
         	
         	
         	if ($conn->connect_error) {
   			die("Connection failed: " . $conn->connect_error);
                 }
                 
-                $playlistID = $_REQUEST['playlist'] ;
+                $playlistID = mysqli_real_escape_string($conn, $_REQUEST['playlist']) ;
         
     $sql = "SELECT * FROM Playlist where playlistID = '".$playlistID."'";
     
@@ -102,9 +120,8 @@ id="DonateButton" class="submit-button">Donate </button>
         
 		$row = $result->fetch_assoc() ;
 		
-
-  	//		echo "[".$row['playlistID']."][".$row['playlistName']."][".$row['Song']."]" ;
-
+  	//		echo 
+"[".$row['playlistID']."][".$row['playlistName']."][".$row['Song']."]" ;
   	
   	
   	echo "Playlist: ".$row['playlistName']."<hr>" ;
@@ -112,7 +129,9 @@ id="DonateButton" class="submit-button">Donate </button>
         
         $items = explode(',',$row['Song']) ;
  
-      
+      echo "<br><table>";
+
+    echo "<tr><th>Artist Name</th><th>Title</th><th>Length</th><th>Genre</th></tr>";
       foreach($items as $i =>$key) {
  
  
@@ -127,16 +146,15 @@ id="DonateButton" class="submit-button">Donate </button>
         
 		$row = $result->fetch_assoc() ;
 		
-		echo $row['title']."<br>" ;
+		echo "<tr><td>". $row['artistName']. "</td><td>" .$row['title']."</td><td>".$row['length']."</td><td>".$row['genre']."</td></tr>";
       
       
       
       }
-        
+      
+echo "</table>" ;       
 
  
 ?>
-
 </body>
 </html>
-
