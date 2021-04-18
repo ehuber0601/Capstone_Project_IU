@@ -14,13 +14,13 @@
             $sql = "SELECT UserID FROM User WHERE userName='$user'";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
-            //echo "[$sql][".$row['UserID']."]"; 
+        echo "[$sql][".$row['UserID']."]"; 
             
             $sql = "SELECT artistID FROM Artist WHERE userID='".$row['UserID']."'";
-            //echo $sql;
+            echo $sql;
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
-            //echo "[$sql][".$row['artistID']."]"; 
+            echo "[$sql][".$row['artistID']."]"; 
             
                   
   			
