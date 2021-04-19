@@ -1,6 +1,10 @@
 <html lang="en">
 
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Ensures optimal rendering on mobile devices. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal
+Internet Explorer compatibility -->
         <meta charset="UTF-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,15 +87,10 @@
         </div>
         
 
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Ensures optimal rendering on mobile devices. -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <!-- Optimal
-Internet Explorer compatibility -->
-</head>
 
-<body>
-  <script
+
+
+  <script>
 
 src="https://www.paypal.com/sdk/js?client-id=Adj2LAOAmRVYr9gAR9AfFvJHH0dU2srp3L$
 // Required. Replace YOUR_CLIENT_ID with your sandbox client ID.
@@ -101,10 +100,10 @@ src="https://www.paypal.com/sdk/js?client-id=Adj2LAOAmRVYr9gAR9AfFvJHH0dU2srp3L$
   <script>
     paypal.Buttons().render('#paypal-button-container');
     // This function displays Smart Payment Buttons on your web page.
-  </script>
+ 
 
 
-  <script>
+
   paypal.Buttons({
     createOrder: function(data, actions) {
       // This function sets up the details of the transaction, including
@@ -118,9 +117,9 @@ the amount and line item details.
       });
     }
   }).render('#paypal-button-container');
-</script>
 
-<script>
+
+
   paypal.Buttons({
     createOrder: function(data, actions) {
       // This function sets up the details of the transaction, including
@@ -145,7 +144,7 @@ details.payer.name.given_name);
   }).render('#paypal-button-container');
   //This function displays Smart Payment Buttons on your web page.
 </script>
-</body> 
+
 
         
 </body>
