@@ -88,64 +88,53 @@ Internet Explorer compatibility -->
         
 
 
+<div id="paypal-button"></div>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+  paypal.Button.render({
+    // Configure environment
+    env: 'sandbox',
+    client: {
+      sandbox: 'demo_sandbox_client_id',
+      production: 'demo_production_client_id'
+    },
+    // Customize button (optional)
+    locale: 'en_US',
+    style: {
+      size: 'small',
+      color: 'gold',
+      shape: 'pill',
+    },
 
+    // Enable Pay Now checkout flow (optional)
+    commit: true,
 
-  <script>
-
-src="https://www.paypal.com/sdk/js?client-id=Adj2LAOAmRVYr9gAR9AfFvJHH0dU2srp3L$
-// Required. Replace YOUR_CLIENT_ID with your sandbox client ID.
-  </script>
-  <div id="paypal-button-container">
-
-  <script>
-    paypal.Buttons().render('#paypal-button-container');
-    // This function displays Smart Payment Buttons on your web page.
- 
-
-
-
-  paypal.Buttons({
-    createOrder: function(data, actions) {
-      // This function sets up the details of the transaction, including
-the amount and line item details.
-      return actions.order.create({
-        purchase_units: [{
+    // Set up a payment
+    payment: function(data, actions) {
+      return actions.payment.create({
+        transactions: [{
           amount: {
-            value: '0.01'
-          }
-        }]
-      });
-    }
-  }).render('#paypal-button-container');
-
-
-
-  paypal.Buttons({
-    createOrder: function(data, actions) {
-      // This function sets up the details of the transaction, including
-the amount and line item details.
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-          	value: '0.01'
+            total: '0.01',
+            currency: 'USD'
           }
         }]
       });
     },
-    onApprove: function(data, actions) {
-      // This function captures the funds from the transaction.
-      return actions.order.capture().then(function(details) {
-        // This function shows a transaction success message to your
-buyer.
-        alert('Transaction completed by ' +
-details.payer.name.given_name);
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        // Show a confirmation message to the buyer
+        window.alert('Thank you for your donation!');
       });
     }
-  }).render('#paypal-button-container');
-  //This function displays Smart Payment Buttons on your web page.
+  }, '#paypal-button');
+
 </script>
 
-</div>
+
+
+
+
         
 </body>
 </html>
