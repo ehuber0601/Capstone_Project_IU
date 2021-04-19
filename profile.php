@@ -399,10 +399,7 @@ $user = mysqli_real_escape_string($conn,$_REQUEST['user']) ;
         ?>
         
 <hr>
-        <?php 
-        if ($isArtist ) {
         
-        ?>
         
 <h1>Live Events</h1>
 <button onclick="$('.create_event').css('display','block');">Create Event</button>
@@ -418,7 +415,7 @@ Time: <input type='time' name='event_time' min='00:00' max='23:59'> (hh:mm)<br>
 </div>
 <br>
 <?php
-}
+
         
    
              		$servername='db.luddy.indiana.edu';
