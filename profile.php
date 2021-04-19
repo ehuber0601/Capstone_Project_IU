@@ -143,6 +143,12 @@ submit-button">Upcoming Events
     
     		$name = $_COOKIE['name'] ;
 
+    		$email = $_COOKIE['email'] ;
+    		    		$test = $_COOKIE['test'] ;
+    		    		    		$test1 = $_COOKIE['test1'] ;
+    		    		$sql = $_COOKIE['sql'] ;
+    		
+    		echo "[$email][$test][$test1]" ;
     		
     		$servername='db.luddy.indiana.edu';
         	$username= 'i494f20_team12';
@@ -397,7 +403,10 @@ $user = mysqli_real_escape_string($conn,$_REQUEST['user']) ;
         ?>
         
 <hr>
+        <?php 
+        if ($isArtist ) {
         
+        ?>
         
 <h1>Live Events</h1>
 <button onclick="$('.create_event').css('display','block');">Create Event</button>
@@ -413,7 +422,7 @@ Time: <input type='time' name='event_time' min='00:00' max='23:59'> (hh:mm)<br>
 </div>
 <br>
 <?php
-
+}
         
    
              		$servername='db.luddy.indiana.edu';
