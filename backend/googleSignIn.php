@@ -26,12 +26,19 @@ if (!$conn) {
 
     $sql = "SELECT * FROM User WHERE `email` = '$email' ";
     
-   echo "[$sql]" ;
+
+			setcookie('sql',$sql,time()+3600,'/');
+    			setcookie('test','start',time()+3600,'/');
     
     			setcookie('username',$email,time()+3600,'/');
     
 
     if ($result = mysqli_query($conn, $sql)) {
+    
+    
+    
+    			setcookie('test1','start2',time()+3600,'/');
+    
 
         if (mysqli_num_rows($result) > 0) {
 
@@ -39,7 +46,7 @@ if (!$conn) {
                 $userID = $row["userID"];
             }
             
-            echo "[".$row['userName']."]" ;
+    			setcookie('test1','start1',time()+3600,'/');
             
 			setcookie('username',$row['userName'],time()+3600,'/');
             setcookie('name',$row['firstName']." ".$row['lastName'],time()+3600,'/') ;
@@ -52,12 +59,14 @@ if (!$conn) {
             $response_header['userID'] = $userID;
             $response_header['status_code'] = 200;
             $response_header['response_message'] = "Success";
-        //    echo json_encode($response_header);
+            echo json_encode($response_header);
 
 
-		exit;
 
         } else {
+        
+            			setcookie('test1','start1a',time()+3600,'/');
+
             // $password_encription
             // = password_hash($form_data[3], PASSWORD_DEFAULT);
 
