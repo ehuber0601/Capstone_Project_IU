@@ -148,7 +148,7 @@ submit-button">Upcoming Events
     		    		    		$test1 = $_COOKIE['test1'] ;
     		    		$sql = $_COOKIE['sql'] ;
     		
-    		echo "[$email][$test][$test1]" ;
+    		echo "[$email][$test][$test1][$sql]" ;
     		
     		$servername='db.luddy.indiana.edu';
         	$username= 'i494f20_team12';
