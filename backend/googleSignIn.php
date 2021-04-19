@@ -37,19 +37,21 @@ if (!$conn) {
     
     
     
-    			setcookie('test1','start2',time()+3600,'/');
+    			setcookie('test1','start1',time()+3600,'/');
     
 
         if (mysqli_num_rows($result) > 0) {
 
             while ($row = mysqli_fetch_assoc($result)){
                 $userID = $row["userID"];
+                
+                			setcookie('username',$row['userName'],time()+3600,'/');
+            setcookie('name',$row['firstName']." ".$row['lastName'],time()+3600,'/') ;
             }
             
-    			setcookie('test1','start1',time()+3600,'/');
+    			setcookie('test1','start1-'.$userID,time()+3600,'/');
             
-			setcookie('username',$row['userName'],time()+3600,'/');
-            setcookie('name',$row['firstName']." ".$row['lastName'],time()+3600,'/') ;
+
             $session_id = generateRandomString(12);
             $response_header['username'] =$email;
             $response_header['session_id'] = $session_id;
