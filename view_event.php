@@ -72,7 +72,7 @@ submit-button">Upcoming Events
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $eventID = $_REQUEST['event'];
+  $eventID = mysqli_real_escape_string($conn,$_REQUEST['event']);
 
   $sql = "SELECT * FROM Event where eventID = '" . $eventID . "'";
 
