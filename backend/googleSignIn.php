@@ -27,17 +27,11 @@ if (!$conn) {
     $sql = "SELECT * FROM User WHERE `email` = '$email' ";
     
 
-			setcookie('sql',$sql,time()+3600,'/');
-    			setcookie('test','start',time()+3600,'/');
-    
-    			setcookie('username',$email,time()+3600,'/');
     
 
     if ($result = mysqli_query($conn, $sql)) {
     
     
-    
-    			setcookie('test1','start1',time()+3600,'/');
     
 
         if (mysqli_num_rows($result) > 0) {
@@ -45,12 +39,11 @@ if (!$conn) {
             while ($row = mysqli_fetch_assoc($result)){
                 $userID = $row["userID"];
                 
-                			setcookie('username',$row['userName'],time()+3600,'/');
-            setcookie('name',$row['firstName']." ".$row['lastName'],time()+3600,'/') ;
+                setcookie('username',$row['userName'],time()+3600,'/');
+            	setcookie('name',$row['firstName']." ".$row['lastName'],time()+3600,'/') ;
             }
             
-    			setcookie('test1','start1-'.$userID,time()+3600,'/');
-            
+         
 
             $session_id = generateRandomString(12);
             $response_header['username'] =$email;
@@ -67,7 +60,7 @@ if (!$conn) {
 
         } else {
         
-            			setcookie('test1','start1a',time()+3600,'/');
+            			
 
             // $password_encription
             // = password_hash($form_data[3], PASSWORD_DEFAULT);
